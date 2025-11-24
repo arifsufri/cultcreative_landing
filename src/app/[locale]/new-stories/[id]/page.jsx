@@ -80,10 +80,10 @@ export default async function StoryDetailPage({ params }) {
         "Creator-led, multi-campaign approach; detailed briefs and close collaboration across activations built trust, familiarity, and strong partnerships.",
       ],
       videoThumbnails: [
-        { id: 1, thumbnail: "https://storage.googleapis.com/cult_production/FINAL_DRAFT/cm7ycisfr01hwmr01kctwcftc_draft.mp4?v=2025-04-04T03:09:27.898Z" },
-        { id: 2, thumbnail: "https://storage.googleapis.com/cult_production/FINAL_DRAFT/cmbhgq0kq00o2pm0198n5smaq_LE%20MERIDIEN%20WEEKEND%20V2.mp4?v=2025-07-08T15:15:42+00:00" },
-        { id: 3, thumbnail: "https://storage.googleapis.com/cult_production/FINAL_DRAFT/cm5oq557d01je436ijllyo9xj_draft.mp4?v=2025-01-27T03:12:58+00:00" },
-        { id: 4, thumbnail: "https://storage.googleapis.com/cult_production/FINAL_DRAFT/cm5oqdhs401kn436iimirbcof_draft.mp4?v=2025-01-27T07:15:29+00:00" },
+        { id: 1, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/marriott1.mov" },
+        { id: 2, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/marriott2.mov" },
+        { id: 3, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/marriott3.mov" },
+        { id: 4, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/marriott4.mov" },
       ]
     },
     3: {
@@ -102,10 +102,10 @@ export default async function StoryDetailPage({ params }) {
         "With no existing social presence, we activated creators across styles to build a digital presence from the ground up. Sensory, immersive storytelling brought the exhibition’s emotion online, engaging audiences in every format.",
       ],
       videoThumbnails: [
-        { id: 1, thumbnail: "https://storage.googleapis.com/cult_production/FINAL_DRAFT/cmfqdba4j0h5rqp01qtopfslr_IMG_7553.MOV?v=2025-10-07T06:06:43+00:00" },
-        { id: 2, thumbnail: "https://storage.googleapis.com/cult_production/FIRST_DRAFT/cmfqdiat50h7zqp01iz3un5qp_copy_FA0360D9-DDAD-42DD-B96A-217558E5541A.mov?v=2025-09-24T03:14:15+00:00" },
-        { id: 3, thumbnail: "https://drive.google.com/drive/folders/1Aq6nfQup6zDcVn2DyklPIMKxi7YgJ_mo?usp=drive_link" },
-        { id: 4, thumbnail: "https://storage.googleapis.com/cult_production/FIRST_DRAFT/cmfuwbr2a0otxqp01v0o7ck1b_d310d7e105e442668fc57fc4f0d1bd67.mov?v=2025-09-28T03:11:33+00:00" },
+        { id: 1, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/rexperience2.mov" },
+        { id: 2, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/rexperience3.mov" },
+        { id: 3, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/rexperience.mov" },
+        { id: 4, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/rexperience4.mov" },
       ]
     },
     4: {
@@ -146,8 +146,8 @@ export default async function StoryDetailPage({ params }) {
         "Trust the creators. By keeping their videos true to their style, we sparked content that audiences genuinely connect with.",
       ],
       videoThumbnails: [
-        { id: 1, thumbnail: "https://drive.google.com/file/d/11oni1DMRRvb5tKpDdExGlzrD4dpiIsnb/view?usp=drive_link" },
-        { id: 2, thumbnail: "https://drive.google.com/file/d/1g4BZmAYeBDA3NAAkbgO1e1RH972-kaUm/view?usp=drive_link" },
+        { id: 1, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/samsung1.mov" },
+        { id: 2, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/samsung2.mp4" },
         { id: 3, thumbnail: "https://storage.googleapis.com/cult_production/FIRST_DRAFT/cmb92bcd104b7t001hviplsep_copy_CC2C8E5F-15BA-4E86-ACD5-9CEDC374A049.mov?v=2025-05-29T10:01:58+00:00" },
         { id: 4, thumbnail: "https://storage.googleapis.com/cult_production/FIRST_DRAFT/cmaovxgy40251n7011e47xj9n_copy_3A0E4390-A5BF-424A-A453-9E9A223409CD.mov?v=2025-05-23T05:15:30+00:00" },
       ]
@@ -168,8 +168,8 @@ export default async function StoryDetailPage({ params }) {
         "Onboarded female creators with diverse body shapes and sizes, from different cultural and religious backgrounds, expanding Dressing Paula's audiences and reach beyond its usual community.",
       ],
       videoThumbnails: [
-        { id: 1, thumbnail: "https://drive.google.com/drive/folders/1vsmzmuOyBKtdKCKm7CK7oDtsDRxtf1E2?usp=drive_link" },
-        { id: 2, thumbnail: "https://drive.google.com/drive/folders/1z5tZeJ0nIaRD3yvh2zdrAdb3Z-Q7BVCp?usp=drive_link" },
+        { id: 1, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/dressing_paula1.mp4" },
+        { id: 2, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/dressing_paula2.mp4" },
         { id: 3, thumbnail: "https://drive.google.com/drive/folders/1D063mHbXGZyBZGoUN6fSeg4U6izfpjQ7?usp=drive_link" },
         { id: 4, thumbnail: "https://drive.google.com/drive/folders/1sckaV-kdO2YVhODzbEMtXsZkxSEr0o48?usp=drive_link" },
       ]
@@ -190,9 +190,9 @@ export default async function StoryDetailPage({ params }) {
         "We designed and executed a Creator-Generated Content campaign that transformed the Pavilion’s message into real, human stories through a Multi-Persona Creator Strategy.",
       ],
       videoThumbnails: [
-        { id: 1, thumbnail: "https://drive.google.com/file/d/1ehumVHrmQtLk2mj5o8yU9DlBhxW3o5B-/view?usp=drive_link" },
-        { id: 2, thumbnail: "https://drive.google.com/file/d/1znSrV2eurbUeKSI9_tdTbho4xq4PTBgV/view?usp=drive_link" },
-        { id: 3, thumbnail: "https://drive.google.com/file/d/1kPVUp_bH3501N-0hZiQRNVBNi0lAf68F/view?usp=drive_link" },
+        { id: 1, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/MY_pavilion1.mp4" },
+        { id: 2, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/MY_pavilion2.mov" },
+        { id: 3, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/MY_pavilion3.mov" },
         { id: 4, thumbnail: "https://drive.google.com/file/d/1Dl_j1m1exOvfuHpAniAwDRoMvIstOd2Y/view?usp=drive_link" },
       ]
     },
@@ -212,8 +212,8 @@ export default async function StoryDetailPage({ params }) {
         "We maximised NOIR’s reach by combining Instagram foodie buzz with TikTok lifestyle creators, turning the restaurant into a must-visit hidden gem for the young and cool.",
       ],
       videoThumbnails: [
-        { id: 1, thumbnail: "https://drive.google.com/file/d/1LFpXUBVfujP5yII7bkkLx9S0dbphdYkq/view?usp=drive_link" },
-        { id: 2, thumbnail: "https://drive.google.com/file/d/1X_dMYt24RgpojDWn2R8KUHTFtE9di_mR/view?usp=sharing" },
+        { id: 1, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/noir1.mp4" },
+        { id: 2, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/noir2.mov" },
         { id: 3, thumbnail: "https://storage.googleapis.com/cult_production/FIRST_DRAFT/cmd1auuos084po001r7ywaa0y_copy_4F76CFC8-AF19-41D9-BB23-996A3D339904.mov?v=2025-07-25T15:35:18+00:00" },
         { id: 4, thumbnail: "https://storage.googleapis.com/cult_production/FIRST_DRAFT/cmd1aw0hr085po0015qjp07ib_copy_7A312FE2-7F0F-44C4-AD5B-B6C81523D34E.mov?v=2025-07-26T05:54:08+00:00" },
       ]
