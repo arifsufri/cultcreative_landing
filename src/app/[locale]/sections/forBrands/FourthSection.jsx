@@ -42,7 +42,7 @@ const FourthSection = () => {
       top: 0,
       left: 751,
       background: "linear-gradient(180deg, #FF3500 0%, #A72300 100%)",
-      image: "/images/ForBrands/campaignanalytics.svg",
+      image: "/images/ForBrands/campaignanalytics-cropped.svg",
       mobileImage: "/images/ForBrands/mobile-feature2.png"
     },
     {
@@ -247,7 +247,8 @@ const FourthSection = () => {
                     style={{
                       fontFamily: 'Aileron',
                       fontWeight: 400,
-                      fontSize: '18px'
+                      fontSize: '18px',
+                      lineHeight: '1.3'
                     }}
                   >
                     Manage creator content, communication and payments effortlessly
@@ -276,7 +277,7 @@ const FourthSection = () => {
               >
                 <div className="-mb-5">
                   <img 
-                    src="/images/ForBrands/campaignanalytics.svg" 
+                    src="/images/ForBrands/campaignanalytics-cropped.svg" 
                     alt="Campaign Analytics" 
                     className="w-70 h-70"
                   />
@@ -297,7 +298,8 @@ const FourthSection = () => {
                     style={{
                       fontFamily: 'Aileron',
                       fontWeight: 400,
-                      fontSize: '18px'
+                      fontSize: '18px',
+                      lineHeight: '1.3'
                     }}
                   >
                     Access real-time campaign performance and ROI metrics in one clear dashboard.
@@ -350,7 +352,8 @@ const FourthSection = () => {
                     style={{
                       fontFamily: 'Aileron',
                       fontWeight: 400,
-                      fontSize: '18px'
+                      fontSize: '18px',
+                      lineHeight: '1.3'
                     }}
                   >
                     Get expert recommendations and video direction from our dedicated Client Success team
@@ -400,7 +403,8 @@ const FourthSection = () => {
                     style={{
                       fontFamily: 'Aileron',
                       fontWeight: 400,
-                      fontSize: '18px'
+                      fontSize: '18px',
+                      lineHeight: '1.3'
                     }}
                   >
                     Quickly connect with reliable, high-quality creators whose audience perfectly aligns with your brand goals.

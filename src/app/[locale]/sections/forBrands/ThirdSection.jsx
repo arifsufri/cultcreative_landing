@@ -60,7 +60,7 @@ const ThirdSection = () => {
           </h2>
           
           {/* Steps Image - Desktop and Mobile */}
-          <div style={{ marginTop: isMobile ? '50px' : '180px', marginLeft: isMobile ? '-30px' : '0px' }}>
+          <div style={{ marginTop: isMobile ? '30px' : '80px', marginLeft: isMobile ? '-30px' : '0px' }}>
             {/* Desktop Image */}
             <img
               src="/images/ForBrands/steps.svg"

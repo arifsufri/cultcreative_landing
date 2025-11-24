@@ -16,9 +16,16 @@ const SecondSection = () => {
       if (typeof window !== 'undefined') {
         const isMobile = window.innerWidth < 768;
         if (isMobile) {
-          const cardWidth = Math.min(window.innerWidth - 32, 355);
-          const gap = window.innerWidth > 640 ? 32 : 24;
-          setSlideDistance(cardWidth + gap);
+          // Calculate card width with proper padding
+          const viewportWidth = window.innerWidth;
+          const padding = 24; // 12px on each side
+          const cardWidth = Math.min(viewportWidth - (padding * 2), 340);
+          
+          // Center the card by calculating the offset needed
+          const containerWidth = viewportWidth;
+          const cardOffset = (containerWidth - cardWidth) / 2;
+          
+          setSlideDistance(cardWidth + cardOffset);
         }
       }
     };
@@ -271,13 +278,7 @@ const SecondSection = () => {
 
                     {/* Right Side - Content */}
                     <div className="w-full lg:w-1/2 p-12 flex items-center">
-                      <motion.div
-                        className="w-full"
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.7 }}
-                        viewport={{ once: true }}
-                      >
+                      <div className="w-full">
                         {/* Campaign Title */}
                         <h3
                           className="mb-12"
@@ -296,15 +297,11 @@ const SecondSection = () => {
                         </h3>
 
                         {/* Performance Metrics */}
-                        <div className="space-y-6">
+                        <div className="space-y-0.5">
                           {study.metrics.map((metric, index) => (
-                            <motion.div
+                            <div
                               key={index}
                               className="flex items-center"
-                              initial={{ opacity: 0, x: 20 }}
-                              whileInView={{ opacity: 1, x: 0 }}
-                              transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                              viewport={{ once: true }}
                             >
                               <span
                                 className="text-3xl font-bold mr-4"
@@ -337,10 +334,10 @@ const SecondSection = () => {
                               >
                                 {metric.label}
                               </span>
-                            </motion.div>
+                            </div>
                           ))}
                         </div>
-                      </motion.div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -349,21 +346,38 @@ const SecondSection = () => {
           </div>
 
           {/* Mobile Container */}
-          <div className="relative overflow-hidden md:hidden px-4 sm:px-6" style={{ height: '680px' }}>
+          <div className="relative overflow-hidden md:hidden" style={{ height: '680px' }}>
             {/* Carousel Container */}
             <motion.div
-              className="flex gap-6 sm:gap-8"
+              className="flex"
               animate={{ x: -currentSlide * slideDistance }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
-              style={{ width: 'fit-content' }}
+              style={{ 
+                width: 'fit-content',
+                paddingLeft: '12px',
+                paddingRight: '12px'
+              }}
             >
-              {caseStudies.map((study, studyIndex) => (
-                <div key={studyIndex} className="shrink-0 relative" style={{ width: 'calc(100vw - 2rem)', maxWidth: '355px', height: '680px' }}>
+              {caseStudies.map((study, studyIndex) => {
+                const viewportWidth = typeof window !== 'undefined' ? window.innerWidth : 375;
+                const cardWidth = Math.min(viewportWidth - 24, 340);
+                
+                return (
+                <div 
+                  key={studyIndex} 
+                  className="shrink-0 relative mx-auto" 
+                  style={{ 
+                    width: `${cardWidth}px`,
+                    height: '650px',
+                    marginLeft: studyIndex === 0 ? `${(viewportWidth - cardWidth) / 2 - 12}px` : '12px',
+                    marginRight: '12px'
+                  }}
+                >
                   {/* SVG Frame Background - Mobile */}
                   <img
                     src="/images/ForBrands/mobile-framebrands.svg"
                     alt="Card frame"
-                    className="absolute inset-0 w-full h-full"
+                    className="absolute inset-0 w-full h-full object-contain"
                     style={{ zIndex: 1 }}
                   />
                   
@@ -381,13 +395,13 @@ const SecondSection = () => {
                   >
                     {/* iPhone Frame */}
                     <div
-                      className="transform scale-[0.55]"
+                      className="transform scale-[0.5]"
                       style={{
                         filter: 'drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15))'
                       }}
                     >
                       <DeviceFrameset device="iPhone X" color="black">
-                        <div className="h-full w-full bg-white">
+                        <div className="h-full w-full bg-white relative">
                           <video
                             src={study.videoSrc}
                             autoPlay={studyIndex === currentSlide}
@@ -407,12 +421,29 @@ const SecondSection = () => {
                           >
                             Your browser does not support the video tag.
                           </video>
+                          {/* Stats Overlay */}
+                          <div className="absolute bottom-8 left-0 right-0 p-6 text-white" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%)' }}>
+                            <h3 className="text-4xl font-bold mb-4" style={{ fontFamily: 'Aileron', color: '#FFFFFF' }}>
+                              {study.title}
+                            </h3>
+                            {study.metrics.map((metric, idx) => (
+                              <div key={idx} className="flex items-baseline gap-3 -mb-2">
+                                <span className="text-3xl font-bold text-right" style={{ fontFamily: 'Aileron', color: '#FFFFFF', minWidth: '90px' }}>
+                                  {metric.value}
+                                </span>
+                                <span className="text-lg text-left" style={{ fontFamily: 'Aileron', color: '#FFFFFF' }}>
+                                  {metric.label}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       </DeviceFrameset>
                     </div>
                   </motion.div>
                 </div>
-              ))}
+                );
+              })}
             </motion.div>
           </div>
         </motion.div>

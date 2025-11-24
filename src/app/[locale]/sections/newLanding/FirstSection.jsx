@@ -466,7 +466,7 @@ const FirstSection = () => {
             {/* "as seen on" text for mobile */}
             <p className="text-white text-sm mb-4 md:hidden text-center">as seen on</p>
             <img 
-              src="/images/NewMain/logos.svg" 
+              src="/images/NewMain/mullogos.svg" 
               alt="Brands" 
               className="w-full h-auto opacity-70"
             />
