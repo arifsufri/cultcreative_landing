@@ -170,8 +170,8 @@ export default async function StoryDetailPage({ params }) {
       videoThumbnails: [
         { id: 1, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/dressing_paula1.mp4" },
         { id: 2, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/dressing_paula2.mp4" },
-        { id: 3, thumbnail: "https://drive.google.com/drive/folders/1D063mHbXGZyBZGoUN6fSeg4U6izfpjQ7?usp=drive_link" },
-        { id: 4, thumbnail: "https://drive.google.com/drive/folders/1sckaV-kdO2YVhODzbEMtXsZkxSEr0o48?usp=drive_link" },
+        { id: 3, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/dressing_paula3.mp4" },
+        { id: 4, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/dressing_paula4.mp4" },
       ]
     },
     7: {
@@ -193,7 +193,7 @@ export default async function StoryDetailPage({ params }) {
         { id: 1, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/MY_pavilion1.mp4" },
         { id: 2, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/MY_pavilion2.mov" },
         { id: 3, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/MY_pavilion3.mov" },
-        { id: 4, thumbnail: "https://drive.google.com/file/d/1Dl_j1m1exOvfuHpAniAwDRoMvIstOd2Y/view?usp=drive_link" },
+        { id: 4, thumbnail: "https://storage.googleapis.com/landing-cultcreative/successStories/MY_pavilion4.mov" },
       ]
     },
     8: {
