@@ -65,7 +65,7 @@ export default function StatsSection() {
 			/>
 			<StatItem
 				target={7.5}
-				label="Creators On Our Platform"
+				label="Creators Matched"
 				suffix="K+"
 				decimals={1}
 			/>

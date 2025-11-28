@@ -37,17 +37,17 @@ const SecondSection = () => {
 
   const stats = [
     {
-      number: 239,
+      number: 300,
       suffix: "+",
       label: "Campaigns Completed"
     },
     {
-      number: 2.3,
-      suffix: "M+",
-      label: "Total Reach"
+      number: 600,
+      suffix: "K+",
+      label: "Payments Processed (USD)"
     },
     {
-      number: 22.3,
+      number: 3.5,
       suffix: "K+",
       label: "Creators On Our Platform"
     }
