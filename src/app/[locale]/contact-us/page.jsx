@@ -15,12 +15,13 @@ const NewFooter = dynamic(() => import("@/app/[locale]/components/NewFooter"));
 
 export const metadata = {
     title: {
-        absolute: "Contact Us Page - Cult Creative",
+        absolute: "Contact Us - Cult Creative",
     },
     description:
-        "Experience our brand new landing page with modern design and enhanced features.",
+        "Connect with Cult Creative. Reach out to our dedicated support team via email or Instagram for any enquiries or assistance.",
     openGraph: {
-        title: "Contact Us Page",
+        title: "Contact Us - Cult Creative",
+        description: "Connect with Cult Creative. Reach out to our dedicated support team via email or Instagram for any enquiries or assistance.",
     },
     alternates: {
         canonical: "/contact-us",

@@ -110,9 +110,10 @@ export const metadata = {
     absolute: "Newsroom - Cult Creative",
   },
   description:
-    "Stay updated with the latest news, insights, and stories from Cult Creative.",
+    "Stay updated with Cult Creative's newsroom. Access the latest announcements, press releases and media coverage to stay informed about our journey.",
   openGraph: {
     title: "Newsroom - Cult Creative",
+    description: "Stay updated with Cult Creative's newsroom. Access the latest announcements, press releases and media coverage to stay informed about our journey.",
   },
   alternates: {
     canonical: "/newsroom",

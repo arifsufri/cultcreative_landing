@@ -20,9 +20,10 @@ export const metadata = {
 		absolute: "Terms and Conditions - Cult Creative",
 	},
 	description:
-		"Review Cult Creative's terms and conditions. Understand the rules, policies, and legal guidelines for using our platform and services.",
+		"Review Cult Creative's terms and conditions. Understand the rules, policies, and legal guidelines for using our platform and services. Read more here.",
 	openGraph: {
 		title: "Terms and Conditions - Cult Creative",
+		description: "Review Cult Creative's terms and conditions. Understand the rules, policies, and legal guidelines for using our platform and services. Read more here.",
 	},
 	alternates: {
 		canonical: "/terms-and-conditions",

@@ -111,9 +111,10 @@ export const metadata = {
     absolute: "Creators' Tips & Guides - Cult Creative",
   },
   description:
-    "Dive into inspiration, expert tips, and stay ahead of industry trends with Cult Creative's blog. Discover invaluable insights and resources here.",
+    "Discover invaluable insights and resources at Cult Creative's blog. Dive into inspiration, expert tips, and stay ahead of industry trends.",
   openGraph: {
     title: "Resources - Cult Creative",
+    description: "Discover invaluable insights and resources at Cult Creative's blog. Dive into inspiration, expert tips, and stay ahead of industry trends.",
   },
   alternates: {
     canonical: "/resources",

@@ -37,9 +37,10 @@ export const metadata = {
     absolute: "Hire Content Creators To Promote Your Brand - Cult Creative",
   },
   description:
-    "Influencer Marketing, Simplified. Stop building manual reports and managing endless spreadsheets.",
+    "Boost your brand with customised UGC campaigns. Collaborate with trusted social media creators to increase reach, engagement, and impact of your campaigns.",
   openGraph: {
     title: "Hire Content Creators To Promote Your Brand - Cult Creative",
+    description: "Boost your brand with customised UGC campaigns. Collaborate with trusted social media creators to increase reach, engagement, and impact of your campaigns.",
   },
   alternates: {
     canonical: "/for-brands",

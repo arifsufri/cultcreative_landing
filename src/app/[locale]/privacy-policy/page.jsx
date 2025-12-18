@@ -23,6 +23,7 @@ export const metadata = {
 		"Safeguard your data with Cult Creative's Privacy Policy. Learn how we protect your information and ensure transparency in our practices.",
 	openGraph: {
 		title: "Privacy Policy - Cult Creative",
+		description: "Safeguard your data with Cult Creative's Privacy Policy. Learn how we protect your information and ensure transparency in our practices.",
 	},
 	alternates: {
 		canonical: "/privacy-policy",

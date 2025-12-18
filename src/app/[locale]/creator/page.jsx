@@ -38,9 +38,10 @@ export const metadata = {
 		absolute: "Brand Deals For Content Creators - Cult Creative",
 	},
 	description:
-		"Experience our brand new landing page with modern design and enhanced features.",
+		"Step into Cult Creative, Southeast Asia's #1 creator marketplace where creators access top brand deals, grow their content, and build thriving creative careers.",
 	openGraph: {
 		title: "Brand Deals For Content Creators - Cult Creative",
+		description: "Step into Cult Creative, Southeast Asia's #1 creator marketplace where creators access top brand deals, grow their content, and build thriving creative careers.",
 	},
 	alternates: {
 		canonical: "/creator",
