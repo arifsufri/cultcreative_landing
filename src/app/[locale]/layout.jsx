@@ -1,16 +1,12 @@
-import { Inter } from "next/font/google";
-import "../globals.css";
 import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations } from "next-intl/server";
+import { getMessages } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 import { GoogleTagManager } from "@next/third-parties/google";
-
-const inter = Inter({ subsets: ["latin"] });
 
 // export const metadata = {
 //   metadataBase: new URL("https://www.cultcreativeasia.com"),
@@ -41,7 +37,7 @@ const LocaleLayout = async ({ children, params }) => {
   const messages = await getMessages();
 
   return (
-    <html>
+    <>
       <Script
         id="microsoft-clarity-init"
         strategy="afterInteractive"
@@ -118,22 +114,20 @@ const LocaleLayout = async ({ children, params }) => {
       />
 
       <GoogleTagManager gtmId="GTM-M4L62GBP" />
-      <body className={`${inter.className}`}>
-        <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=1139430254837126&ev=PageView&noscript=1"
-            alt=""
-          />
-        </noscript>
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
-      </body>
+      <noscript>
+        <img
+          height="1"
+          width="1"
+          style={{ display: "none" }}
+          src="https://www.facebook.com/tr?id=1139430254837126&ev=PageView&noscript=1"
+          alt=""
+        />
+      </noscript>
+      <NextIntlClientProvider messages={messages}>
+        {children}
+      </NextIntlClientProvider>
       <GoogleAnalytics gaId="G-NP1X4Y7S7R" />
-    </html>
+    </>
   );
 };
 
