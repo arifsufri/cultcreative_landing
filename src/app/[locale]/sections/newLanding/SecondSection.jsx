@@ -27,12 +27,12 @@ const SecondSection = () => {
     {
       title: "Data-Based Results",
       description: "Real-time data to see how your content or campaign is performing",
-      image: "/images/NewMain/iphonestatic.svg",
+      image: "/images/NewMain/tilt2.svg",
     },
     {
       title: "Tailored Recommendations",
       description: "Expert recommendations to maximise chances of success",
-      image: "/images/NewMain/iphonestatic.svg",
+      image: "/images/NewMain/tilt3.svg",
     },
   ];
 

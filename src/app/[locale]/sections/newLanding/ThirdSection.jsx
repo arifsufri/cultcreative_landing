@@ -75,7 +75,7 @@ const ThirdSection = () => {
             <div className="max-w-4xl mx-auto">
               {/* Creator Media Kit Card */}
               <motion.div
-                className="sticky top-2 bg-white shadow-lg overflow-hidden mb-4 md:-mb-1 mx-auto md:mx-0 w-full max-w-sm md:max-w-none md:w-[955px] md:h-[276px] h-auto md:rounded-[20px] rounded-lg md:py-[18px] py-4 md:px-9 px-4 md:border-[0.75px] border border-gray-200 md:ml-[-22px] ml-0"
+                className="sticky top-2 bg-white shadow-lg overflow-visible md:overflow-hidden mb-4 md:-mb-1 mx-auto md:mx-0 w-full max-w-sm md:max-w-none md:w-[955px] md:h-[276px] h-auto md:rounded-[20px] rounded-lg md:py-[18px] py-6 md:px-9 px-5 md:border-[0.75px] border border-gray-200 md:ml-[-22px] ml-0"
                 style={isMobile ? { 
                   y: 0, 
                   scale: 1, 
@@ -106,15 +106,18 @@ const ThirdSection = () => {
                   {/* Right side - Content */}
                   <div 
                     className="flex flex-col justify-center w-full md:w-[490.9px] text-center md:text-left md:ml-8"
-                    style={{
+                    style={isMobile ? {
+                      minHeight: 'auto',
+                      gap: '8px'
+                    } : {
                       height: '81.25px',
                       gap: '5.25px'
                     }}
                   >
-                    <h3 className="text-gray-800 mb-2" style={{ fontFamily: 'Aileron, sans-serif', fontWeight: 600, fontSize: '29.25px', lineHeight: '37.5px', letterSpacing: '-0.03em' }}>
+                    <h3 className="text-gray-800 mb-2" style={{ fontFamily: 'Aileron, sans-serif', fontWeight: 600, fontSize: isMobile ? '24px' : '29.25px', lineHeight: isMobile ? '30px' : '37.5px', letterSpacing: '-0.03em' }}>
                       Creator Media Kit
                     </h3>
-                    <p className="text-gray-600" style={{ fontFamily: 'Aileron, sans-serif', fontWeight: 400, fontSize: '18px', lineHeight: '18.75px', letterSpacing: '0%' }}>
+                    <p className="text-gray-600" style={{ fontFamily: 'Aileron, sans-serif', fontWeight: 400, fontSize: isMobile ? '16px' : '18px', lineHeight: isMobile ? '24px' : '18.75px', letterSpacing: '0%' }}>
                       Your all-in-one professional profile that showcases your influence and audience insights.
                     </p>
                   </div>
@@ -123,7 +126,7 @@ const ThirdSection = () => {
 
               {/* Campaign Analytics Card */}
               <motion.div
-                className="sticky top-2 bg-white shadow-lg overflow-hidden mb-4 mx-auto md:mx-0 w-full max-w-sm md:max-w-none md:w-[925px] md:h-[276px] h-auto md:rounded-[20px] rounded-lg md:py-[18px] py-4 md:px-9 px-4 md:border-[0.75px] border border-gray-200 md:ml-[-8px] ml-0"
+                className="sticky top-2 bg-white shadow-lg overflow-visible md:overflow-hidden mb-4 mx-auto md:mx-0 w-full max-w-sm md:max-w-none md:w-[925px] md:h-[276px] h-auto md:rounded-[20px] rounded-lg md:py-[18px] py-6 md:px-9 px-5 md:border-[0.75px] border border-gray-200 md:ml-[-8px] ml-0"
                 style={isMobile ? { 
                   y: 0, 
                   scale: 1, 
@@ -154,15 +157,18 @@ const ThirdSection = () => {
                   {/* Right side - Content */}
                   <div 
                     className="flex flex-col justify-center w-full md:w-[490.9px] text-center md:text-left md:ml-8"
-                    style={{
+                    style={isMobile ? {
+                      minHeight: 'auto',
+                      gap: '8px'
+                    } : {
                       height: '81.25px',
                       gap: '5.25px'
                     }}
                   >
-                    <h3 className="text-gray-800 mb-2" style={{ fontFamily: 'Aileron, sans-serif', fontWeight: 600, fontSize: '29.25px', lineHeight: '37.5px', letterSpacing: '-0.03em' }}>
+                    <h3 className="text-gray-800 mb-2" style={{ fontFamily: 'Aileron, sans-serif', fontWeight: 600, fontSize: isMobile ? '24px' : '29.25px', lineHeight: isMobile ? '30px' : '37.5px', letterSpacing: '-0.03em' }}>
                       Campaign Analytics
                     </h3>
-                    <p className="text-gray-600" style={{ fontFamily: 'Aileron, sans-serif', fontWeight: 400, fontSize: '18px', lineHeight: '18.75px', letterSpacing: '0%' }}>
+                    <p className="text-gray-600" style={{ fontFamily: 'Aileron, sans-serif', fontWeight: 400, fontSize: isMobile ? '16px' : '18px', lineHeight: isMobile ? '24px' : '18.75px', letterSpacing: '0%' }}>
                       A centralized dashboard that tracks the performance of your campaigns in real time.
                     </p>
                   </div>
@@ -171,7 +177,7 @@ const ThirdSection = () => {
 
               {/* Content & Creator Management Card */}
               <motion.div
-                className="sticky top-2 bg-white shadow-lg overflow-hidden mb-4 mx-auto w-full max-w-sm md:max-w-none md:w-[912px] md:h-[276px] h-auto md:rounded-[20px] rounded-lg md:py-[18px] py-4 md:px-9 px-4 md:border-[0.75px] border border-gray-200"
+                className="sticky top-2 bg-white shadow-lg overflow-visible md:overflow-hidden mb-4 mx-auto w-full max-w-sm md:max-w-none md:w-[912px] md:h-[276px] h-auto md:rounded-[20px] rounded-lg md:py-[18px] py-6 md:px-9 px-5 md:border-[0.75px] border border-gray-200"
                 style={isMobile ? { 
                   y: 0, 
                   scale: 1, 
@@ -202,15 +208,18 @@ const ThirdSection = () => {
                   {/* Right side - Content */}
                   <div 
                     className="flex flex-col justify-center w-full md:w-[490.9px] text-center md:text-left md:ml-8"
-                    style={{
+                    style={isMobile ? {
+                      minHeight: 'auto',
+                      gap: '8px'
+                    } : {
                       height: '81.25px',
                       gap: '5.25px'
                     }}
                   >
-                    <h3 className="text-gray-800 mb-2" style={{ fontFamily: 'Aileron, sans-serif', fontWeight: 600, fontSize: '29.25px', lineHeight: '37.5px', letterSpacing: '-0.03em' }}>
+                    <h3 className="text-gray-800 mb-2" style={{ fontFamily: 'Aileron, sans-serif', fontWeight: 600, fontSize: isMobile ? '24px' : '29.25px', lineHeight: isMobile ? '30px' : '37.5px', letterSpacing: '-0.03em' }}>
                       Content & Creator Management
                     </h3>
-                    <p className="text-gray-600" style={{ fontFamily: 'Aileron, sans-serif', fontWeight: 400, fontSize: '18px', lineHeight: '18.75px', letterSpacing: '0%' }}>
+                    <p className="text-gray-600" style={{ fontFamily: 'Aileron, sans-serif', fontWeight: 400, fontSize: isMobile ? '16px' : '18px', lineHeight: isMobile ? '24px' : '18.75px', letterSpacing: '0%' }}>
                       Stay organized and in control with a single hub to manage all your creators, content, and collaborations.
                     </p>
                   </div>
@@ -219,7 +228,7 @@ const ThirdSection = () => {
 
               {/* Automated Workflow Card */}
               <motion.div
-                className="sticky top-2 bg-white shadow-lg overflow-hidden mb-4 mx-auto w-full max-w-sm md:max-w-none md:w-[912px] md:h-[276px] h-auto md:rounded-[20px] rounded-lg md:py-[18px] py-4 md:px-9 px-4 md:border-[0.75px] border border-gray-200"
+                className="sticky top-2 bg-white shadow-lg overflow-visible md:overflow-hidden mb-4 mx-auto w-full max-w-sm md:max-w-none md:w-[912px] md:h-[276px] h-auto md:rounded-[20px] rounded-lg md:py-[18px] py-6 md:px-9 px-5 md:border-[0.75px] border border-gray-200"
                 style={isMobile ? { 
                   y: 0, 
                   scale: 1, 
@@ -250,15 +259,18 @@ const ThirdSection = () => {
                   {/* Right side - Content */}
                   <div 
                     className="flex flex-col justify-center w-full md:w-[490.9px] text-center md:text-left md:ml-8"
-                    style={{
+                    style={isMobile ? {
+                      minHeight: 'auto',
+                      gap: '8px'
+                    } : {
                       height: '81.25px',
                       gap: '5.25px'
                     }}
                   >
-                    <h3 className="text-gray-800 mb-2" style={{ fontFamily: 'Aileron, sans-serif', fontWeight: 600, fontSize: '29.25px', lineHeight: '37.5px', letterSpacing: '-0.03em' }}>
+                    <h3 className="text-gray-800 mb-2" style={{ fontFamily: 'Aileron, sans-serif', fontWeight: 600, fontSize: isMobile ? '24px' : '29.25px', lineHeight: isMobile ? '30px' : '37.5px', letterSpacing: '-0.03em' }}>
                       Automated Workflow
                     </h3>
-                    <p className="text-gray-600" style={{ fontFamily: 'Aileron, sans-serif', fontWeight: 400, fontSize: '18px', lineHeight: '18.75px', letterSpacing: '0%' }}>
+                    <p className="text-gray-600" style={{ fontFamily: 'Aileron, sans-serif', fontWeight: 400, fontSize: isMobile ? '16px' : '18px', lineHeight: isMobile ? '24px' : '18.75px', letterSpacing: '0%' }}>
                       Simplify collaboration with contracts that generate instantly.
                     </p>
                   </div>
