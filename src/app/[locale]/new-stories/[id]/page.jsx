@@ -43,6 +43,7 @@ export default async function StoryDetailPage({ params }) {
     1: {
       title: "Longchamp",
       subtitle: "Success Story",
+      iphoneImage: "/images/newStories/iphone-images/Longchamp.png",
       campaignGoal:
         "The campaign set out to elevate Longchamp’s presence among Gen Z and Millennials, spark fresh interest in the iconic Le Pliage through relatable TikTok content and evaluate how CGC creators could drive stronger engagement and reach.",
       stats: [
@@ -65,6 +66,7 @@ export default async function StoryDetailPage({ params }) {
     2: {
       title: "Mariott Group",
       subtitle: "Success Story",
+      iphoneImage: "/images/newStories/iphone-images/Marriott.png",
       campaignGoal:
         "Create relatable, high-quality content by humanising the brand and rolling out Marriott’s first multi-property CGC initiative",
       stats: [
@@ -89,6 +91,7 @@ export default async function StoryDetailPage({ params }) {
     3: {
       title: "REXPERIENCE",
       subtitle: "Success Story",
+      iphoneImage: "/images/newStories/iphone-images/REXPERIENCE.png",
       campaignGoal:
         "Drive ticket sales and strengthen visibility for a niche immersive art experience at REXKL, requiring a more direct and compelling conversion path beyond third-party platforms.",
       stats: [
@@ -111,6 +114,7 @@ export default async function StoryDetailPage({ params }) {
     4: {
       title: "Bata",
       subtitle: "Success Story",
+      iphoneImage: "/images/newStories/iphone-images/Bata.png",
       campaignGoal:
         "Bata ran three campaigns; Chinese New Year, Back To School and Raya to highlight their seasonal collections. ",
       stats: [
@@ -133,6 +137,7 @@ export default async function StoryDetailPage({ params }) {
     5: {
       title: "Samsung",
       subtitle: "Success Story",
+      iphoneImage: "/images/newStories/iphone-images/Samsung.png",
       campaignGoal:
         "Build strong product awareness by showcasing the phone’s capabilities in ways that capture attention fast.",
       stats: [
@@ -155,6 +160,7 @@ export default async function StoryDetailPage({ params }) {
     6: {
       title: "Dressing Paula",
       subtitle: "Success Story",
+      iphoneImage: "/images/newStories/iphone-images/DressingPaula.png",
       campaignGoal:
         "To show brand’s monthly arrivals and festive specials through a diverse creator mix, using storytelling, aesthetic soft-sell visuals, and relatable daily moments to build authentic engagement and a modern brand presence.",
       stats: [
@@ -177,6 +183,7 @@ export default async function StoryDetailPage({ params }) {
     7: {
       title: "Malaysia Pavilion: Osaka World Expo 2025",
       subtitle: "Success Story",
+      iphoneImage: "/images/newStories/iphone-images/Pavilion.png",
       campaignGoal:
         "The overarching goal was to translate the Pavilion’s three core brand pillars:  Human & Human, Human & Nature, and Human & Technology, into digital storytelling that resonates beyond the Expo’s physical footprint.",
       stats: [
@@ -199,6 +206,7 @@ export default async function StoryDetailPage({ params }) {
     8: {
       title: "Noir",
       subtitle: "Success Story",
+      iphoneImage: "/images/newStories/iphone-images/Noir.png",
       campaignGoal:
         "Showcase Chef Ikhwan Rahman’s innovative, theatrical open-kitchen concept to drive desire for a uniquely immersive dining experience.",
       stats: [
@@ -221,6 +229,7 @@ export default async function StoryDetailPage({ params }) {
     9: {
       title: "The Body Shop",
       subtitle: "Success Story",
+      iphoneImage: "/images/newStories/iphone-images/TheBodyShop.png",
       campaignGoal:
         "Bata ran three campaigns; Chinese New Year, Back To School and Raya to highlight their seasonal collections.",
       stats: [

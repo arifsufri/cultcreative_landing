@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const HeroSection = ({ storyData }) => {
-  const { title, subtitle, campaignGoal, stats, infoChips } = storyData;
+  const { title, subtitle, campaignGoal, stats, infoChips, iphoneImage } = storyData;
 
   return (
     <section
@@ -111,7 +111,7 @@ const HeroSection = ({ storyData }) => {
             <Image
               width={350}
               height={700}
-              src="/images/newStories/iphone.png"
+              src={iphoneImage}
               alt="Campaign preview"
               className="object-contain"
               style={{
