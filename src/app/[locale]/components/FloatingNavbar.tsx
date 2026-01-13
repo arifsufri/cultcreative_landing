@@ -141,7 +141,7 @@ const FloatingNavbar = () => {
             {/* CTA Button - Far Right */}
             <Link href="https://app.cultcreativeasia.com/auth/jwt/login?returnTo=%2Fdashboard" target="_blank" rel="noopener noreferrer">
               <motion.button
-                className="bg-cc-onyx text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-[#3a3636] transition-colors duration-200 shadow-lg hover:shadow-xl shrink-0"
+                className="bg-cc-onyx text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-[#3a3636] transition-colors duration-200 shadow-lg hover:shadow-xl shrink-0 cursor-pointer"
                 style={{
                   fontFamily: 'Aileron',
                   fontWeight: 700,
@@ -183,7 +183,7 @@ const FloatingNavbar = () => {
               {/* LOGIN Button */}
               <Link href="https://app.cultcreativeasia.com/auth/jwt/login?returnTo=%2Fdashboard" target="_blank" rel="noopener noreferrer">
                 <motion.button
-                  className="bg-cc-onyx text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-[#3a3636] transition-colors duration-200 shrink-0"
+                  className="bg-cc-onyx text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-[#3a3636] transition-colors duration-200 shrink-0 cursor-pointer"
                   style={{
                     fontFamily: 'Aileron, sans-serif',
                     fontWeight: 700,

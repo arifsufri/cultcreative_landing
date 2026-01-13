@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import Link from "next/link";
 
 const FirstSection = () => {
   const ref = useRef(null);
@@ -241,39 +242,41 @@ const FirstSection = () => {
             animate={isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
             transition={isMobile ? {} : { duration: 0.8, delay: 0.4 }}
           >
-            <motion.button 
-              className="px-8 md:px-16 py-2.5 md:py-3 text-white font-semibold rounded-full text-sm md:text-lg relative overflow-hidden"
-              style={{
-                backgroundColor: '#1340ff',
-                background: '#1340ff',
-                boxShadow: '0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.3), 0 8px 20px rgba(0, 0, 0, 0.2)',
-                filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))'
-              }}
-              whileHover={isMobile ? {} : {
-                scale: 1.05,
-                background: '#1340ff',
-                boxShadow: '0 0 30px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.6), 0 12px 30px rgba(0, 0, 0, 0.4)',
-                filter: 'drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4))'
-              }}
-              transition={isMobile ? {} : { duration: 0.3 }}
-            >
-              <span className="flex items-center gap-2">
-                JOIN US NOW 
-                <svg 
-                  className="w-4 h-4 md:w-5 md:h-5 inline-block"
-                  viewBox="0 0 24 24" 
-                  fill="none"
-                >
-                  <path 
-                    d="M7 17L17 7M17 7H7M17 7V17" 
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
-            </motion.button>
+            <Link href="https://app.cultcreativeasia.com/auth/jwt/login?returnTo=%2Fdashboard" target="_blank" rel="noopener noreferrer">
+              <motion.button 
+                className="px-8 md:px-16 py-2.5 md:py-3 text-white font-semibold rounded-full text-sm md:text-lg relative overflow-hidden cursor-pointer"
+                style={{
+                  backgroundColor: '#1340ff',
+                  background: '#1340ff',
+                  boxShadow: '0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.3), 0 8px 20px rgba(0, 0, 0, 0.2)',
+                  filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))'
+                }}
+                whileHover={isMobile ? {} : {
+                  scale: 1.05,
+                  background: '#1340ff',
+                  boxShadow: '0 0 30px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.6), 0 12px 30px rgba(0, 0, 0, 0.4)',
+                  filter: 'drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4))'
+                }}
+                transition={isMobile ? {} : { duration: 0.3 }}
+              >
+                <span className="flex items-center gap-2">
+                  JOIN US NOW 
+                  <svg 
+                    className="w-4 h-4 md:w-5 md:h-5 inline-block"
+                    viewBox="0 0 24 24" 
+                    fill="none"
+                  >
+                    <path 
+                      d="M7 17L17 7M17 7H7M17 7V17" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+              </motion.button>
+            </Link>
           </motion.div>
         </div>
       </div>
