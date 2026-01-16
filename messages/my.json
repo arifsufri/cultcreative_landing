@@ -1,21 +1,16 @@
 {
     "price": {
         "trial": {
-            "price": "RM 3,000"
-            
-        },
-        "basic": {
-            "price": "RM 8,800"
-            
+            "price": "RM 7,000"
         },
         "essential": {
-            "price": "RM 16,500"
-            
+            "price": "RM 20,100"
         },
         "pro": {
-            "price": "RM 27,000"
-            
+            "price": "RM 32,000"
+        },
+        "ultra": {
+            "price": "RM 61,000"
         }
-       
     }
 }
