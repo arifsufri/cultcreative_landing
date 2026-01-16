@@ -3,28 +3,48 @@ import { Suspense } from "react";
 import { Toaster } from "react-hot-toast";
 import { setRequestLocale } from "next-intl/server";
 
+// Section skeleton for loading states
+const SectionSkeleton = ({ height = "min-h-screen" }) => (
+  <div className={`${height} bg-gray-100 animate-pulse`} />
+);
+
+// Above-the-fold components - load with SSR for better LCP
 const FloatingNavbar = dynamic(() =>
-  import("@/app/[locale]/components/FloatingNavbar")
+  import("@/app/[locale]/components/FloatingNavbar"),
+  { ssr: true }
 );
 
 const FirstSection = dynamic(() =>
-  import("@/app/[locale]/sections/newLanding/FirstSection")
+  import("@/app/[locale]/sections/newLanding/FirstSection"),
+  { ssr: true }
 );
+
+// Below-the-fold components - lazy load with loading skeletons
 const SecondSection = dynamic(() =>
-  import("@/app/[locale]/sections/newLanding/SecondSection")
+  import("@/app/[locale]/sections/newLanding/SecondSection"),
+  { loading: () => <SectionSkeleton height="min-h-[600px]" /> }
 );
+
 const ThirdSection = dynamic(() =>
-  import("@/app/[locale]/sections/newLanding/ThirdSection")
+  import("@/app/[locale]/sections/newLanding/ThirdSection"),
+  { loading: () => <SectionSkeleton height="min-h-[800px]" /> }
 );
+
 const FourthSection = dynamic(() =>
-  import("@/app/[locale]/sections/newLanding/FourthSection")
+  import("@/app/[locale]/sections/newLanding/FourthSection"),
+  { loading: () => <SectionSkeleton height="min-h-[1200px]" /> }
 );
+
 const FifthSection = dynamic(() =>
-  import("@/app/[locale]/sections/newLanding/FifthSection")
+  import("@/app/[locale]/sections/newLanding/FifthSection"),
+  { loading: () => <SectionSkeleton height="min-h-[600px]" /> }
 );
+
 const SixthSection = dynamic(() =>
-  import("@/app/[locale]/sections/newLanding/SixthSection")
+  import("@/app/[locale]/sections/newLanding/SixthSection"),
+  { loading: () => <SectionSkeleton height="min-h-[800px]" /> }
 );
+
 const NewFooter = dynamic(() =>
   import("@/app/[locale]/components/NewFooter")
 );

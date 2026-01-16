@@ -1,15 +1,17 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { LazyMotion, domAnimation, m } from "framer-motion";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import toast from "react-hot-toast";
+import useIsMobile from "@/app/[locale]/hooks/useIsMobile";
 
 const SixthSection = () => {
   const pathname = usePathname();
   const locale = pathname?.split('/')[1] || 'my';
-  
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -37,15 +39,6 @@ const SixthSection = () => {
     { value: "above-25k", label: "More than RM25,000" }
   ];
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
@@ -70,7 +63,6 @@ const SixthSection = () => {
 
       if (response.ok) {
         toast.success("Form submitted successfully!");
-        // Reset form
         setFormData({
           name: "",
           phone: "",
@@ -90,7 +82,7 @@ const SixthSection = () => {
   };
 
   return (
-    <>
+    <LazyMotion features={domAnimation}>
       <style jsx>{`
         input::placeholder {
           font-family: Aileron;
@@ -102,58 +94,319 @@ const SixthSection = () => {
           color: #9CA3AF;
         }
       `}</style>
-      <section className="py-20 bg-white">
-      <div className="container mx-auto px-6">
-        {/* Desktop Layout */}
-        <div className="w-full max-w-7xl mx-auto hidden md:block">
-          <motion.div
-            className="overflow-hidden shadow-2xl w-full max-w-6xl mx-auto"
-            style={{
-              background: 'linear-gradient(45deg, #231F20 0%, #231F20 5%, #001A7A 20%, #001A7A 40%, #231F20 65%, #231F20 100%)',
-              width: '100%',
-              maxWidth: '1320px',
-              height: '659px',
-              borderRadius: '32px',
-              padding: '80px',
-              opacity: 1
-            }}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex justify-between h-full">
-              {/* Left Column - Text Section */}
-              <div className="flex flex-col justify-start relative pr-8" style={{ width: '40%', paddingTop: '0px' }}>
-                {/* Glow effect removed per request */}
-                
-                <h2 
-                  className="text-white mb-2"
+      <section className="py-20 bg-white" style={{ contain: 'content' }}>
+        <div className="container mx-auto px-6">
+          {/* Desktop Layout */}
+          <div className="w-full max-w-7xl mx-auto hidden md:block">
+            <m.div
+              className="overflow-hidden shadow-2xl w-full max-w-6xl mx-auto"
+              style={{
+                background: 'linear-gradient(45deg, #231F20 0%, #231F20 5%, #001A7A 20%, #001A7A 40%, #231F20 65%, #231F20 100%)',
+                width: '100%',
+                maxWidth: '1320px',
+                height: '659px',
+                borderRadius: '32px',
+                padding: '80px',
+                opacity: 1
+              }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex justify-between h-full">
+                {/* Left Column - Text Section */}
+                <div className="flex flex-col justify-start relative pr-8" style={{ width: '40%', paddingTop: '0px' }}>
+                  <h2
+                    className="text-white mb-2"
+                    style={{
+                      fontFamily: 'Aileron, sans-serif',
+                      fontWeight: 700,
+                      fontSize: '48px',
+                      lineHeight: '56px',
+                      letterSpacing: '-0.06em',
+                      color: '#FFFFFF'
+                    }}
+                  >
+                    Finding Creators
+                    <Image
+                      src="/images/NewMain/singlestar.svg"
+                      alt="Star decoration"
+                      width={384}
+                      height={384}
+                      className="absolute top-0 right-0 w-96 h-96 transform -translate-y-52 translate-x-32 pointer-events-none"
+                      loading="lazy"
+                    />
+                    <br />For Your Brand?
+                  </h2>
+                  <p
+                    className="text-white"
+                    style={{
+                      fontFamily: 'Times New Roman, serif',
+                      fontWeight: 400,
+                      fontStyle: 'italic',
+                      fontSize: '24px',
+                      lineHeight: '32px',
+                      letterSpacing: '-0.04em',
+                      color: '#FFFFFF'
+                    }}
+                  >
+                    Fill in the form and we&apos;ll get in touch ASAP.
+                  </p>
+                </div>
+
+                {/* Right Column - Form Section */}
+                <div className="pl-8" style={{ width: '60%' }}>
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Name Field */}
+                    <div className="pointer-events-auto cursor-text" onClick={(e) => e.currentTarget.querySelector('input')?.focus()}>
+                      <div className="flex items-center mb-2 pointer-events-auto cursor-text" onClick={(e) => e.currentTarget.closest('div').querySelector('input')?.focus()}>
+                        <Image src="/images/NewMain/ContactForm/Person.svg" alt="Person icon" width={20} height={20} className="w-5 h-5 mr-3 cursor-text" />
+                        <label className="text-white text-sm cursor-text" onClick={(e) => e.currentTarget.closest('div').closest('div').querySelector('input')?.focus()}>Name</label>
+                      </div>
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder="Your Name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        className="w-full bg-transparent text-white border-b border-white focus:border-blue-400 focus:outline-none py-3 cursor-text pointer-events-auto"
+                        style={{
+                          fontFamily: 'Aileron',
+                          fontWeight: 400,
+                          fontStyle: 'normal',
+                          fontSize: '14px',
+                          lineHeight: '100%',
+                          letterSpacing: '0%',
+                          verticalAlign: 'middle',
+                          WebkitAppearance: 'none',
+                          appearance: 'none'
+                        }}
+                        required
+                      />
+                    </div>
+
+                    {/* Phone Field */}
+                    <div className="pointer-events-auto cursor-text" onClick={(e) => e.currentTarget.querySelector('input')?.focus()}>
+                      <div className="flex items-center mb-2 pointer-events-auto cursor-text" onClick={(e) => e.currentTarget.closest('div').querySelector('input')?.focus()}>
+                        <Image src="/images/NewMain/ContactForm/Phone.svg" alt="Phone icon" width={20} height={20} className="w-5 h-5 mr-3 cursor-text" />
+                        <label className="text-white text-sm cursor-text" onClick={(e) => e.currentTarget.closest('div').closest('div').querySelector('input')?.focus()}>Phone Number</label>
+                      </div>
+                      <input
+                        type="tel"
+                        name="phone"
+                        placeholder="Your Phone Number"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        className="w-full bg-transparent text-white border-b border-white focus:border-blue-400 focus:outline-none py-3 cursor-text pointer-events-auto"
+                        style={{
+                          fontFamily: 'Aileron',
+                          fontWeight: 400,
+                          fontStyle: 'normal',
+                          fontSize: '14px',
+                          lineHeight: '100%',
+                          letterSpacing: '0%',
+                          verticalAlign: 'middle',
+                          WebkitAppearance: 'none',
+                          appearance: 'none'
+                        }}
+                        required
+                      />
+                    </div>
+
+                    {/* Company Field */}
+                    <div className="pointer-events-auto cursor-text" onClick={(e) => e.currentTarget.querySelector('input')?.focus()}>
+                      <div className="flex items-center mb-2 pointer-events-auto cursor-text" onClick={(e) => e.currentTarget.closest('div').querySelector('input')?.focus()}>
+                        <Image src="/images/NewMain/ContactForm/Work outline.svg" alt="Work icon" width={20} height={20} className="w-5 h-5 mr-3 cursor-text" />
+                        <label className="text-white text-sm cursor-text" onClick={(e) => e.currentTarget.closest('div').closest('div').querySelector('input')?.focus()}>Company Name</label>
+                      </div>
+                      <input
+                        type="text"
+                        name="company"
+                        placeholder="Your Company Name"
+                        value={formData.company}
+                        onChange={handleInputChange}
+                        className="w-full bg-transparent text-white border-b border-white focus:border-blue-400 focus:outline-none py-3 cursor-text pointer-events-auto"
+                        style={{
+                          fontFamily: 'Aileron',
+                          fontWeight: 400,
+                          fontStyle: 'normal',
+                          fontSize: '14px',
+                          lineHeight: '100%',
+                          letterSpacing: '0%',
+                          verticalAlign: 'middle',
+                          WebkitAppearance: 'none',
+                          appearance: 'none'
+                        }}
+                        required
+                      />
+                    </div>
+
+                    {/* Email Field */}
+                    <div className="pointer-events-auto cursor-text" onClick={(e) => e.currentTarget.querySelector('input')?.focus()}>
+                      <div className="flex items-center mb-2 pointer-events-auto cursor-text" onClick={(e) => e.currentTarget.closest('div').querySelector('input')?.focus()}>
+                        <Image src="/images/NewMain/ContactForm/Email.svg" alt="Email icon" width={20} height={20} className="w-5 h-5 mr-3 cursor-text" />
+                        <label className="text-white text-sm cursor-text" onClick={(e) => e.currentTarget.closest('div').closest('div').querySelector('input')?.focus()}>Business Email</label>
+                      </div>
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="Your Business Email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className="w-full bg-transparent text-white border-b border-white focus:border-blue-400 focus:outline-none py-3 cursor-text pointer-events-auto"
+                        style={{
+                          fontFamily: 'Aileron',
+                          fontWeight: 400,
+                          fontStyle: 'normal',
+                          fontSize: '14px',
+                          lineHeight: '100%',
+                          letterSpacing: '0%',
+                          verticalAlign: 'middle',
+                          WebkitAppearance: 'none',
+                          appearance: 'none'
+                        }}
+                        required
+                      />
+                    </div>
+
+                    {/* Dropdown Fields */}
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="relative">
+                        <select
+                          name="industry"
+                          value={formData.industry}
+                          onChange={handleInputChange}
+                          className="w-full bg-white text-black rounded-3xl px-4 py-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none"
+                          style={{
+                            fontFamily: 'Aileron',
+                            fontWeight: 400,
+                            fontStyle: 'normal',
+                            fontSize: '14px',
+                            lineHeight: '100%',
+                            letterSpacing: '0%',
+                            verticalAlign: 'middle'
+                          }}
+                          required
+                        >
+                          <option value="">Select Industry</option>
+                          <option value="banking">Banking and Finance</option>
+                          <option value="beauty">Beauty</option>
+                          <option value="lifestyle">Lifestyle</option>
+                          <option value="health">Health and Wellness</option>
+                          <option value="food">F&B</option>
+                          <option value="fashion">Fashion</option>
+                          <option value="charities">Charities and NGOs</option>
+                          <option value="education">Education</option>
+                          <option value="events">Events</option>
+                          <option value="motherhood">Motherhood and Family</option>
+                          <option value="hotel">Hotel and Travel</option>
+                          <option value="jewellery">Jewellery</option>
+                          <option value="footwear">Footwear</option>
+                          <option value="art">Art</option>
+                          <option value="tech">Technology</option>
+                          <option value="other">Others</option>
+                        </select>
+                        <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
+                          <svg className="w-4 h-4" fill="none" stroke="#231f20" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </div>
+                      </div>
+
+                      <div className="relative">
+                        <select
+                          name="budget"
+                          value={formData.budget}
+                          onChange={handleInputChange}
+                          className="w-full bg-white text-black rounded-3xl px-4 py-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none"
+                          style={{
+                            fontFamily: 'Aileron',
+                            fontWeight: 400,
+                            fontStyle: 'normal',
+                            fontSize: '14px',
+                            lineHeight: '100%',
+                            letterSpacing: '0%',
+                            verticalAlign: 'middle'
+                          }}
+                          required
+                        >
+                          {budgetOptions.map((option, idx) => (
+                            <option key={idx} value={option.value}>{option.label}</option>
+                          ))}
+                        </select>
+                        <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
+                          <svg className="w-4 h-4" fill="none" stroke="#231f20" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Submit Button */}
+                    <div className="pt-4 flex justify-center">
+                      <button
+                        type="submit"
+                        className="w-64 text-white font-bold py-4 px-8 rounded-3xl transition-colors duration-200"
+                        style={{
+                          backgroundColor: '#1340ff',
+                          fontFamily: 'Aileron',
+                          fontWeight: 700,
+                          fontStyle: 'normal',
+                          fontSize: '16px',
+                          lineHeight: '100%',
+                          letterSpacing: '0%',
+                          textAlign: 'center',
+                          verticalAlign: 'middle'
+                        }}
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </m.div>
+          </div>
+
+          {/* Mobile Layout */}
+          <div className="w-full max-w-sm mx-auto md:hidden">
+            <m.div
+              className="overflow-hidden shadow-2xl w-full"
+              style={{
+                background: 'linear-gradient(45deg, #231F20 0%, #231F20 5%, #001A7A 20%, #001A7A 40%, #231F20 65%, #231F20 100%)',
+                borderRadius: '24px',
+                padding: '32px',
+                opacity: 1
+              }}
+              initial={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{}}
+              viewport={{ once: true }}
+            >
+              {/* Mobile Header */}
+              <div className="mb-6">
+                <h2
+                  className="text-white mb-3 relative"
                   style={{
                     fontFamily: 'Aileron, sans-serif',
                     fontWeight: 700,
-                    fontSize: '48px',
-                    lineHeight: '56px',
+                    fontSize: '28px',
+                    lineHeight: '34px',
                     letterSpacing: '-0.06em',
                     color: '#FFFFFF'
                   }}
                 >
-                  Finding Creators
-                  <img 
-                    src="/images/NewMain/singlestar.svg" 
-                    alt="Star decoration" 
-                    className="absolute top-0 right-0 w-96 h-96 transform -translate-y-52 translate-x-32"
-                  />
-                  <br />For Your Brand?
+                  Finding Creators For Your Brand?
                 </h2>
-                <p 
+                <p
                   className="text-white"
                   style={{
                     fontFamily: 'Times New Roman, serif',
                     fontWeight: 400,
                     fontStyle: 'italic',
-                    fontSize: '24px',
-                    lineHeight: '32px',
+                    fontSize: '16px',
+                    lineHeight: '22px',
                     letterSpacing: '-0.04em',
                     color: '#FFFFFF'
                   }}
@@ -162,22 +415,128 @@ const SixthSection = () => {
                 </p>
               </div>
 
-              {/* Right Column - Form Section */}
-              <div className="pl-8" style={{ width: '60%' }}>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Name Field */}
-                  <div className="pointer-events-auto cursor-text" onClick={(e) => e.currentTarget.querySelector('input')?.focus()}>
-                    <div className="flex items-center mb-2 pointer-events-auto cursor-text" onClick={(e) => e.currentTarget.closest('div').querySelector('input')?.focus()}>
-                      <img src="/images/NewMain/ContactForm/Person.svg" alt="Person icon" className="w-5 h-5 mr-3 cursor-text" />
-                      <label className="text-white text-sm cursor-text" onClick={(e) => e.currentTarget.closest('div').closest('div').querySelector('input')?.focus()}>Name</label>
-                    </div>
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="Your Name"
-                      value={formData.name}
+              {/* Mobile Form */}
+              <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Name Field */}
+                <div>
+                  <div className="flex items-center mb-2">
+                    <Image src="/images/NewMain/ContactForm/Person.svg" alt="Person icon" width={20} height={20} className="w-5 h-5 mr-3" />
+                    <label className="text-white text-sm">Name</label>
+                  </div>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    className="w-full bg-transparent text-white border-b border-white focus:border-blue-400 focus:outline-none py-2 cursor-text"
+                    style={{
+                      fontFamily: 'Aileron',
+                      fontWeight: 400,
+                      fontStyle: 'normal',
+                      fontSize: '14px',
+                      lineHeight: '100%',
+                      letterSpacing: '0%',
+                      verticalAlign: 'middle',
+                      WebkitAppearance: 'none',
+                      appearance: 'none'
+                    }}
+                    required
+                  />
+                </div>
+
+                {/* Phone Field */}
+                <div>
+                  <div className="flex items-center mb-2">
+                    <Image src="/images/NewMain/ContactForm/Phone.svg" alt="Phone icon" width={20} height={20} className="w-5 h-5 mr-3" />
+                    <label className="text-white text-sm">Phone Number</label>
+                  </div>
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Your Phone Number"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="w-full bg-transparent text-white border-b border-white focus:border-blue-400 focus:outline-none py-2 cursor-text"
+                    style={{
+                      fontFamily: 'Aileron',
+                      fontWeight: 400,
+                      fontStyle: 'normal',
+                      fontSize: '14px',
+                      lineHeight: '100%',
+                      letterSpacing: '0%',
+                      verticalAlign: 'middle',
+                      WebkitAppearance: 'none',
+                      appearance: 'none'
+                    }}
+                    required
+                  />
+                </div>
+
+                {/* Company Field */}
+                <div>
+                  <div className="flex items-center mb-2">
+                    <Image src="/images/NewMain/ContactForm/Work outline.svg" alt="Work icon" width={20} height={20} className="w-5 h-5 mr-3" />
+                    <label className="text-white text-sm">Company Name</label>
+                  </div>
+                  <input
+                    type="text"
+                    name="company"
+                    placeholder="Your Company Name"
+                    value={formData.company}
+                    onChange={handleInputChange}
+                    className="w-full bg-transparent text-white border-b border-white focus:border-blue-400 focus:outline-none py-2 cursor-text"
+                    style={{
+                      fontFamily: 'Aileron',
+                      fontWeight: 400,
+                      fontStyle: 'normal',
+                      fontSize: '14px',
+                      lineHeight: '100%',
+                      letterSpacing: '0%',
+                      verticalAlign: 'middle',
+                      WebkitAppearance: 'none',
+                      appearance: 'none'
+                    }}
+                    required
+                  />
+                </div>
+
+                {/* Email Field */}
+                <div>
+                  <div className="flex items-center mb-2">
+                    <Image src="/images/NewMain/ContactForm/Email.svg" alt="Email icon" width={20} height={20} className="w-5 h-5 mr-3" />
+                    <label className="text-white text-sm">Business Email</label>
+                  </div>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Business Email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full bg-transparent text-white border-b border-white focus:border-blue-400 focus:outline-none py-2 cursor-text"
+                    style={{
+                      fontFamily: 'Aileron',
+                      fontWeight: 400,
+                      fontStyle: 'normal',
+                      fontSize: '14px',
+                      lineHeight: '100%',
+                      letterSpacing: '0%',
+                      verticalAlign: 'middle',
+                      WebkitAppearance: 'none',
+                      appearance: 'none'
+                    }}
+                    required
+                  />
+                </div>
+
+                {/* Dropdown Fields - Full Width on Mobile */}
+                <div className="space-y-4">
+                  <div className="relative">
+                    <select
+                      name="industry"
+                      value={formData.industry}
                       onChange={handleInputChange}
-                      className="w-full bg-transparent text-white border-b border-white focus:border-blue-400 focus:outline-none py-3 cursor-text pointer-events-auto"
+                      className="w-full bg-gray-200 text-black rounded-2xl px-4 py-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none"
                       style={{
                         fontFamily: 'Aileron',
                         fontWeight: 400,
@@ -185,456 +544,90 @@ const SixthSection = () => {
                         fontSize: '14px',
                         lineHeight: '100%',
                         letterSpacing: '0%',
-                        verticalAlign: 'middle',
-                        WebkitAppearance: 'none',
-                        appearance: 'none'
-                      }}
-                      required
-                    />
-                  </div>
-
-                  {/* Phone Field */}
-                  <div className="pointer-events-auto cursor-text" onClick={(e) => e.currentTarget.querySelector('input')?.focus()}>
-                    <div className="flex items-center mb-2 pointer-events-auto cursor-text" onClick={(e) => e.currentTarget.closest('div').querySelector('input')?.focus()}>
-                      <img src="/images/NewMain/ContactForm/Phone.svg" alt="Phone icon" className="w-5 h-5 mr-3 cursor-text" />
-                      <label className="text-white text-sm cursor-text" onClick={(e) => e.currentTarget.closest('div').closest('div').querySelector('input')?.focus()}>Phone Number</label>
-                    </div>
-                    <input
-                      type="tel"
-                      name="phone"
-                      placeholder="Your Phone Number"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="w-full bg-transparent text-white border-b border-white focus:border-blue-400 focus:outline-none py-3 cursor-text pointer-events-auto"
-                      style={{
-                        fontFamily: 'Aileron',
-                        fontWeight: 400,
-                        fontStyle: 'normal',
-                        fontSize: '14px',
-                        lineHeight: '100%',
-                        letterSpacing: '0%',
-                        verticalAlign: 'middle',
-                        WebkitAppearance: 'none',
-                        appearance: 'none'
-                      }}
-                      required
-                    />
-                  </div>
-
-                  {/* Company Field */}
-                  <div className="pointer-events-auto cursor-text" onClick={(e) => e.currentTarget.querySelector('input')?.focus()}>
-                    <div className="flex items-center mb-2 pointer-events-auto cursor-text" onClick={(e) => e.currentTarget.closest('div').querySelector('input')?.focus()}>
-                      <img src="/images/NewMain/ContactForm/Work outline.svg" alt="Work icon" className="w-5 h-5 mr-3 cursor-text" />
-                      <label className="text-white text-sm cursor-text" onClick={(e) => e.currentTarget.closest('div').closest('div').querySelector('input')?.focus()}>Company Name</label>
-                    </div>
-                    <input
-                      type="text"
-                      name="company"
-                      placeholder="Your Company Name"
-                      value={formData.company}
-                      onChange={handleInputChange}
-                      className="w-full bg-transparent text-white border-b border-white focus:border-blue-400 focus:outline-none py-3 cursor-text pointer-events-auto"
-                      style={{
-                        fontFamily: 'Aileron',
-                        fontWeight: 400,
-                        fontStyle: 'normal',
-                        fontSize: '14px',
-                        lineHeight: '100%',
-                        letterSpacing: '0%',
-                        verticalAlign: 'middle',
-                        WebkitAppearance: 'none',
-                        appearance: 'none'
-                      }}
-                      required
-                    />
-                  </div>
-
-                  {/* Email Field */}
-                  <div className="pointer-events-auto cursor-text" onClick={(e) => e.currentTarget.querySelector('input')?.focus()}>
-                    <div className="flex items-center mb-2 pointer-events-auto cursor-text" onClick={(e) => e.currentTarget.closest('div').querySelector('input')?.focus()}>
-                      <img src="/images/NewMain/ContactForm/Email.svg" alt="Email icon" className="w-5 h-5 mr-3 cursor-text" />
-                      <label className="text-white text-sm cursor-text" onClick={(e) => e.currentTarget.closest('div').closest('div').querySelector('input')?.focus()}>Business Email</label>
-                    </div>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Your Business Email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="w-full bg-transparent text-white border-b border-white focus:border-blue-400 focus:outline-none py-3 cursor-text pointer-events-auto"
-                      style={{
-                        fontFamily: 'Aileron',
-                        fontWeight: 400,
-                        fontStyle: 'normal',
-                        fontSize: '14px',
-                        lineHeight: '100%',
-                        letterSpacing: '0%',
-                        verticalAlign: 'middle',
-                        WebkitAppearance: 'none',
-                        appearance: 'none'
-                      }}
-                      required
-                    />
-                  </div>
-
-                  {/* Dropdown Fields */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="relative">
-                      <select
-                        name="industry"
-                        value={formData.industry}
-                        onChange={handleInputChange}
-                        className="w-full bg-white text-black rounded-3xl px-4 py-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none"
-                        style={{
-                          fontFamily: 'Aileron',
-                          fontWeight: 400,
-                          fontStyle: 'normal',
-                          fontSize: '14px',
-                          lineHeight: '100%',
-                          letterSpacing: '0%',
-                          verticalAlign: 'middle'
-                        }}
-                        required
-                      >
-                        <option value="">Select Industry</option>
-                        <option value="banking">Banking and Finance</option>
-                        <option value="beauty">Beauty</option>
-                        <option value="lifestyle">Lifestyle</option>
-                        <option value="health">Health and Wellness</option>
-                        <option value="food">F&B</option>
-                        <option value="fashion">Fashion</option>
-                        <option value="charities">Charities and NGOs</option>
-                        <option value="education">Education</option>
-                        <option value="events">Events</option>
-                        <option value="motherhood">Motherhood and Family</option>
-                        <option value="hotel">Hotel and Travel</option>
-                        <option value="jewellery">Jewellery</option>
-                        <option value="footwear">Footwear</option>
-                        <option value="art">Art</option>
-                        <option value="tech">Technology</option>
-                        <option value="other">Others</option>
-                      </select>
-                      <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
-                        <svg className="w-4 h-4" fill="none" stroke="#231f20" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </div>
-                    </div>
-
-                    <div className="relative">
-                      <select
-                        name="budget"
-                        value={formData.budget}
-                        onChange={handleInputChange}
-                        className="w-full bg-white text-black rounded-3xl px-4 py-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none"
-                        style={{
-                          fontFamily: 'Aileron',
-                          fontWeight: 400,
-                          fontStyle: 'normal',
-                          fontSize: '14px',
-                          lineHeight: '100%',
-                          letterSpacing: '0%',
-                          verticalAlign: 'middle'
-                        }}
-                        required
-                      >
-                        {budgetOptions.map((option, idx) => (
-                          <option key={idx} value={option.value}>{option.label}</option>
-                        ))}
-                      </select>
-                      <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
-                        <svg className="w-4 h-4" fill="none" stroke="#231f20" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Submit Button */}
-                  <div className="pt-4 flex justify-center">
-                    <button
-                      type="submit"
-                      className="w-64 text-white font-bold py-4 px-8 rounded-3xl transition-colors duration-200"
-                      style={{
-                        backgroundColor: '#1340ff',
-                        fontFamily: 'Aileron',
-                        fontWeight: 700,
-                        fontStyle: 'normal',
-                        fontSize: '16px',
-                        lineHeight: '100%',
-                        letterSpacing: '0%',
-                        textAlign: 'center',
                         verticalAlign: 'middle'
                       }}
+                      required
                     >
-                      Submit
-                    </button>
+                      <option value="">Select Industry</option>
+                      <option value="banking">Banking and Finance</option>
+                      <option value="beauty">Beauty</option>
+                      <option value="lifestyle">Lifestyle</option>
+                      <option value="health">Health and Wellness</option>
+                      <option value="food">F&B</option>
+                      <option value="fashion">Fashion</option>
+                      <option value="charities">Charities and NGOs</option>
+                      <option value="education">Education</option>
+                      <option value="events">Events</option>
+                      <option value="motherhood">Motherhood and Family</option>
+                      <option value="hotel">Hotel and Travel</option>
+                      <option value="jewellery">Jewellery</option>
+                      <option value="footwear">Footwear</option>
+                      <option value="art">Art</option>
+                      <option value="tech">Technology</option>
+                      <option value="other">Others</option>
+                    </select>
+                    <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
+                      <svg className="w-4 h-4" fill="none" stroke="#231f20" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
                   </div>
-                </form>
-              </div>
-            </div>
-          </motion.div>
-        </div>
 
-        {/* Mobile Layout */}
-        <div className="w-full max-w-sm mx-auto md:hidden">
-          <motion.div
-            className="overflow-hidden shadow-2xl w-full"
-            style={{
-              background: 'linear-gradient(45deg, #231F20 0%, #231F20 5%, #001A7A 20%, #001A7A 40%, #231F20 65%, #231F20 100%)',
-              borderRadius: '24px',
-              padding: '32px',
-              opacity: 1
-            }}
-            initial={{ opacity: 1, y: 0 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{}}
-            viewport={{ once: true }}
-          >
-            {/* Mobile Header */}
-            <div className="mb-6">
-              <h2 
-                className="text-white mb-3 relative"
-                style={{
-                  fontFamily: 'Aileron, sans-serif',
-                  fontWeight: 700,
-                  fontSize: '28px',
-                  lineHeight: '34px',
-                  letterSpacing: '-0.06em',
-                  color: '#FFFFFF'
-                }}
-              >
-                Finding Creators For Your Brand?
-              </h2>
-              <p 
-                className="text-white"
-                style={{
-                  fontFamily: 'Times New Roman, serif',
-                  fontWeight: 400,
-                  fontStyle: 'italic',
-                  fontSize: '16px',
-                  lineHeight: '22px',
-                  letterSpacing: '-0.04em',
-                  color: '#FFFFFF'
-                }}
-              >
-                Fill in the form and we&apos;ll get in touch ASAP.
-              </p>
-            </div>
-
-            {/* Mobile Form */}
-            <form onSubmit={handleSubmit} className="space-y-5">
-              {/* Name Field */}
-              <div>
-                <div className="flex items-center mb-2">
-                  <img src="/images/NewMain/ContactForm/Person.svg" alt="Person icon" className="w-5 h-5 mr-3" />
-                  <label className="text-white text-sm">Name</label>
+                  <div className="relative">
+                    <select
+                      name="budget"
+                      value={formData.budget}
+                      onChange={handleInputChange}
+                      className="w-full bg-gray-200 text-black rounded-2xl px-4 py-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none"
+                      style={{
+                        fontFamily: 'Aileron',
+                        fontWeight: 400,
+                        fontStyle: 'normal',
+                        fontSize: '14px',
+                        lineHeight: '100%',
+                        letterSpacing: '0%',
+                        verticalAlign: 'middle'
+                      }}
+                      required
+                    >
+                      {budgetOptions.map((option, idx) => (
+                        <option key={idx} value={option.value}>{option.label}</option>
+                      ))}
+                    </select>
+                    <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
+                      <svg className="w-4 h-4" fill="none" stroke="#231f20" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className="w-full bg-transparent text-white border-b border-white focus:border-blue-400 focus:outline-none py-2 cursor-text"
-                  style={{
-                    fontFamily: 'Aileron',
-                    fontWeight: 400,
-                    fontStyle: 'normal',
-                    fontSize: '14px',
-                    lineHeight: '100%',
-                    letterSpacing: '0%',
-                    verticalAlign: 'middle',
-                    WebkitAppearance: 'none',
-                    appearance: 'none'
-                  }}
-                  required
-                />
-              </div>
 
-              {/* Phone Field */}
-              <div>
-                <div className="flex items-center mb-2">
-                  <img src="/images/NewMain/ContactForm/Phone.svg" alt="Phone icon" className="w-5 h-5 mr-3" />
-                  <label className="text-white text-sm">Phone Number</label>
-                </div>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Your Phone Number"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  className="w-full bg-transparent text-white border-b border-white focus:border-blue-400 focus:outline-none py-2 cursor-text"
-                  style={{
-                    fontFamily: 'Aileron',
-                    fontWeight: 400,
-                    fontStyle: 'normal',
-                    fontSize: '14px',
-                    lineHeight: '100%',
-                    letterSpacing: '0%',
-                    verticalAlign: 'middle',
-                    WebkitAppearance: 'none',
-                    appearance: 'none'
-                  }}
-                  required
-                />
-              </div>
-
-              {/* Company Field */}
-              <div>
-                <div className="flex items-center mb-2">
-                  <img src="/images/NewMain/ContactForm/Work outline.svg" alt="Work icon" className="w-5 h-5 mr-3" />
-                  <label className="text-white text-sm">Company Name</label>
-                </div>
-                <input
-                  type="text"
-                  name="company"
-                  placeholder="Your Company Name"
-                  value={formData.company}
-                  onChange={handleInputChange}
-                  className="w-full bg-transparent text-white border-b border-white focus:border-blue-400 focus:outline-none py-2 cursor-text"
-                  style={{
-                    fontFamily: 'Aileron',
-                    fontWeight: 400,
-                    fontStyle: 'normal',
-                    fontSize: '14px',
-                    lineHeight: '100%',
-                    letterSpacing: '0%',
-                    verticalAlign: 'middle',
-                    WebkitAppearance: 'none',
-                    appearance: 'none'
-                  }}
-                  required
-                />
-              </div>
-
-              {/* Email Field */}
-              <div>
-                <div className="flex items-center mb-2">
-                  <img src="/images/NewMain/ContactForm/Email.svg" alt="Email icon" className="w-5 h-5 mr-3" />
-                  <label className="text-white text-sm">Business Email</label>
-                </div>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Business Email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full bg-transparent text-white border-b border-white focus:border-blue-400 focus:outline-none py-2 cursor-text"
-                  style={{
-                    fontFamily: 'Aileron',
-                    fontWeight: 400,
-                    fontStyle: 'normal',
-                    fontSize: '14px',
-                    lineHeight: '100%',
-                    letterSpacing: '0%',
-                    verticalAlign: 'middle',
-                    WebkitAppearance: 'none',
-                    appearance: 'none'
-                  }}
-                  required
-                />
-              </div>
-
-              {/* Dropdown Fields - Full Width on Mobile */}
-              <div className="space-y-4">
-                <div className="relative">
-                  <select
-                    name="industry"
-                    value={formData.industry}
-                    onChange={handleInputChange}
-                    className="w-full bg-gray-200 text-black rounded-2xl px-4 py-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none"
+                {/* Submit Button */}
+                <div className="pt-4 flex justify-center">
+                  <button
+                    type="submit"
+                    className="w-full text-white font-bold py-4 px-8 rounded-2xl transition-colors duration-200"
                     style={{
+                      backgroundColor: '#1340ff',
                       fontFamily: 'Aileron',
-                      fontWeight: 400,
+                      fontWeight: 700,
                       fontStyle: 'normal',
-                      fontSize: '14px',
+                      fontSize: '16px',
                       lineHeight: '100%',
                       letterSpacing: '0%',
+                      textAlign: 'center',
                       verticalAlign: 'middle'
                     }}
-                    required
                   >
-                    <option value="">Select Industry</option>
-                    <option value="banking">Banking and Finance</option>
-                    <option value="beauty">Beauty</option>
-                    <option value="lifestyle">Lifestyle</option>
-                    <option value="health">Health and Wellness</option>
-                    <option value="food">F&B</option>
-                    <option value="fashion">Fashion</option>
-                    <option value="charities">Charities and NGOs</option>
-                    <option value="education">Education</option>
-                    <option value="events">Events</option>
-                    <option value="motherhood">Motherhood and Family</option>
-                    <option value="hotel">Hotel and Travel</option>
-                    <option value="jewellery">Jewellery</option>
-                    <option value="footwear">Footwear</option>
-                    <option value="art">Art</option>
-                    <option value="tech">Technology</option>
-                    <option value="other">Others</option>
-                  </select>
-                  <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
-                    <svg className="w-4 h-4" fill="none" stroke="#231f20" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
+                    Submit
+                  </button>
                 </div>
-
-                <div className="relative">
-                  <select
-                    name="budget"
-                    value={formData.budget}
-                    onChange={handleInputChange}
-                    className="w-full bg-gray-200 text-black rounded-2xl px-4 py-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none"
-                    style={{
-                      fontFamily: 'Aileron',
-                      fontWeight: 400,
-                      fontStyle: 'normal',
-                      fontSize: '14px',
-                      lineHeight: '100%',
-                      letterSpacing: '0%',
-                      verticalAlign: 'middle'
-                    }}
-                    required
-                  >
-                    {budgetOptions.map((option, idx) => (
-                      <option key={idx} value={option.value}>{option.label}</option>
-                    ))}
-                  </select>
-                  <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
-                    <svg className="w-4 h-4" fill="none" stroke="#231f20" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
-              {/* Submit Button */}
-              <div className="pt-4 flex justify-center">
-                <button
-                  type="submit"
-                  className="w-full text-white font-bold py-4 px-8 rounded-2xl transition-colors duration-200"
-                  style={{
-                    backgroundColor: '#1340ff',
-                    fontFamily: 'Aileron',
-                    fontWeight: 700,
-                    fontStyle: 'normal',
-                    fontSize: '16px',
-                    lineHeight: '100%',
-                    letterSpacing: '0%',
-                    textAlign: 'center',
-                    verticalAlign: 'middle'
-                  }}
-                >
-                  Submit
-                </button>
-              </div>
-            </form>
-          </motion.div>
+              </form>
+            </m.div>
+          </div>
         </div>
-      </div>
-    </section>
-    </>
+      </section>
+    </LazyMotion>
   );
 };
 

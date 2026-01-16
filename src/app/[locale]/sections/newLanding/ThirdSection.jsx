@@ -1,20 +1,13 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { LazyMotion, domAnimation, m, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import Image from "next/image";
+import useIsMobile from "@/app/[locale]/hooks/useIsMobile";
 
 const ThirdSection = () => {
   const containerRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(false);
-  
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  const isMobile = useIsMobile();
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -45,16 +38,21 @@ const ThirdSection = () => {
   const card4Scale = isMobile ? 1 : card4ScaleTransform;
 
   return (
-    <div ref={containerRef} className="bg-white py-8">
-      <section className="py-20 rounded-3xl" style={{ 
-        backgroundImage: 'url(/images/NewMain/purplegradientbackground.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}>
+    <LazyMotion features={domAnimation}>
+      <div ref={containerRef} className="bg-white py-8" style={{ contain: 'layout' }}>
+        <section
+          className="py-20 rounded-3xl"
+          style={{
+            backgroundImage: 'url(/images/NewMain/purplegradientbackground.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            contain: 'content'
+          }}
+        >
           <div className="container mx-auto px-6">
             {/* Header Section */}
-            <motion.div
+            <m.div
               className="text-center mb-16"
               initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               whileInView={isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
@@ -63,32 +61,36 @@ const ThirdSection = () => {
             >
               <h2 className="text-5xl md:text-6xl font-bold font-aileron relative mb-8 text-white" style={{ letterSpacing: '-0.06em' }}>
                 How We Do It.
-                <img
+                <Image
                   src="/images/NewMain/howwedoit.svg"
                   alt="How We Do It underline"
+                  width={384}
+                  height={20}
                   className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-96"
+                  loading="lazy"
                 />
               </h2>
-            </motion.div>
+            </m.div>
 
             {/* Feature Cards */}
             <div className="max-w-4xl mx-auto">
               {/* Creator Media Kit Card */}
-              <motion.div
+              <m.div
                 className="sticky top-2 bg-white shadow-lg overflow-visible md:overflow-hidden mb-4 md:-mb-1 mx-auto md:mx-0 w-full max-w-sm md:max-w-none md:w-[955px] md:h-[276px] h-auto md:rounded-[20px] rounded-lg md:py-[18px] py-6 md:px-9 px-5 md:border-[0.75px] border border-gray-200 md:ml-[-22px] ml-0"
-                style={isMobile ? { 
-                  y: 0, 
-                  scale: 1, 
+                style={isMobile ? {
+                  y: 0,
+                  scale: 1,
                   zIndex: 1
-                } : { 
-                  y: card1Y, 
-                  scale: card1Scale, 
-                  zIndex: 1
+                } : {
+                  y: card1Y,
+                  scale: card1Scale,
+                  zIndex: 1,
+                  willChange: 'transform'
                 }}
               >
                 <div className="flex flex-col md:flex-row items-center h-full">
                   {/* Left side - Dashboard mockup */}
-                  <div 
+                  <div
                     className="flex items-center justify-center w-full md:w-[317.6px] h-[200px] md:h-[240px] mb-4 md:mb-0"
                     style={{
                       borderTopRightRadius: '6.67px',
@@ -96,15 +98,18 @@ const ThirdSection = () => {
                       gap: '31.5px'
                     }}
                   >
-                    <img 
-                      src="/images/NewMain/hwd1.svg" 
-                      alt="Creator Media Kit" 
+                    <Image
+                      src="/images/NewMain/hwd1.svg"
+                      alt="Creator Media Kit"
+                      width={318}
+                      height={240}
                       className="w-full h-full object-contain"
+                      loading="lazy"
                     />
                   </div>
 
                   {/* Right side - Content */}
-                  <div 
+                  <div
                     className="flex flex-col justify-center w-full md:w-[490.9px] text-center md:text-left md:ml-8"
                     style={isMobile ? {
                       minHeight: 'auto',
@@ -122,24 +127,25 @@ const ThirdSection = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
 
               {/* Campaign Analytics Card */}
-              <motion.div
+              <m.div
                 className="sticky top-2 bg-white shadow-lg overflow-visible md:overflow-hidden mb-4 mx-auto md:mx-0 w-full max-w-sm md:max-w-none md:w-[925px] md:h-[276px] h-auto md:rounded-[20px] rounded-lg md:py-[18px] py-6 md:px-9 px-5 md:border-[0.75px] border border-gray-200 md:ml-[-8px] ml-0"
-                style={isMobile ? { 
-                  y: 0, 
-                  scale: 1, 
+                style={isMobile ? {
+                  y: 0,
+                  scale: 1,
                   zIndex: 2
-                } : { 
-                  y: card2Y, 
-                  scale: card2Scale, 
-                  zIndex: 2
+                } : {
+                  y: card2Y,
+                  scale: card2Scale,
+                  zIndex: 2,
+                  willChange: 'transform'
                 }}
               >
                 <div className="flex flex-col md:flex-row items-center h-full">
                   {/* Left side - Analytics mockup */}
-                  <div 
+                  <div
                     className="flex items-center justify-center w-full md:w-[317.6px] h-[200px] md:h-[240px] mb-4 md:mb-0"
                     style={{
                       borderTopRightRadius: '6.67px',
@@ -147,15 +153,18 @@ const ThirdSection = () => {
                       gap: '31.5px'
                     }}
                   >
-                    <img 
-                      src="/images/NewMain/hwd2.svg" 
-                      alt="Campaign Analytics" 
+                    <Image
+                      src="/images/NewMain/hwd2.svg"
+                      alt="Campaign Analytics"
+                      width={318}
+                      height={240}
                       className="w-full h-full object-contain"
+                      loading="lazy"
                     />
                   </div>
 
                   {/* Right side - Content */}
-                  <div 
+                  <div
                     className="flex flex-col justify-center w-full md:w-[490.9px] text-center md:text-left md:ml-8"
                     style={isMobile ? {
                       minHeight: 'auto',
@@ -173,24 +182,25 @@ const ThirdSection = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
 
               {/* Content & Creator Management Card */}
-              <motion.div
+              <m.div
                 className="sticky top-2 bg-white shadow-lg overflow-visible md:overflow-hidden mb-4 mx-auto w-full max-w-sm md:max-w-none md:w-[912px] md:h-[276px] h-auto md:rounded-[20px] rounded-lg md:py-[18px] py-6 md:px-9 px-5 md:border-[0.75px] border border-gray-200"
-                style={isMobile ? { 
-                  y: 0, 
-                  scale: 1, 
+                style={isMobile ? {
+                  y: 0,
+                  scale: 1,
                   zIndex: 3
-                } : { 
-                  y: card3Y, 
-                  scale: card3Scale, 
-                  zIndex: 3
+                } : {
+                  y: card3Y,
+                  scale: card3Scale,
+                  zIndex: 3,
+                  willChange: 'transform'
                 }}
               >
                 <div className="flex flex-col md:flex-row items-center h-full">
                   {/* Left side - Management mockup */}
-                  <div 
+                  <div
                     className="flex items-center justify-center w-full md:w-[317.6px] h-[200px] md:h-[240px] mb-4 md:mb-0"
                     style={{
                       borderTopRightRadius: '6.67px',
@@ -198,15 +208,18 @@ const ThirdSection = () => {
                       gap: '31.5px'
                     }}
                   >
-                    <img 
-                      src="/images/NewMain/hwd3.svg" 
-                      alt="Content & Creator Management" 
+                    <Image
+                      src="/images/NewMain/hwd3.svg"
+                      alt="Content & Creator Management"
+                      width={318}
+                      height={240}
                       className="w-full h-full object-contain"
+                      loading="lazy"
                     />
                   </div>
 
                   {/* Right side - Content */}
-                  <div 
+                  <div
                     className="flex flex-col justify-center w-full md:w-[490.9px] text-center md:text-left md:ml-8"
                     style={isMobile ? {
                       minHeight: 'auto',
@@ -224,24 +237,25 @@ const ThirdSection = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
 
               {/* Automated Workflow Card */}
-              <motion.div
+              <m.div
                 className="sticky top-2 bg-white shadow-lg overflow-visible md:overflow-hidden mb-4 mx-auto w-full max-w-sm md:max-w-none md:w-[912px] md:h-[276px] h-auto md:rounded-[20px] rounded-lg md:py-[18px] py-6 md:px-9 px-5 md:border-[0.75px] border border-gray-200"
-                style={isMobile ? { 
-                  y: 0, 
-                  scale: 1, 
+                style={isMobile ? {
+                  y: 0,
+                  scale: 1,
                   zIndex: 4
-                } : { 
-                  y: card4Y, 
-                  scale: card4Scale, 
-                  zIndex: 4
+                } : {
+                  y: card4Y,
+                  scale: card4Scale,
+                  zIndex: 4,
+                  willChange: 'transform'
                 }}
               >
                 <div className="flex flex-col md:flex-row items-center h-full">
                   {/* Left side - Workflow mockup */}
-                  <div 
+                  <div
                     className="flex items-center justify-center w-full md:w-[317.6px] h-[200px] md:h-[240px] mb-4 md:mb-0"
                     style={{
                       borderTopRightRadius: '6.67px',
@@ -249,15 +263,18 @@ const ThirdSection = () => {
                       gap: '31.5px'
                     }}
                   >
-                    <img 
-                      src="/images/NewMain/hwd4.svg" 
-                      alt="Automated Workflow" 
+                    <Image
+                      src="/images/NewMain/hwd4.svg"
+                      alt="Automated Workflow"
+                      width={318}
+                      height={240}
                       className="w-full h-full object-contain"
+                      loading="lazy"
                     />
                   </div>
 
                   {/* Right side - Content */}
-                  <div 
+                  <div
                     className="flex flex-col justify-center w-full md:w-[490.9px] text-center md:text-left md:ml-8"
                     style={isMobile ? {
                       minHeight: 'auto',
@@ -275,11 +292,12 @@ const ThirdSection = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
           </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </LazyMotion>
   );
 };
 
