@@ -1,16 +1,16 @@
 {
     "price": {
         "trial": {
-            "price": "RM 7,000"
+            "price": "RM 3,000"
         },
         "essential": {
-            "price": "RM 20,100"
+            "price": "RM 8,800"
         },
         "pro": {
-            "price": "RM 32,000"
+            "price": "RM 16,500"
         },
         "ultra": {
-            "price": "RM 61,000"
+            "price": "RM 27,000"
         }
     }
 }

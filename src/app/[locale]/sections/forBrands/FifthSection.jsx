@@ -23,45 +23,45 @@ const FifthSection = () => {
     {
       id: 1,
       name: "Trial",
-      price: "$7,200",
+      price: "$3,100",
       isHighlighted: false,
       features: [
-        "<strong>10 CGC Credits</strong>",
+        "<strong>5 CGC Credits</strong>",
         "<strong>1 Campaign</strong>",
         "<strong>1 month</strong> Credit Validity"
       ]
     },
     {
       id: 2,
-      name: "Essential",
-      price: "$21,500",
+      name: "Basic",
+      price: "$8,900",
       isHighlighted: false,
       features: [
-        "<strong>30 CGC Credits</strong>",
+        "<strong>15 CGC Credits</strong>",
         "<strong>Up to 3</strong> Campaigns",
-        "<strong>3 months</strong> Credit Validity"
+        "<strong>2 months</strong> Credit Validity"
       ]
     },
     {
       id: 3,
-      name: "Pro",
-      price: "$34,500",
+      name: "Essential",
+      price: "$17,500",
       isHighlighted: true,
       features: [
-        "<strong style='color: #1340FF'>50 CGC Credits</strong>",
+        "<strong style='color: #1340FF'>30 CGC Credits</strong>",
         "<strong style='color: #1340FF'>Up to 5</strong> Campaigns",
-        "<strong style='color: #1340FF'>5 months</strong> Credit Validity"
+        "<strong style='color: #1340FF'>3 months</strong> Credit Validity"
       ]
     },
     {
       id: 4,
-      name: "Ultra",
-      price: "$65,000",
+      name: "Pro",
+      price: "$29,000",
       isHighlighted: false,
       features: [
-        "<strong>100 CGC Credits</strong>",
+        "<strong>50 CGC Credits</strong>",
         "<strong>Up to 8</strong> Campaigns",
-        "<strong>10 months</strong> Credit Validity",
+        "<strong>5 months</strong> Credit Validity",
         "Brand <strong>Feature</strong>"
       ]
     }
@@ -69,45 +69,45 @@ const FifthSection = () => {
     {
       id: 1,
       name: "Trial",
-      price: "RM 7,000",
+      price: "RM 3,000",
       isHighlighted: false,
       features: [
-        "<strong>10 CGC Credits</strong>",
+        "<strong>5 CGC Credits</strong>",
         "<strong>1 Campaign</strong>",
         "<strong>1 month</strong> Credit Validity"
       ]
     },
     {
       id: 2,
-      name: "Essential",
-      price: "RM 20,100",
+      name: "Basic",
+      price: "RM 8,800",
       isHighlighted: false,
       features: [
-        "<strong>30 CGC Credits</strong>",
+        "<strong>15 CGC Credits</strong>",
         "<strong>Up to 3</strong> Campaigns",
-        "<strong>3 months</strong> Credit Validity"
+        "<strong>2 months</strong> Credit Validity"
       ]
     },
     {
       id: 3,
-      name: "Pro",
-      price: "RM 32,000",
+      name: "Essential",
+      price: "RM 16,500",
       isHighlighted: true,
       features: [
-        "<strong style='color: #1340FF'>50 CGC Credits</strong>",
+        "<strong style='color: #1340FF'>30 CGC Credits</strong>",
         "<strong style='color: #1340FF'>Up to 5</strong> Campaigns",
-        "<strong style='color: #1340FF'>5 months</strong> Credit Validity"
+        "<strong style='color: #1340FF'>3 months</strong> Credit Validity"
       ]
     },
     {
       id: 4,
-      name: "Ultra",
-      price: "RM 61,000",
+      name: "Pro",
+      price: "RM 27,000",
       isHighlighted: false,
       features: [
-        "<strong>100 CGC Credits</strong>",
+        "<strong>50 CGC Credits</strong>",
         "<strong>Up to 8</strong> Campaigns",
-        "<strong>10 months</strong> Credit Validity",
+        "<strong>5 months</strong> Credit Validity",
         "Brand <strong>Feature</strong>"
       ]
     }

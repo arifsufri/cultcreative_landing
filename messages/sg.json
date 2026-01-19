@@ -1,19 +1,19 @@
 {
     "price": {
         "trial": {
-            "price": "$7,200",
+            "price": "$3,100",
             "description": "Save 20% on your first purchase"
         },
         "essential": {
-            "price": "$21,500",
+            "price": "$8,900",
             "description": "Save 20% on your first purchase"
         },
         "pro": {
-            "price": "$34,500",
+            "price": "$17,500",
             "description": "Save 20% on your first purchase"
         },
         "ultra": {
-            "price": "$65,000",
+            "price": "$29,000",
             "description": "Save 20% on your first purchase"
         }
     }
