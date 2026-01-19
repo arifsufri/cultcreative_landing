@@ -249,18 +249,18 @@ const InfoCard = ({
           style={{
             position: 'absolute',
             inset: '-20px',
-            backdropFilter: 'blur(8px) saturate(130%)',
-            WebkitBackdropFilter: 'blur(8px) saturate(130%)',
+            backdropFilter: 'blur(3px) saturate(120%)',
+            WebkitBackdropFilter: 'blur(3px) saturate(120%)',
             filter: 'url(#liquid-glass-edge)',
           }}
         />
 
-        {/* Tinted overlay - brand blue at 35% opacity */}
+        {/* Tinted overlay - brand blue at 20% opacity */}
         <div
           style={{
             position: 'absolute',
             inset: 0,
-            backgroundColor: 'rgba(19, 64, 255, 0.35)',
+            backgroundColor: 'rgba(19, 64, 255, 0.20)',
             borderRadius: borderRadius,
           }}
         />
@@ -297,7 +297,7 @@ const InfoCard = ({
             left: 0,
             right: 0,
             height: '40%',
-            background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%)',
+            background: 'linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 100%)',
             borderRadius: `${borderRadius} ${borderRadius} 0 0`,
             pointerEvents: 'none',
             zIndex: 3,
