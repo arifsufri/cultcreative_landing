@@ -9,23 +9,23 @@ export const metadata: Metadata = {
   title: "Cult Creative",
   description: "Connecting Brands With Content Creators",
   icons: {
-    icon: [{ url: "/logo/newlogo.svg", type: "image/svg+xml" }],
-    shortcut: ["/logo/newlogo.svg"],
-    apple: [{ url: "/logo/newlogo.svg", type: "image/svg+xml" }],
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    shortcut: ["/icon.svg"],
+    apple: [{ url: "/icon.svg", type: "image/svg+xml" }],
   },
   openGraph: {
     title: "Cult Creative",
     description: "Connecting Brands With Content Creators",
     url: "https://cultcreativeasia.com",
     siteName: "Cult Creative",
-    images: [{ url: "/logo/newlogo.svg" }],
+    images: [{ url: "/icon.svg" }],
     type: "website",
   },
   twitter: {
     card: "summary",
     title: "Cult Creative",
     description: "Connecting Brands With Content Creators",
-    images: ["/logo/newlogo.svg"],
+    images: ["/icon.svg"],
   },
 };
 
