@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     siteName: "Cult Creative",
     images: [
       {
-        url: "/favicon-48x48.png",
-        width: 48,
-        height: 48,
+        url: "/favicon-192x192.png",
+        width: 192,
+        height: 192,
         alt: "Cult Creative - Connecting Brands With Content Creators",
       },
     ],
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "Cult Creative: Connecting Brands With Content Creators",
     description:
       "Hire top creators across Southeast Asia with Cult Creative. Our trusted platform makes it easy for brands and creators to connect and collaborate seamlessly.",
-    images: ["/favicon-48x48.png"],
+    images: ["/favicon-192x192.png"],
   },
 };
 
