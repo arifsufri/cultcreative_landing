@@ -30,7 +30,7 @@ const FourthSection = () => {
       title: "Brand Video 2",
       creator: "Ainna",
       name: "Ainna",
-      brand: "Binti",
+      brand: "Binti's",
       quote: "Lazy people don't",
       videoUrl: "https://storage.googleapis.com/landing-cultcreative/main/v2/lp2.mp4",
       description: "Cult Creative brand video"
