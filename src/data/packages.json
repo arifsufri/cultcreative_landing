@@ -2,7 +2,7 @@
   {
     "type": "Nano",
     "icon": "/images/Star 10.svg",
-    "videoUrl": "https://storage.googleapis.com/cult-prod/cgc/video1.mp4",
+    "videoUrl": "https://res.cloudinary.com/dirld0zbv/video/upload/v1772523813/video1_oezm51.mp4",
     "subPackages": [
       {
         "type": "Nano A",
@@ -20,7 +20,7 @@
   {
     "type": "Micro",
     "icon": "/images/Star 11.svg",
-    "videoUrl": "https://storage.googleapis.com/cult-prod/cgc/video2.mp4",
+    "videoUrl": "https://res.cloudinary.com/dirld0zbv/video/upload/v1772523814/video2_u3c0ux.mp4",
     "subPackages": [
       {
         "type": "Micro A",
@@ -43,7 +43,7 @@
   {
     "type": "Macro",
     "icon": "/images/Star 9.svg",
-    "videoUrl": "https://storage.googleapis.com/cult-prod/cgc/video3.mp4",
+    "videoUrl": "https://res.cloudinary.com/dirld0zbv/video/upload/v1772523816/video3_w1vyjo.mp4",
     "subPackages": [
       {
         "type": "Macro",
