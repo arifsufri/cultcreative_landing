@@ -1,0 +1,56 @@
+[
+  {
+    "type": "Nano",
+    "icon": "/images/Star 10.svg",
+    "videoUrl": "https://storage.googleapis.com/cult-prod/cgc/video1.mp4",
+    "subPackages": [
+      {
+        "type": "Nano A",
+        "credits": "1 Credit",
+        "followers": "0K - 5K"
+      },
+      {
+        "type": "Nano B",
+        "credits": "2 Credits",
+        "followers": "5K - 15K"
+      }
+    ],
+    "notes": "Trustworthy and personalised by followers and community. Content feels more authentic, genuine, and relatable."
+  },
+  {
+    "type": "Micro",
+    "icon": "/images/Star 11.svg",
+    "videoUrl": "https://storage.googleapis.com/cult-prod/cgc/video2.mp4",
+    "subPackages": [
+      {
+        "type": "Micro A",
+        "credits": "3 Credits",
+        "followers": "15K - 30K"
+      },
+      {
+        "type": "Micro B",
+        "credits": "4 Credits",
+        "followers": "30K - 50K"
+      },
+      {
+        "type": "Micro C",
+        "credits": "5 Credits",
+        "followers": "50K - 100K"
+      }
+    ],
+    "notes": "Better for building brand loyalty and potential to generate significant exposure and conversions for products/services."
+  },
+  {
+    "type": "Macro",
+    "icon": "/images/Star 9.svg",
+    "videoUrl": "https://storage.googleapis.com/cult-prod/cgc/video3.mp4",
+    "subPackages": [
+      {
+        "type": "Macro",
+        "credits": "8 Credits",
+        "followers": "100K - 500K"
+      }
+    ],
+    "notes": "Typically well-established credibility. Focuses on mass-market appeal conversions for products/services."
+  }
+]

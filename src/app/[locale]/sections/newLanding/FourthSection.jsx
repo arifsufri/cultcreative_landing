@@ -22,8 +22,9 @@ const FourthSection = () => {
       name: "Faizah",
       brand: "Dettol SG",
       quote: "Lazy people don't",
-      videoUrl: "https://storage.googleapis.com/landing-cultcreative/main/v2/lp1.mp4",
-      description: "Cult Creative brand video"
+      videoUrl:
+        "https://storage.googleapis.com/landing-cultcreative/main/v2/lp1.mp4",
+      description: "Cult Creative brand video",
     },
     {
       id: 2,
@@ -32,8 +33,9 @@ const FourthSection = () => {
       name: "Ainna",
       brand: "Binti's",
       quote: "Lazy people don't",
-      videoUrl: "https://storage.googleapis.com/landing-cultcreative/main/v2/lp2.mp4",
-      description: "Cult Creative brand video"
+      videoUrl:
+        "https://storage.googleapis.com/landing-cultcreative/main/v2/lp2.mp4",
+      description: "Cult Creative brand video",
     },
     {
       id: 3,
@@ -42,8 +44,9 @@ const FourthSection = () => {
       name: "Rachael",
       brand: "GMBB",
       quote: "Lazy people don't",
-      videoUrl: "https://storage.googleapis.com/landing-cultcreative/main/v2/lp3.mp4",
-      description: "Cult Creative brand video"
+      videoUrl:
+        "https://storage.googleapis.com/landing-cultcreative/main/v2/lp3.mp4",
+      description: "Cult Creative brand video",
     },
     {
       id: 4,
@@ -52,8 +55,9 @@ const FourthSection = () => {
       name: "Zairul Rusdi",
       brand: "Barkath",
       quote: "Lazy people don't",
-      videoUrl: "https://storage.googleapis.com/landing-cultcreative/main/v2/lp4.mp4",
-      description: "Cult Creative brand video"
+      videoUrl:
+        "https://storage.googleapis.com/landing-cultcreative/main/v2/lp4.mp4",
+      description: "Cult Creative brand video",
     },
     {
       id: 5,
@@ -62,9 +66,10 @@ const FourthSection = () => {
       name: "Avanyeesh",
       brand: "MAE Tabung 2",
       quote: "Lazy people don't",
-      videoUrl: "https://storage.googleapis.com/landing-cultcreative/main/v2/lp5.mp4",
-      description: "Cult Creative brand video"
-    }
+      videoUrl:
+        "https://storage.googleapis.com/landing-cultcreative/main/v2/lp5.mp4",
+      description: "Cult Creative brand video",
+    },
   ];
 
   // Trusted brands data
@@ -83,7 +88,7 @@ const FourthSection = () => {
     { name: "Taco Bell", logo: "/images/NewMain/Brands/tacobell.svg" },
     { name: "The Body Shop", logo: "/images/NewMain/Brands/thebodyshop.svg" },
     { name: "Uniqlo", logo: "/images/NewMain/Brands/uniqlo.svg" },
-    { name: "Universal", logo: "/images/NewMain/Brands/universal.svg" }
+    { name: "Universal", logo: "/images/NewMain/Brands/universal.svg" },
   ];
 
   const reorderMap = {
@@ -95,7 +100,7 @@ const FourthSection = () => {
   };
 
   const convertTo0Based = (oneBasedArray) => {
-    return oneBasedArray.map(num => num - 1);
+    return oneBasedArray.map((num) => num - 1);
   };
 
   const handleVideoClick = (clickedVideoId) => {
@@ -114,9 +119,14 @@ const FourthSection = () => {
 
       newOrder = [...videoOrder];
       if (stepsToCenter !== 0) {
-        const rotations = stepsToCenter > 0
-          ? Array(Math.abs(stepsToCenter)).fill(0).map(() => (prevIdx) => (prevIdx + 1) % 5)
-          : Array(Math.abs(stepsToCenter)).fill(0).map(() => (prevIdx) => (prevIdx + 4) % 5);
+        const rotations =
+          stepsToCenter > 0
+            ? Array(Math.abs(stepsToCenter))
+                .fill(0)
+                .map(() => (prevIdx) => (prevIdx + 1) % 5)
+            : Array(Math.abs(stepsToCenter))
+                .fill(0)
+                .map(() => (prevIdx) => (prevIdx + 4) % 5);
 
         rotations.forEach((fn) => {
           newOrder = newOrder.map(fn);
@@ -155,7 +165,9 @@ const FourthSection = () => {
     if (distance > minSwipeDistance) {
       setCurrentMobileIndex((prev) => (prev + 1) % videos.length);
     } else if (distance < -minSwipeDistance) {
-      setCurrentMobileIndex((prev) => (prev - 1 + videos.length) % videos.length);
+      setCurrentMobileIndex(
+        (prev) => (prev - 1 + videos.length) % videos.length,
+      );
     }
 
     touchStartX.current = 0;
@@ -168,7 +180,11 @@ const FourthSection = () => {
 
   return (
     <LazyMotion features={domAnimation}>
-      <section ref={sectionRef} className="relative bg-white py-20 overflow-hidden" style={{ contain: 'content' }}>
+      <section
+        ref={sectionRef}
+        className="relative bg-white py-20 overflow-hidden"
+        style={{ contain: "content" }}
+      >
         {/* Trusted By Section */}
         <div className="container mx-auto px-6 mb-36">
           <m.div
@@ -178,7 +194,10 @@ const FourthSection = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 font-aileron relative z-10" style={{ color: '#231F20', letterSpacing: '-0.06em' }}>
+            <h2
+              className="text-4xl md:text-5xl font-bold mb-4 font-aileron relative z-10"
+              style={{ color: "#231F20", letterSpacing: "-0.06em" }}
+            >
               Trusted By
               <Image
                 src="/images/NewMain/trustedunderlined.svg"
@@ -193,7 +212,10 @@ const FourthSection = () => {
 
           {/* Moving Brands */}
           <div className="relative overflow-hidden">
-            <div className="flex animate-scroll" style={{ width: 'max-content' }}>
+            <div
+              className="flex animate-scroll"
+              style={{ width: "max-content" }}
+            >
               <div className="flex shrink-0">
                 {trustedBrands.map((brand, index) => (
                   <div key={`set1-${index}`} className="shrink-0 mx-6">
@@ -251,12 +273,21 @@ const FourthSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <span className="font-serif italic" style={{ fontFamily: 'Times New Roman, serif', letterSpacing: '-0.04em' }}>
-                Where creators win,
+              <span
+                className="font-serif italic"
+                style={{
+                  fontFamily: "Times New Roman, serif",
+                  letterSpacing: "-0.04em",
+                }}
+              >
+                Where creator marketing
               </span>
               <br />
-              <span className="relative font-aileron font-bold" style={{ letterSpacing: '-0.06em' }}>
-                And Brands
+              <span
+                className="relative font-aileron font-bold"
+                style={{ letterSpacing: "-0.06em" }}
+              >
+                Fnally Makes
                 <span className="relative inline-block">
                   <Image
                     src="/images/NewMain/bluerectangle.svg"
@@ -283,7 +314,9 @@ const FourthSection = () => {
                     className="absolute -top-20 right-0 w-20 h-12 z-10 md:hidden block"
                     loading="lazy"
                   />
-                  <span className="relative text-white px-4 py-2 font-bold -ml-2">Want In.</span>
+                  <span className="relative text-white px-4 py-2 font-bold -ml-2">
+                    Sense.
+                  </span>
                 </span>
               </span>
             </m.h1>
@@ -318,18 +351,20 @@ const FourthSection = () => {
                       transition={{
                         duration: 0.6,
                         ease: "easeInOut",
-                        layout: { duration: 0.6 }
+                        layout: { duration: 0.6 },
                       }}
                       onClick={() => handleVideoClick(videoId)}
                       style={{
                         width: "300px",
                         height: "400px",
-                        position: "absolute"
+                        position: "absolute",
                       }}
                     >
-                      <div className={`relative rounded-3xl overflow-hidden transition-all duration-300 ${
-                        isCenter ? 'shadow-2xl' : ''
-                      }`}>
+                      <div
+                        className={`relative rounded-3xl overflow-hidden transition-all duration-300 ${
+                          isCenter ? "shadow-2xl" : ""
+                        }`}
+                      >
                         {/* Video Element */}
                         <div className="aspect-9/16 bg-gray-200 flex items-center justify-center relative">
                           <video
@@ -358,10 +393,26 @@ const FourthSection = () => {
                           {/* Bottom Overlay with Brand and Creator - Only show on center video */}
                           {isCenter && (
                             <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
-                              <h3 className="text-white font-aileron font-bold capitalize" style={{ fontSize: '33.87px', lineHeight: '40px', letterSpacing: '-0.06em' }}>
+                              <h3
+                                className="text-white font-aileron font-bold capitalize"
+                                style={{
+                                  fontSize: "33.87px",
+                                  lineHeight: "40px",
+                                  letterSpacing: "-0.06em",
+                                }}
+                              >
                                 {video.brand}
                               </h3>
-                              <p className="text-white/90 italic" style={{ fontFamily: 'Times New Roman, serif', fontSize: '21.17px', lineHeight: '38.11px', letterSpacing: '-0.04em', fontWeight: 400 }}>
+                              <p
+                                className="text-white/90 italic"
+                                style={{
+                                  fontFamily: "Times New Roman, serif",
+                                  fontSize: "21.17px",
+                                  lineHeight: "38.11px",
+                                  letterSpacing: "-0.04em",
+                                  fontWeight: 400,
+                                }}
+                              >
                                 {video.name}
                               </p>
                             </div>
@@ -384,8 +435,8 @@ const FourthSection = () => {
                   <m.div
                     className="flex h-full items-center"
                     style={{
-                      paddingLeft: 'calc(50vw - 170px)',
-                      paddingRight: 'calc(50vw - 170px)',
+                      paddingLeft: "calc(50vw - 170px)",
+                      paddingRight: "calc(50vw - 170px)",
                     }}
                     animate={{
                       x: `-${currentMobileIndex * 340}px`,
@@ -404,7 +455,9 @@ const FourthSection = () => {
                       >
                         <div
                           className={`relative rounded-[32px] overflow-hidden transition-all duration-300 ${
-                            index === currentMobileIndex ? 'shadow-2xl scale-100' : 'shadow-lg scale-90 opacity-60'
+                            index === currentMobileIndex
+                              ? "shadow-2xl scale-100"
+                              : "shadow-lg scale-90 opacity-60"
                           }`}
                           style={{ width: "320px", height: "550px" }}
                           onClick={() => setCurrentMobileIndex(index)}
@@ -417,7 +470,11 @@ const FourthSection = () => {
                               loop={index === currentMobileIndex}
                               playsInline
                               controls={false}
-                              preload={index === currentMobileIndex ? "auto" : "metadata"}
+                              preload={
+                                index === currentMobileIndex
+                                  ? "auto"
+                                  : "metadata"
+                              }
                               ref={(el) => {
                                 if (el) {
                                   if (index === currentMobileIndex) {
@@ -435,10 +492,26 @@ const FourthSection = () => {
 
                             {/* Bottom Overlay with Brand and Creator */}
                             <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
-                              <h3 className="text-white font-aileron font-bold capitalize" style={{ fontSize: '33.87px', lineHeight: '40px', letterSpacing: '-0.06em' }}>
+                              <h3
+                                className="text-white font-aileron font-bold capitalize"
+                                style={{
+                                  fontSize: "33.87px",
+                                  lineHeight: "40px",
+                                  letterSpacing: "-0.06em",
+                                }}
+                              >
                                 {video.brand}
                               </h3>
-                              <p className="text-white/90 italic" style={{ fontFamily: 'Times New Roman, serif', fontSize: '21.17px', lineHeight: '38.11px', letterSpacing: '-0.04em', fontWeight: 400 }}>
+                              <p
+                                className="text-white/90 italic"
+                                style={{
+                                  fontFamily: "Times New Roman, serif",
+                                  fontSize: "21.17px",
+                                  lineHeight: "38.11px",
+                                  letterSpacing: "-0.04em",
+                                  fontWeight: 400,
+                                }}
+                              >
                                 {video.name}
                               </p>
                             </div>
@@ -467,7 +540,6 @@ const FourthSection = () => {
               </div>
             </div>
           </div>
-
         </div>
       </section>
     </LazyMotion>

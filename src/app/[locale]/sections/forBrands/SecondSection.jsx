@@ -13,44 +13,44 @@ const SecondSection = () => {
 
   useEffect(() => {
     const calculateSlideDistance = () => {
-      if (typeof window !== 'undefined') {
+      if (typeof window !== "undefined") {
         const isMobile = window.innerWidth < 768;
         if (isMobile) {
           // Calculate card width with proper padding
           const viewportWidth = window.innerWidth;
           const padding = 24; // 12px on each side
-          const cardWidth = Math.min(viewportWidth - (padding * 2), 340);
-          
+          const cardWidth = Math.min(viewportWidth - padding * 2, 340);
+
           // Center the card by calculating the offset needed
           const containerWidth = viewportWidth;
           const cardOffset = (containerWidth - cardWidth) / 2;
-          
+
           setSlideDistance(cardWidth + cardOffset);
         }
       }
     };
 
     calculateSlideDistance();
-    window.addEventListener('resize', calculateSlideDistance);
-    return () => window.removeEventListener('resize', calculateSlideDistance);
+    window.addEventListener("resize", calculateSlideDistance);
+    return () => window.removeEventListener("resize", calculateSlideDistance);
   }, []);
 
   const stats = [
     {
       number: 300,
       suffix: "+",
-      label: "Campaigns Completed"
+      label: "Campaigns Launched",
     },
     {
       number: 600,
       suffix: "K+",
-      label: "Payments Processed (USD)"
+      label: "Total Reach Across Campaigns",
     },
     {
       number: 3.5,
       suffix: "K+",
-      label: "Creators On Our Platform"
-    }
+      label: "Creators On Our Platform",
+    },
   ];
 
   // Custom hook for counting animation
@@ -60,7 +60,7 @@ const SecondSection = () => {
 
     useEffect(() => {
       if (!isVisible) return;
-      
+
       setIsAnimating(true);
       const startTime = Date.now();
       const startValue = start;
@@ -69,11 +69,12 @@ const SecondSection = () => {
       const updateCount = () => {
         const now = Date.now();
         const progress = Math.min((now - startTime) / duration, 1);
-        
+
         // Easing function for smooth animation
         const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-        const currentValue = startValue + (endValue - startValue) * easeOutQuart;
-        
+        const currentValue =
+          startValue + (endValue - startValue) * easeOutQuart;
+
         setCount(currentValue);
 
         if (progress < 1) {
@@ -103,10 +104,11 @@ const SecondSection = () => {
         { value: "900K", label: "Views" },
         { value: "19", label: "Posts" },
         { value: "90K", label: "Interactions" },
-        { value: "8.87%", label: "Avg Engagement Rate" }
+        { value: "8.87%", label: "Avg Engagement Rate" },
       ],
       phoneContent: "restaurant",
-      videoSrc: "https://storage.googleapis.com/landing-cultcreative/brands/brand1.mp4"
+      videoSrc:
+        "https://storage.googleapis.com/landing-cultcreative/brands/brand1.mp4",
     },
     {
       title: "Marriott Hotels",
@@ -114,10 +116,11 @@ const SecondSection = () => {
         { value: "500K", label: "Views" },
         { value: "38", label: "Posts" },
         { value: "50K", label: "Interactions" },
-        { value: "6.06%", label: "Avg Engagement Rate" }
+        { value: "6.06%", label: "Avg Engagement Rate" },
       ],
       phoneContent: "hotel",
-      videoSrc: "https://storage.googleapis.com/landing-cultcreative/brands/brand2.mp4"
+      videoSrc:
+        "https://storage.googleapis.com/landing-cultcreative/brands/brand2.mp4",
     },
     {
       title: "Noir Fine Dining",
@@ -125,11 +128,12 @@ const SecondSection = () => {
         { value: "3.2M", label: "Views" },
         { value: "55", label: "Posts" },
         { value: "360K", label: "Interactions" },
-        { value: "8.2%", label: "Avg Engagement Rate" }
+        { value: "8.2%", label: "Avg Engagement Rate" },
       ],
       phoneContent: "tech",
-      videoSrc: "https://storage.googleapis.com/landing-cultcreative/brands/brand3.mp4"
-    }
+      videoSrc:
+        "https://storage.googleapis.com/landing-cultcreative/brands/brand3.mp4",
+    },
   ];
 
   // Auto-slide effect
@@ -166,24 +170,25 @@ const SecondSection = () => {
                 <div
                   className="text-4xl md:text-6xl font-bold mb-2"
                   style={{
-                    fontFamily: 'Aileron',
+                    fontFamily: "Aileron",
                     fontWeight: 700,
-                    color: '#231f20'
+                    color: "#231f20",
                   }}
                 >
-                  {counts[index].count.toFixed(stat.number % 1 !== 0 ? 1 : 0)}{stat.suffix}
+                  {counts[index].count.toFixed(stat.number % 1 !== 0 ? 1 : 0)}
+                  {stat.suffix}
                 </div>
                 <div
                   style={{
-                    fontFamily: 'Aileron',
+                    fontFamily: "Aileron",
                     fontWeight: 400,
-                    fontStyle: 'normal',
-                    fontSize: '16px',
-                    lineHeight: '24px',
-                    letterSpacing: '0%',
-                    textAlign: 'center',
-                    textTransform: 'capitalize',
-                    color: '#231f20'
+                    fontStyle: "normal",
+                    fontSize: "16px",
+                    lineHeight: "24px",
+                    letterSpacing: "0%",
+                    textAlign: "center",
+                    textTransform: "capitalize",
+                    color: "#231f20",
                   }}
                 >
                   {stat.label}
@@ -209,19 +214,21 @@ const SecondSection = () => {
             viewport={{ once: true }}
             animate={{ x: -currentSlide * 1139 }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
-            style={{ 
+            style={{
               zIndex: 50,
-              top: '-100px',
-              left: '-20px'
+              top: "-100px",
+              left: "-20px",
             }}
           >
             <div className="flex">
               {caseStudies.map((study, phoneIndex) => (
-                <div key={phoneIndex} className="shrink-0" style={{ width: '1139px' }}>
+                <div
+                  key={phoneIndex}
+                  className="shrink-0"
+                  style={{ width: "1139px" }}
+                >
                   {/* iPhone Frame */}
-                  <div
-                    className="transform scale-[0.6] origin-top"
-                  >
+                  <div className="transform scale-[0.6] origin-top">
                     <DeviceFrameset device="iPhone X" color="black">
                       <div className="h-full w-full bg-white">
                         <video
@@ -251,9 +258,11 @@ const SecondSection = () => {
             </div>
           </motion.div>
 
-
           {/* Desktop Container */}
-          <div className="relative overflow-hidden hidden md:block" style={{ width: '1139px', height: '500px' }}>
+          <div
+            className="relative overflow-hidden hidden md:block"
+            style={{ width: "1139px", height: "500px" }}
+          >
             {/* Carousel Container */}
             <motion.div
               className="flex"
@@ -261,7 +270,11 @@ const SecondSection = () => {
               transition={{ duration: 0.8, ease: "easeInOut" }}
             >
               {caseStudies.map((study, studyIndex) => (
-                <div key={studyIndex} className="shrink-0 relative" style={{ width: '1139px', height: '500px' }}>
+                <div
+                  key={studyIndex}
+                  className="shrink-0 relative"
+                  style={{ width: "1139px", height: "500px" }}
+                >
                   {/* SVG Frame Background - Desktop */}
                   <img
                     src="/images/ForBrands/framebrands.svg"
@@ -269,7 +282,7 @@ const SecondSection = () => {
                     className="absolute inset-0 w-full h-full"
                     style={{ zIndex: 1 }}
                   />
-                  
+
                   <div className="relative z-10 flex flex-col lg:flex-row items-center h-full">
                     {/* Left Side - Empty space for iPhone */}
                     <div className="w-full lg:w-1/2 p-12 flex justify-center lg:justify-start relative">
@@ -283,14 +296,14 @@ const SecondSection = () => {
                         <h3
                           className="mb-12"
                           style={{
-                            fontFamily: 'Aileron',
+                            fontFamily: "Aileron",
                             fontWeight: 700,
-                            fontStyle: 'Bold',
-                            fontSize: '58.32px',
-                            lineHeight: '57.86px',
-                            letterSpacing: '-0.06em',
-                            textTransform: 'capitalize',
-                            color: '#231f20'
+                            fontStyle: "Bold",
+                            fontSize: "58.32px",
+                            lineHeight: "57.86px",
+                            letterSpacing: "-0.06em",
+                            textTransform: "capitalize",
+                            color: "#231f20",
                           }}
                         >
                           {study.title}
@@ -299,22 +312,19 @@ const SecondSection = () => {
                         {/* Performance Metrics */}
                         <div className="space-y-0.5">
                           {study.metrics.map((metric, index) => (
-                            <div
-                              key={index}
-                              className="flex items-center"
-                            >
+                            <div key={index} className="flex items-center">
                               <span
                                 className="text-3xl font-bold mr-4"
                                 style={{
-                                  fontFamily: 'Aileron',
+                                  fontFamily: "Aileron",
                                   fontWeight: 700,
-                                  fontStyle: 'Bold',
-                                  fontSize: '32px',
-                                  lineHeight: '50px',
-                                  letterSpacing: '0%',
-                                  textAlign: 'right',
-                                  verticalAlign: 'bottom',
-                                  color: '#231f20'
+                                  fontStyle: "Bold",
+                                  fontSize: "32px",
+                                  lineHeight: "50px",
+                                  letterSpacing: "0%",
+                                  textAlign: "right",
+                                  verticalAlign: "bottom",
+                                  color: "#231f20",
                                 }}
                               >
                                 {metric.value}
@@ -322,14 +332,14 @@ const SecondSection = () => {
                               <span
                                 className="text-xl"
                                 style={{
-                                  fontFamily: 'Aileron',
+                                  fontFamily: "Aileron",
                                   fontWeight: 400,
-                                  fontStyle: 'Regular',
-                                  fontSize: '24px',
-                                  lineHeight: '100%',
-                                  letterSpacing: '-4%',
-                                  verticalAlign: 'middle',
-                                  color: '#231f20'
+                                  fontStyle: "Regular",
+                                  fontSize: "24px",
+                                  lineHeight: "100%",
+                                  letterSpacing: "-4%",
+                                  verticalAlign: "middle",
+                                  color: "#231f20",
                                 }}
                               >
                                 {metric.label}
@@ -346,102 +356,138 @@ const SecondSection = () => {
           </div>
 
           {/* Mobile Container */}
-          <div className="relative overflow-hidden md:hidden" style={{ height: '680px' }}>
+          <div
+            className="relative overflow-hidden md:hidden"
+            style={{ height: "680px" }}
+          >
             {/* Carousel Container */}
             <motion.div
               className="flex"
               animate={{ x: -currentSlide * slideDistance }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
-              style={{ 
-                width: 'fit-content',
-                paddingLeft: '12px',
-                paddingRight: '12px'
+              style={{
+                width: "fit-content",
+                paddingLeft: "12px",
+                paddingRight: "12px",
               }}
             >
               {caseStudies.map((study, studyIndex) => {
-                const viewportWidth = typeof window !== 'undefined' ? window.innerWidth : 375;
+                const viewportWidth =
+                  typeof window !== "undefined" ? window.innerWidth : 375;
                 const cardWidth = Math.min(viewportWidth - 24, 340);
-                
+
                 return (
-                <div 
-                  key={studyIndex} 
-                  className="shrink-0 relative mx-auto" 
-                  style={{ 
-                    width: `${cardWidth}px`,
-                    height: '650px',
-                    marginLeft: studyIndex === 0 ? `${(viewportWidth - cardWidth) / 2 - 12}px` : '12px',
-                    marginRight: '12px'
-                  }}
-                >
-                  {/* SVG Frame Background - Mobile */}
-                  <img
-                    src="/images/ForBrands/mobile-framebrands.svg"
-                    alt="Card frame"
-                    className="absolute inset-0 w-full h-full object-contain"
-                    style={{ zIndex: 1 }}
-                  />
-                  
-                  {/* Mobile iPhone - positioned inside the frame centered */}
-                  <motion.div
-                    className="absolute md:hidden z-50"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    style={{ 
-                      top: '50%',
-                      left: '50%',
-                      transform: 'translate(-50%, -50%)'
+                  <div
+                    key={studyIndex}
+                    className="shrink-0 relative mx-auto"
+                    style={{
+                      width: `${cardWidth}px`,
+                      height: "650px",
+                      marginLeft:
+                        studyIndex === 0
+                          ? `${(viewportWidth - cardWidth) / 2 - 12}px`
+                          : "12px",
+                      marginRight: "12px",
                     }}
                   >
-                    {/* iPhone Frame */}
-                    <div
-                      className="transform scale-[0.5]"
+                    {/* SVG Frame Background - Mobile */}
+                    <img
+                      src="/images/ForBrands/mobile-framebrands.svg"
+                      alt="Card frame"
+                      className="absolute inset-0 w-full h-full object-contain"
+                      style={{ zIndex: 1 }}
+                    />
+
+                    {/* Mobile iPhone - positioned inside the frame centered */}
+                    <motion.div
+                      className="absolute md:hidden z-50"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
                       style={{
-                        filter: 'drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15))'
+                        top: "50%",
+                        left: "50%",
+                        transform: "translate(-50%, -50%)",
                       }}
                     >
-                      <DeviceFrameset device="iPhone X" color="black">
-                        <div className="h-full w-full bg-white relative">
-                          <video
-                            src={study.videoSrc}
-                            autoPlay={studyIndex === currentSlide}
-                            muted
-                            loop
-                            playsInline
-                            className="w-full h-full object-cover"
-                            ref={(el) => {
-                              if (el) {
-                                if (studyIndex === currentSlide) {
-                                  el.play().catch(() => {});
-                                } else {
-                                  el.pause();
+                      {/* iPhone Frame */}
+                      <div
+                        className="transform scale-[0.5]"
+                        style={{
+                          filter:
+                            "drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15))",
+                        }}
+                      >
+                        <DeviceFrameset device="iPhone X" color="black">
+                          <div className="h-full w-full bg-white relative">
+                            <video
+                              src={study.videoSrc}
+                              autoPlay={studyIndex === currentSlide}
+                              muted
+                              loop
+                              playsInline
+                              className="w-full h-full object-cover"
+                              ref={(el) => {
+                                if (el) {
+                                  if (studyIndex === currentSlide) {
+                                    el.play().catch(() => {});
+                                  } else {
+                                    el.pause();
+                                  }
                                 }
-                              }
-                            }}
-                          >
-                            Your browser does not support the video tag.
-                          </video>
-                          {/* Stats Overlay */}
-                          <div className="absolute bottom-8 left-0 right-0 p-6 text-white" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%)' }}>
-                            <h3 className="text-4xl font-bold mb-4" style={{ fontFamily: 'Aileron', color: '#FFFFFF' }}>
-                              {study.title}
-                            </h3>
-                            {study.metrics.map((metric, idx) => (
-                              <div key={idx} className="flex items-baseline gap-3 -mb-2">
-                                <span className="text-3xl font-bold text-right" style={{ fontFamily: 'Aileron', color: '#FFFFFF', minWidth: '90px' }}>
-                                  {metric.value}
-                                </span>
-                                <span className="text-lg text-left" style={{ fontFamily: 'Aileron', color: '#FFFFFF' }}>
-                                  {metric.label}
-                                </span>
-                              </div>
-                            ))}
+                              }}
+                            >
+                              Your browser does not support the video tag.
+                            </video>
+                            {/* Stats Overlay */}
+                            <div
+                              className="absolute bottom-8 left-0 right-0 p-6 text-white"
+                              style={{
+                                background:
+                                  "linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%)",
+                              }}
+                            >
+                              <h3
+                                className="text-4xl font-bold mb-4"
+                                style={{
+                                  fontFamily: "Aileron",
+                                  color: "#FFFFFF",
+                                }}
+                              >
+                                {study.title}
+                              </h3>
+                              {study.metrics.map((metric, idx) => (
+                                <div
+                                  key={idx}
+                                  className="flex items-baseline gap-3 -mb-2"
+                                >
+                                  <span
+                                    className="text-3xl font-bold text-right"
+                                    style={{
+                                      fontFamily: "Aileron",
+                                      color: "#FFFFFF",
+                                      minWidth: "90px",
+                                    }}
+                                  >
+                                    {metric.value}
+                                  </span>
+                                  <span
+                                    className="text-lg text-left"
+                                    style={{
+                                      fontFamily: "Aileron",
+                                      color: "#FFFFFF",
+                                    }}
+                                  >
+                                    {metric.label}
+                                  </span>
+                                </div>
+                              ))}
+                            </div>
                           </div>
-                        </div>
-                      </DeviceFrameset>
-                    </div>
-                  </motion.div>
-                </div>
+                        </DeviceFrameset>
+                      </div>
+                    </motion.div>
+                  </div>
                 );
               })}
             </motion.div>

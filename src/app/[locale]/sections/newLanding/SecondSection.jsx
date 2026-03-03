@@ -14,17 +14,20 @@ const SecondSection = () => {
   const features = [
     {
       title: "All-In-One Platform",
-      description: "Simplifying the way creators and brands connect",
+      description:
+        "Everything you need to run creator campaigns - in one place.",
       image: "/images/NewMain/iphonestatic.svg",
     },
     {
       title: "Data-Based Results",
-      description: "Real-time data to see how your content or campaign is performing",
+      description:
+        "Track campaign performance in real time with actionable insights.",
       image: "/images/NewMain/tilt2.svg",
     },
     {
       title: "Tailored Recommendations",
-      description: "Expert recommendations to maximise chances of success",
+      description:
+        "Smart recommendations to help you choose the right creators and campaigns.",
       image: "/images/NewMain/tilt3.svg",
     },
   ];
@@ -67,7 +70,7 @@ const SecondSection = () => {
 
   return (
     <LazyMotion features={domAnimation}>
-      <section className="py-20 bg-white" style={{ contain: 'content' }}>
+      <section className="py-20 bg-white" style={{ contain: "content" }}>
         <div className="container mx-auto px-6">
           {/* Header Section */}
           <m.div
@@ -78,7 +81,10 @@ const SecondSection = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center justify-center mb-4">
-              <h2 className="text-4xl md:text-5xl font-bold font-aileron relative" style={{ color: '#231f20', letterSpacing: '-0.06em' }}>
+              <h2
+                className="text-4xl md:text-5xl font-bold font-aileron relative"
+                style={{ color: "#231f20", letterSpacing: "-0.06em" }}
+              >
                 <Image
                   src="/images/NewMain/what.svg"
                   alt="What decoration"
@@ -87,7 +93,8 @@ const SecondSection = () => {
                   className="absolute -top-6 -left-12 w-10 h-10"
                   loading="lazy"
                 />
-                What <span className="relative">
+                What{" "}
+                <span className="relative">
                   <Image
                     src="/images/NewMain/rectangle.svg"
                     alt="Rectangle background"
@@ -102,26 +109,37 @@ const SecondSection = () => {
             </div>
 
             <p className="text-lg text-gray-600 max-w-3xl mx-auto relative font-aileron">
-              Cult Creative is the <strong className="text-black font-bold">all-in-one portal</strong> for <strong className="relative text-black font-bold">creators
-                <Image
-                  src="/images/NewMain/creatoru.svg"
-                  alt="Creator underline"
-                  width={80}
-                  height={10}
-                  className="absolute -bottom-1 left-0 w-full h-auto"
-                  loading="lazy"
-                />
-              </strong> and <strong className="relative text-black font-bold">brands
+              Cult Creative is the{" "}
+              <strong className="text-black font-bold">
+                all-in-one portal
+              </strong>{" "}
+              for{" "}
+              <strong className="relative text-black md:font-bold">
+                brands
                 <Image
                   src="/images/NewMain/brandu.svg"
                   alt="Brand underline"
                   width={60}
                   height={10}
-                  className="absolute -bottom-1 left-0 w-full h-auto"
+                  className="absolute -bottom-2 left-0 w-full h-auto"
                   loading="lazy"
                 />
-              </strong> <br />
-              to seamlessly work, collaborate, and elevate.
+              </strong>{" "}
+              and{" "}
+              <strong className="relative text-black font-bold">
+                creators
+                <Image
+                  src="/images/NewMain/creatoru.svg"
+                  alt="Creator underline"
+                  width={80}
+                  height={10}
+                  className="absolute -bottom-2 left-0 w-full h-auto"
+                  loading="lazy"
+                />
+              </strong>{" "}
+              collaborate,
+              <br />
+              launch campaigns and scale faster with real impact.
             </p>
           </m.div>
 
@@ -136,11 +154,15 @@ const SecondSection = () => {
               <m.div
                 className="flex"
                 animate={{ x: `-${(currentSlide * 100) / features.length}%` }}
-                transition={isMobile ? {} : {
-                  type: "spring",
-                  stiffness: 300,
-                  damping: 30
-                }}
+                transition={
+                  isMobile
+                    ? {}
+                    : {
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30,
+                      }
+                }
                 style={{ width: `${features.length * 100}%` }}
               >
                 {features.map((feature, index) => (
@@ -149,7 +171,10 @@ const SecondSection = () => {
                     className="text-center flex-shrink-0"
                     style={{ width: `calc(100% / ${features.length})` }}
                   >
-                    <div className="rounded-xl p-8" style={{ backgroundColor: '#F4F4F4' }}>
+                    <div
+                      className="rounded-xl p-8"
+                      style={{ backgroundColor: "#F4F4F4" }}
+                    >
                       <div className="relative mx-auto mb-6 max-w-[200px]">
                         <Image
                           src={feature.image}
@@ -161,12 +186,15 @@ const SecondSection = () => {
                         />
                       </div>
                       <div className="min-h-[80px] flex flex-col justify-center">
-                        <h3 className="text-xl text-black mb-2" style={{ fontFamily: 'Inter Display, sans-serif' }}>
+                        <h3
+                          className="text-xl text-black mb-2"
+                          style={{ fontFamily: "Inter Display, sans-serif" }}
+                        >
                           {feature.title}
                         </h3>
                         <p
                           className="text-gray-600 text-sm"
-                          style={{ fontFamily: 'Inter Display, sans-serif' }}
+                          style={{ fontFamily: "Inter Display, sans-serif" }}
                         >
                           {feature.description}
                         </p>
@@ -184,7 +212,7 @@ const SecondSection = () => {
                   key={index}
                   onClick={() => goToSlide(index)}
                   className={`w-2 h-2 rounded-full transition-all ${
-                    index === currentSlide ? 'bg-[#231f20] w-8' : 'bg-gray-300'
+                    index === currentSlide ? "bg-[#231f20] w-8" : "bg-gray-300"
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
                 />
@@ -202,7 +230,10 @@ const SecondSection = () => {
               transition={{}}
               viewport={{ once: true }}
             >
-              <div className="rounded-xl p-8 transition-all duration-300 cursor-pointer group-hover:bg-gradient-to-br group-hover:from-blue-500 group-hover:to-purple-600" style={{ backgroundColor: '#F4F4F4' }}>
+              <div
+                className="rounded-xl p-8 transition-all duration-300 cursor-pointer group-hover:bg-gradient-to-br group-hover:from-blue-500 group-hover:to-purple-600"
+                style={{ backgroundColor: "#F4F4F4" }}
+              >
                 <div className="relative mx-auto mb-6 max-w-[200px]">
                   <Image
                     src="/images/NewMain/iphonestatic.svg"
@@ -214,12 +245,15 @@ const SecondSection = () => {
                   />
                 </div>
                 <div className="min-h-[80px] flex flex-col justify-center">
-                  <h3 className="text-xl text-black group-hover:text-white mb-2 transition-colors duration-300" style={{ fontFamily: 'Inter Display, sans-serif' }}>
+                  <h3
+                    className="text-xl text-black group-hover:text-white mb-2 transition-colors duration-300"
+                    style={{ fontFamily: "Inter Display, sans-serif" }}
+                  >
                     All-In-One Platform
                   </h3>
                   <p
                     className="text-gray-600 group-hover:text-white text-sm opacity-0 group-hover:opacity-100 transition-all duration-300"
-                    style={{ fontFamily: 'Inter Display, sans-serif' }}
+                    style={{ fontFamily: "Inter Display, sans-serif" }}
                   >
                     Simplifying the way creators and brands connect
                   </p>
@@ -235,7 +269,10 @@ const SecondSection = () => {
               transition={{}}
               viewport={{ once: true }}
             >
-              <div className="rounded-xl p-8 transition-all duration-300 cursor-pointer group-hover:bg-gradient-to-br group-hover:from-blue-500 group-hover:to-purple-600" style={{ backgroundColor: '#F4F4F4' }}>
+              <div
+                className="rounded-xl p-8 transition-all duration-300 cursor-pointer group-hover:bg-gradient-to-br group-hover:from-blue-500 group-hover:to-purple-600"
+                style={{ backgroundColor: "#F4F4F4" }}
+              >
                 <div className="relative mx-auto mb-6 max-w-[200px]">
                   <Image
                     src="/images/NewMain/tilt2.svg"
@@ -247,14 +284,18 @@ const SecondSection = () => {
                   />
                 </div>
                 <div className="min-h-[80px] flex flex-col justify-center">
-                  <h3 className="text-xl text-black group-hover:text-white mb-2 transition-colors duration-300" style={{ fontFamily: 'Inter Display, sans-serif' }}>
+                  <h3
+                    className="text-xl text-black group-hover:text-white mb-2 transition-colors duration-300"
+                    style={{ fontFamily: "Inter Display, sans-serif" }}
+                  >
                     Data-Based Results
                   </h3>
                   <p
                     className="text-gray-600 group-hover:text-white text-sm opacity-0 group-hover:opacity-100 transition-all duration-300"
-                    style={{ fontFamily: 'Inter Display, sans-serif' }}
+                    style={{ fontFamily: "Inter Display, sans-serif" }}
                   >
-                    Real-time data to see how your content or campaign is performing
+                    Real-time data to see how your content or campaign is
+                    performing
                   </p>
                 </div>
               </div>
@@ -268,7 +309,10 @@ const SecondSection = () => {
               transition={{}}
               viewport={{ once: true }}
             >
-              <div className="rounded-xl p-8 transition-all duration-300 cursor-pointer group-hover:bg-gradient-to-br group-hover:from-blue-500 group-hover:to-purple-600" style={{ backgroundColor: '#F4F4F4' }}>
+              <div
+                className="rounded-xl p-8 transition-all duration-300 cursor-pointer group-hover:bg-gradient-to-br group-hover:from-blue-500 group-hover:to-purple-600"
+                style={{ backgroundColor: "#F4F4F4" }}
+              >
                 <div className="relative mx-auto mb-6 max-w-[200px]">
                   <Image
                     src="/images/NewMain/tilt3.svg"
@@ -280,12 +324,15 @@ const SecondSection = () => {
                   />
                 </div>
                 <div className="min-h-[80px] flex flex-col justify-center">
-                  <h3 className="text-xl text-black group-hover:text-white mb-2 transition-colors duration-300" style={{ fontFamily: 'Inter Display, sans-serif' }}>
+                  <h3
+                    className="text-xl text-black group-hover:text-white mb-2 transition-colors duration-300"
+                    style={{ fontFamily: "Inter Display, sans-serif" }}
+                  >
                     Tailored Recommendations
                   </h3>
                   <p
                     className="text-gray-600 group-hover:text-white text-sm opacity-0 group-hover:opacity-100 transition-all duration-300"
-                    style={{ fontFamily: 'Inter Display, sans-serif' }}
+                    style={{ fontFamily: "Inter Display, sans-serif" }}
                   >
                     Expert recommendations to maximise chances of success
                   </p>

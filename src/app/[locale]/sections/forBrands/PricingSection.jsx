@@ -59,6 +59,12 @@ const PricingSection = () => {
             filter: "drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4))",
           }}
           transition={{ duration: 0.3 }}
+          onClick={() =>
+            window.open(
+              "https://psg0xjbmy530.sg.larksuite.com/scheduler/ff2f9eae30e860b6",
+              "_blank",
+            )
+          }
         >
           <span className="flex items-center gap-2">
             Let’s have a quick chat

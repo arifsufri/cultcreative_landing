@@ -4,9 +4,15 @@ import clsx from "clsx";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 
 const Card = ({ plan }) => {
   const [billingType, setBillingType] = useState("monthly");
+
+  const pathname = usePathname();
+  const locale = pathname?.split("/")[1] || "my";
+
+  const router = useRouter();
 
   const isAvailabilityExist = plan?.availability;
 
@@ -88,7 +94,12 @@ const Card = ({ plan }) => {
             />
           )}
 
-          <span>{billing.credits} CGC Credits</span>
+          <p
+            onClick={() => router.push(`/${locale}/cgc-credits`)}
+            className="cursor-pointer"
+          >
+            {billing.credits} CGC Credits
+          </p>
         </li>
         <li
           className={clsx(
