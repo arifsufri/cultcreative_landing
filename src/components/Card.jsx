@@ -66,7 +66,7 @@ const Card = ({ plan }) => {
           <span className="text-xs font-light tracking-tighter">
             {billingType === "one_off" || plan.billing.length < 2
               ? "/one-off"
-              : `/for ${duration}`}
+              : `/month`}
           </span>
         </h1>
       </div>
