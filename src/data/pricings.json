@@ -1,0 +1,266 @@
+[
+  {
+    "currency": "MYR",
+    "plans": [
+      {
+        "id": "lite",
+        "name": "Lite",
+        "availability": "available_for_new_clients_only",
+        "billing": [
+          {
+            "type": "one_off",
+            "price": 3400,
+            "duration": "1_month",
+            "credits": 5,
+            "credit_unit": "CGC",
+            "credit_validity": "1_month"
+          }
+        ],
+        "campaign_support": "standard",
+        "best_for": [
+          "Want to test creator marketing first",
+          "Have a limited campaign budget",
+          "Need quick access to creators and insights"
+        ],
+        "features": [
+          "Post-Campaign Review Call",
+          "Campaign Performance Analytics Access"
+        ]
+      },
+      {
+        "id": "core",
+        "name": "Core",
+        "billing": [
+          {
+            "type": "monthly",
+            "price": 6400,
+            "duration": "3_months",
+            "credits": 30,
+            "credit_unit": "CGC",
+            "credit_validity": "3_months"
+          },
+          {
+            "type": "one_off",
+            "price": 19200,
+            "duration": "3_months",
+            "credits": 30,
+            "credit_unit": "CGC",
+            "credit_validity": "3_months"
+          }
+        ],
+        "campaign_support": "enhanced",
+        "best_for": [
+          "Need reliable performance insights",
+          "Plan to run multiple collaborations",
+          "Ready for consistent brand-creator collaborations"
+        ],
+        "features": [
+          "Post-Campaign Review Call",
+          "Campaign Performance Analytics Access",
+          "Performance Breakdown Report"
+        ]
+      },
+      {
+        "id": "growth",
+        "name": "Growth",
+        "billing": [
+          {
+            "type": "monthly",
+            "price": 6200,
+            "duration": "5_months",
+            "credits": 50,
+            "credit_unit": "CGC",
+            "credit_validity": "5_months"
+          },
+          {
+            "type": "one_off",
+            "price": 31000,
+            "duration": "5_months",
+            "credits": 50,
+            "credit_unit": "CGC",
+            "credit_validity": "5_months"
+          }
+        ],
+        "campaign_support": "priority",
+        "best_for": [
+          "Want strong data to influence decisions and next steps",
+          "Run creator marketing campaigns regularly",
+          "Organisation managing multiple campaigns efficiently"
+        ],
+        "features": [
+          "Post-Campaign Review Call",
+          "Campaign Performance Analytics Access",
+          "In-Depth Campaign Intelligence Report",
+          "Priority Campaign Exposure to Creators"
+        ]
+      },
+      {
+        "id": "scale",
+        "name": "Scale",
+        "billing": [
+          {
+            "type": "monthly",
+            "price": 6000,
+            "duration": "10_months",
+            "credits": 100,
+            "credit_unit": "CGC",
+            "credit_validity": "10_months"
+          },
+          {
+            "type": "one_off",
+            "price": 60000,
+            "duration": "10_months",
+            "credits": 100,
+            "credit_unit": "CGC",
+            "credit_validity": "10_months"
+          }
+        ],
+        "campaign_support": "dedicated",
+        "best_for": [
+          "Run creator marketing campaigns continuously and at scale",
+          "Build long-term creator programs",
+          "Organisation focused on massive reach and impact"
+        ],
+        "features": [
+          "Post Campaign Strategy Call",
+          "Real-Time Campaign Analytics Dashboard",
+          "Advanced Performance Report",
+          "Priority Campaign Exposure to Creators",
+          "Brand Amplification Across Network"
+        ]
+      }
+    ]
+  },
+  {
+    "currency": "SGD",
+    "plans": [
+      {
+        "id": "lite",
+        "name": "Lite",
+        "availability": "available_for_new_clients_only",
+        "billing": [
+          {
+            "type": "one_off",
+            "price": 3500,
+            "duration": "1_month",
+            "credits": 5,
+            "credit_unit": "CGC",
+            "credit_validity": "1_month"
+          }
+        ],
+        "campaign_support": "standard",
+        "best_for": [
+          "Want to test creator marketing first",
+          "Have a limited campaign budget",
+          "Need quick access to creators and insights"
+        ],
+        "features": [
+          "Post-Campaign Review Call",
+          "Campaign Performance Analytics Access"
+        ]
+      },
+      {
+        "id": "core",
+        "name": "Core",
+        "billing": [
+          {
+            "type": "monthly",
+            "price": 6700,
+            "duration": "3_months",
+            "credits": 30,
+            "credit_unit": "CGC",
+            "credit_validity": "3_months"
+          },
+          {
+            "type": "one_off",
+            "price": 20100,
+            "duration": "3_months",
+            "credits": 30,
+            "credit_unit": "CGC",
+            "credit_validity": "3_months"
+          }
+        ],
+        "campaign_support": "enhanced",
+        "best_for": [
+          "Need reliable performance insights",
+          "Plan to run multiple collaborations",
+          "Ready for consistent brand-creator collaborations"
+        ],
+        "features": [
+          "Post-Campaign Review Call",
+          "Campaign Performance Analytics Access",
+          "Performance Breakdown Report"
+        ]
+      },
+      {
+        "id": "growth",
+        "name": "Growth",
+        "billing": [
+          {
+            "type": "monthly",
+            "price": 6500,
+            "duration": "5_months",
+            "credits": 50,
+            "credit_unit": "CGC",
+            "credit_validity": "5_months"
+          },
+          {
+            "type": "one_off",
+            "price": 32500,
+            "duration": "5_months",
+            "credits": 50,
+            "credit_unit": "CGC",
+            "credit_validity": "5_months"
+          }
+        ],
+        "campaign_support": "priority",
+        "best_for": [
+          "Want strong data to influence decisions and next steps",
+          "Run creator marketing campaigns regularly",
+          "Organisation managing multiple campaigns efficiently"
+        ],
+        "features": [
+          "Post-Campaign Review Call",
+          "Campaign Performance Analytics Access",
+          "In-Depth Campaign Intelligence Report",
+          "Priority Campaign Exposure to Creators"
+        ]
+      },
+      {
+        "id": "scale",
+        "name": "Scale",
+        "billing": [
+          {
+            "type": "monthly",
+            "price": 6200,
+            "duration": "10_months",
+            "credits": 100,
+            "credit_unit": "CGC",
+            "credit_validity": "10_months"
+          },
+          {
+            "type": "one_off",
+            "price": 62000,
+            "duration": "10_months",
+            "credits": 100,
+            "credit_unit": "CGC",
+            "credit_validity": "10_months"
+          }
+        ],
+        "campaign_support": "dedicated",
+        "best_for": [
+          "Run creator marketing campaigns continuously and at scale",
+          "Build long-term creator programs",
+          "Organisation focused on massive reach and impact"
+        ],
+        "features": [
+          "Post Campaign Strategy Call",
+          "Real-Time Campaign Analytics Dashboard",
+          "Advanced Performance Report",
+          "Priority Campaign Exposure to Creators",
+          "Brand Amplification Across Network"
+        ]
+      }
+    ]
+  }
+]

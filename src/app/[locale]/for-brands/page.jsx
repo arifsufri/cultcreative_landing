@@ -92,21 +92,31 @@ const FloatingNavbar = dynamic(
 const FirstSection = dynamic(
   () => import("@/app/[locale]/sections/forBrands/FirstSection"),
 );
+
 const SecondSection = dynamic(
   () => import("@/app/[locale]/sections/forBrands/SecondSection"),
 );
+
 const ThirdSection = dynamic(
   () => import("@/app/[locale]/sections/forBrands/ThirdSection"),
 );
+
 const FourthSection = dynamic(
   () => import("@/app/[locale]/sections/forBrands/FourthSection"),
 );
+
 const FifthSection = dynamic(
   () => import("@/app/[locale]/sections/forBrands/FifthSection"),
 );
+
 const SixthSection = dynamic(
   () => import("@/app/[locale]/sections/forBrands/SixthSection"),
 );
+
+const PricingSection = dynamic(
+  () => import("@/app/[locale]/sections/forBrands/PricingSection"),
+);
+
 const NewFooter = dynamic(() => import("@/app/[locale]/components/NewFooter"));
 
 export const metadata = {
@@ -164,7 +174,8 @@ const ForBrandsPage = async ({ params }) => {
           <SecondSection />
           <ThirdSection />
           <FourthSection />
-          <FifthSection />
+          {/* <FifthSection /> */}
+          <PricingSection />
           <SixthSection />
           <NewFooter />
           <Toaster position="top-center" />
