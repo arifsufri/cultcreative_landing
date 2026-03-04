@@ -55,7 +55,7 @@ const CGCCredits = () => {
           </div>
         </div>
 
-        <div className="flex justify-between gap-10 mt-15 sm:mt-10 overflow-scroll snap-x snap-mandatory sm:snap-none">
+        <div className="flex justify-between gap-10 mt-15 sm:mt-10 overflow-x-scroll snap-x snap-mandatory sm:snap-none">
           {packages.map((item, index) => (
             <div
               key={index}
@@ -110,22 +110,18 @@ const CGCCredits = () => {
               </div>
 
               {/* Video */}
-              <div className="aspect-video">
-                <video
-                  key={item.videoUrl}
-                  className="rounded-2xl"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                >
-                  <source src={item.videoUrl} type="video/mp4" />
-                </video>
-              </div>
-
-              {/* <div className="w-full h-100 rounded-xl bg-gray-500" /> */}
-
-              {/* <CustomLine /> */}
+              {/* <div className="aspect-video max-w-full"> */}
+              <video
+                key={item.videoUrl}
+                className="rounded-2xl aspect-auto"
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                <source src={item.videoUrl} type="video/mp4" />
+              </video>
+              {/* </div> */}
             </div>
           ))}
         </div>
