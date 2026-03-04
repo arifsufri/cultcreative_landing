@@ -110,7 +110,6 @@ const CGCCredits = () => {
               </div>
 
               {/* Video */}
-              {/* <div className="aspect-video max-w-full"> */}
               <div className="relative">
                 <video
                   key={item.videoUrl}
@@ -122,19 +121,18 @@ const CGCCredits = () => {
                 >
                   <source src={item.videoUrl} type="video/mp4" />
                 </video>
-                <div className="absolute bottom-10 left-10">
-                  <h4 className="font-bold md:text-4xl font-family-aileron tracking-tight capitalize text-3xl">
+                <div className="absolute bottom-8 left-5">
+                  <h4 className="font-bold md:text-2xl lg:text-4xl font-family-aileron tracking-tight capitalize text-3xl">
                     {item.campaignName}
                   </h4>
                   <p
-                    className="italic text-xl font-family-times mt-2 tracking-tight capitalize"
+                    className="italic text-xl font-family-times sm:mt-1.5 tracking-tight capitalize"
                     style={{ fontWeight: 400 }}
                   >
                     {item.creatorName}
                   </p>
                 </div>
               </div>
-              {/* </div> */}
             </div>
           ))}
         </div>

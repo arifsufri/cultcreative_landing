@@ -589,7 +589,7 @@ const FirstSection = () => {
               className="w-full max-w-4xl"
             >
               {/* "as seen on" text for mobile */}
-              <p className="text-white text-sm mb-4 md:hidden text-center font-family-times opacity-70">
+              <p className="text-white text-sm mb-4 hidden text-center font-family-times opacity-70">
                 as seen on
               </p>
               <Image

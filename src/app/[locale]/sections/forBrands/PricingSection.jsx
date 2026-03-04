@@ -28,7 +28,11 @@ const PricingSection = () => {
               highlighted: plan.id === "growth",
             }}
             billingType={billingType}
-            setBillingType={setBillingType}
+            setBillingType={() =>
+              setBillingType((prev) =>
+                prev === "monthly" ? "one_off" : "monthly",
+              )
+            }
           />
         ))}
       </div>
@@ -41,7 +45,6 @@ const PricingSection = () => {
         <p className="my-2 text-lg leading-5 sm:text-base text-pretty">
           Looking for a better fit?{" "}
           <span className="font-semibold">
-            {" "}
             We offer custom packages that can be tailored to your campaign
             needs.
           </span>

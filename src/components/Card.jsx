@@ -31,13 +31,22 @@ const Card = ({ plan, billingType, setBillingType }) => {
           className={clsx(
             "border p-1 rounded-2xl min-w-25 text-center font-medium border-[#C9C9C9] flex items-center justify-center",
             plan.id === "growth" &&
-              "bg-linear-to-r from-[#1340FF] to-[#0067D5] text-white border-0",
+              "bg-linear-to-r from-[#1340FF] to-[#0067D5] text-white border-0 pl-2",
           )}
         >
           {plan.name}
-          {/* {plan.id === "growth" && (
-            <Image width={50} height={50} src={"/logo/Star.svg"} alt="star" />
-          )} */}
+          {plan.id === "growth" && (
+            <Image
+              src="/test.svg"
+              alt="decorative stars"
+              width={15}
+              height={15}
+              className="w-7 h-7 opacity-100"
+              loading="eager"
+            />
+
+            // <Image width={50} height={50} src={"/logo/Star.svg"} alt="star" />
+          )}
         </span>
 
         {isAvailabilityExist && (
