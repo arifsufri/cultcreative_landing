@@ -54,8 +54,6 @@ steps:
         "--set-secrets",
         "GOOGLE_CLIENT_EMAIL=GOOGLE_CLIENT_EMAIL:latest",
         "--set-secrets",
-        "SPREADSHEET_ID=SPREADSHEET_ID:latest",
-        "--set-secrets",
         "META_PIXEL_ID=META_PIXEL_ID:latest",
         "--allow-unauthenticated",
       ]
