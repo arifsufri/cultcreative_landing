@@ -638,10 +638,13 @@ const ThirdSection = () => {
 
         {/* CTA Button */}
         <div className="text-center mt-12 md:mt-16">
-          <motion.button
+          <motion.a
+            href="https://api.whatsapp.com/send/?phone=60162678757&text=I%27m+interested+in+a+creator+marketing+package%21&type=phone_number&app_absent=0"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
-            className="px-12 py-4 text-white font-bold rounded-full text-lg relative overflow-hidden cursor-pointer"
+            className="px-12 py-4 text-white font-bold rounded-full text-lg relative overflow-hidden cursor-pointer inline-block"
             style={{
               backgroundColor: "#1340ff",
               background: "linear-gradient(135deg, #1340ff 0%, #0d2eb8 100%)",
@@ -668,7 +671,7 @@ const ThirdSection = () => {
                 />
               </svg>
             </span>
-          </motion.button>
+          </motion.a>
         </div>
       </div>
     </section>

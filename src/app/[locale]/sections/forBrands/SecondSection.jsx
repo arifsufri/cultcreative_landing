@@ -120,7 +120,7 @@ const SecondSection = () => {
       ],
       phoneContent: "hotel",
       videoSrc:
-        "https://storage.googleapis.com/landing-cultcreative/brands/brand2.mp4",
+        "https://storage.googleapis.com/landing-cultcreative/brands/brand3.mp4",
     },
     {
       title: "Noir Fine Dining",
@@ -132,7 +132,7 @@ const SecondSection = () => {
       ],
       phoneContent: "tech",
       videoSrc:
-        "https://storage.googleapis.com/landing-cultcreative/brands/brand3.mp4",
+        "https://storage.googleapis.com/landing-cultcreative/brands/brand2.mp4",
     },
   ];
 

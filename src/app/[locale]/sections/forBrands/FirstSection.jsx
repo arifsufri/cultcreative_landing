@@ -48,8 +48,8 @@ const FirstSection = () => {
             <div
               style={{
                 position: "absolute",
-                top: "74%",
-                left: "20px",
+                top: "40%",
+                left: "50px",
                 transform: "translateY(-50%)",
                 width: "462px",
                 height: "32px",

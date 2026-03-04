@@ -46,8 +46,11 @@ const FifthSection = () => {
           className="block md:hidden w-full max-w-7xl h-auto px-4 pb-10"
         />
         <div>
-          <motion.button
-            className="px-16 py-2 md:py-4 text-base md:text-lg font-aileron text-white font-semibold rounded-full text-lg shadow-lg"
+          <motion.a
+            href="https://app.cultcreativeasia.com/auth/jwt/register"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-16 py-2 md:py-4 text-base md:text-lg font-aileron text-white font-semibold rounded-full text-lg shadow-lg inline-block"
             style={{
               backgroundColor: "#1340ff",
               background: "#1340ff",
@@ -78,7 +81,7 @@ const FifthSection = () => {
                 />
               </svg>
             </span>
-          </motion.button>
+          </motion.a>
         </div>
       </div>
     </section>
