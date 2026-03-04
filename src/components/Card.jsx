@@ -6,8 +6,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 
-const Card = ({ plan }) => {
-  const [billingType, setBillingType] = useState("monthly");
+const Card = ({ plan, billingType, setBillingType }) => {
+  // const [billingType, setBillingType] = useState("monthly");
 
   const pathname = usePathname();
   const locale = pathname?.split("/")[1] || "my";
@@ -22,10 +22,10 @@ const Card = ({ plan }) => {
   const billing =
     plan.billing.find((b) => b.type === billingType) || plan.billing[0];
 
-  const duration = billing.duration.split("_").join(" ").slice(0, 4);
+  // const duration = billing.duration.split("_").join(" ").slice(0, 4);
 
   return (
-    <div className="bg-white border text-black not-sm:min-w-full sm:w-80 rounded-xl p-5 border-slate-300 inset-shadow-sm snap-center">
+    <div className="bg-white border text-black not-sm:min-w-80 sm:w-70 rounded-xl p-5 border-slate-300 inset-shadow-sm snap-center">
       <div className="flex flex-col justify-center items-start sm:items-center gap-3 sm:gap-6">
         <span
           className={clsx(
@@ -61,6 +61,7 @@ const Card = ({ plan }) => {
         >
           {new Intl.NumberFormat("en-MY", {
             style: "currency",
+            maximumFractionDigits: 0,
             currency: plan.currency || "MYR",
           }).format(billing?.price)}
           <span className="text-xs font-light tracking-tighter">

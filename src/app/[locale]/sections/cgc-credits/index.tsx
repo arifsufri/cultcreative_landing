@@ -10,8 +10,8 @@ const CGCCredits = () => {
         background: "linear-gradient(179.81deg, #8A5AFE 0.17%, #F5F5F5 63.77%)",
       }}
     >
-      <div className="m-10 mt-30 sm:m-40">
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-15 sm:gap-0">
+      <div className="m-10 mt-30 md:m-40">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-15 md:gap-0">
           <div className="flex flex-col flex-1/2 gap-4">
             <div className="relative">
               <h1 className="font-bold text-5xl text-white tracking-tighter">
@@ -55,11 +55,11 @@ const CGCCredits = () => {
           </div>
         </div>
 
-        <div className="flex justify-between gap-10 mt-15 sm:mt-10 overflow-x-scroll snap-x snap-mandatory sm:snap-none">
+        <div className="flex justify-between gap-5 sm:gap-10 mt-15 sm:mt-10 overflow-x-scroll snap-x snap-mandatory sm:snap-none -m-10 p-10 sm:p-0 sm:m-0">
           {packages.map((item, index) => (
             <div
               key={index}
-              className="flex-1 flex flex-col justify-between min-w-full md:min-w-0 snap-center"
+              className="flex-1 flex flex-col justify-between min-w-full sm:min-w-0 snap-center"
             >
               <div className="text-center">
                 <div className="flex gap-1.5 justify-center">
@@ -99,28 +99,41 @@ const CGCCredits = () => {
 
                 <div className="bg-[#1340FF] w-full h-0.5 my-2" />
 
-                <p className="text-black font-light text-xs text-start text-pretty leading-tight">
+                <p className="text-black font-light text-xs text-start text-pretty leading-tight mx-2">
                   {item.notes}
                 </p>
               </div>
 
-              <div className="bg-[#1340FF] w-0.5 h-12 my-2 mx-auto relative">
+              <div className="bg-[#1340FF] w-0.5 h-12 my-8 mx-auto relative">
                 <div className="w-px h-px bg-white border-2 border-[#1340FF] p-0.5 rounded-full absolute left-1/2 top-0 -translate-x-1/2" />
                 <div className="w-px h-px bg-white border-2 border-[#1340FF] p-0.5 rounded-full absolute left-1/2 bottom-0 -translate-x-1/2" />
               </div>
 
               {/* Video */}
               {/* <div className="aspect-video max-w-full"> */}
-              <video
-                key={item.videoUrl}
-                className="rounded-2xl aspect-auto"
-                autoPlay
-                loop
-                muted
-                playsInline
-              >
-                <source src={item.videoUrl} type="video/mp4" />
-              </video>
+              <div className="relative">
+                <video
+                  key={item.videoUrl}
+                  className="rounded-2xl aspect-auto"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                >
+                  <source src={item.videoUrl} type="video/mp4" />
+                </video>
+                <div className="absolute bottom-10 left-10">
+                  <h4 className="font-bold md:text-4xl font-family-aileron tracking-tight capitalize text-3xl">
+                    {item.campaignName}
+                  </h4>
+                  <p
+                    className="italic text-xl font-family-times mt-2 tracking-tight capitalize"
+                    style={{ fontWeight: 400 }}
+                  >
+                    {item.creatorName}
+                  </p>
+                </div>
+              </div>
               {/* </div> */}
             </div>
           ))}

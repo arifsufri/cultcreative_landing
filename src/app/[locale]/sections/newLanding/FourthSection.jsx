@@ -287,14 +287,14 @@ const FourthSection = () => {
                 className="relative font-aileron font-bold"
                 style={{ letterSpacing: "-0.06em" }}
               >
-                Fnally Makes
+                Finally Makes
                 <span className="relative inline-block">
                   <Image
                     src="/images/NewMain/bluerectangle.svg"
                     alt="Blue rectangle background"
                     width={212}
                     height={64}
-                    className="absolute inset-0 w-53 h-16 object-cover left-1"
+                    className="absolute inset-0 w-53 h-full object-cover left-1"
                     loading="lazy"
                   />
                   <Image
@@ -323,61 +323,159 @@ const FourthSection = () => {
           </div>
 
           {/* Video Carousel with Smooth Reordering */}
-          <div className="py-20">
-            <div className="w-full">
-              {/* Desktop Layout */}
-              <div className="hidden md:flex justify-center items-center relative h-[500px] max-w-7xl mx-auto">
-                {videos.map((video, index) => {
-                  const videoId = index + 1;
-                  const currentPosition = getVideoPosition(index);
-                  const isCenter = isCenterVideo(index);
 
-                  const positionVariants = {
-                    center: { x: 0, scale: 1.1, zIndex: 5, y: -35 },
-                    left1: { x: -380, scale: 0.9, zIndex: 3, y: -15 },
-                    left: { x: -700, scale: 0.9, zIndex: 2, y: -15 },
-                    right1: { x: 380, scale: 0.9, zIndex: 3, y: -15 },
-                    right: { x: 700, scale: 0.9, zIndex: 2, y: -15 },
-                  };
+          <div className="w-full">
+            {/* Desktop Layout */}
+            <div className="hidden md:flex justify-center items-center relative h-[500px] max-w-7xl mx-auto">
+              {videos.map((video, index) => {
+                const videoId = index + 1;
+                const currentPosition = getVideoPosition(index);
+                const isCenter = isCenterVideo(index);
 
-                  return (
-                    <m.div
+                const positionVariants = {
+                  center: { x: 0, scale: 1.1, zIndex: 5, y: -35 },
+                  left1: { x: -380, scale: 0.9, zIndex: 3, y: -15 },
+                  left: { x: -700, scale: 0.9, zIndex: 2, y: -15 },
+                  right1: { x: 380, scale: 0.9, zIndex: 3, y: -15 },
+                  right: { x: 700, scale: 0.9, zIndex: 2, y: -15 },
+                };
+
+                return (
+                  <m.div
+                    key={video.id}
+                    className="relative cursor-pointer"
+                    layout
+                    initial="center"
+                    animate={currentPosition}
+                    variants={positionVariants}
+                    transition={{
+                      duration: 0.6,
+                      ease: "easeInOut",
+                      layout: { duration: 0.6 },
+                    }}
+                    onClick={() => handleVideoClick(videoId)}
+                    style={{
+                      width: "300px",
+                      height: "400px",
+                      position: "absolute",
+                    }}
+                  >
+                    <div
+                      className={`relative rounded-3xl overflow-hidden transition-all duration-300 ${
+                        isCenter ? "shadow-2xl" : ""
+                      }`}
+                    >
+                      {/* Video Element */}
+                      <div className="aspect-9/16 bg-gray-200 flex items-center justify-center relative">
+                        <video
+                          className="w-full h-full object-cover"
+                          autoPlay={isCenter}
+                          muted
+                          loop={isCenter}
+                          playsInline
+                          controls={false}
+                          preload={isCenter ? "auto" : "metadata"}
+                          ref={(el) => {
+                            if (el) {
+                              if (isCenter) {
+                                el.currentTime = 0;
+                                el.play().catch(() => {});
+                              } else {
+                                el.pause();
+                              }
+                            }
+                          }}
+                        >
+                          <source src={video.videoUrl} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+
+                        {/* Bottom Overlay with Brand and Creator - Only show on center video */}
+                        {isCenter && (
+                          <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
+                            <h3
+                              className="text-white font-aileron font-bold capitalize"
+                              style={{
+                                fontSize: "33.87px",
+                                lineHeight: "40px",
+                                letterSpacing: "-0.06em",
+                              }}
+                            >
+                              {video.brand}
+                            </h3>
+                            <p
+                              className="text-white/90 italic"
+                              style={{
+                                fontFamily: "Times New Roman, serif",
+                                fontSize: "21.17px",
+                                lineHeight: "38.11px",
+                                letterSpacing: "-0.04em",
+                                fontWeight: 400,
+                              }}
+                            >
+                              {video.name}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </m.div>
+                );
+              })}
+            </div>
+
+            {/* Mobile Layout - Swipeable Carousel with Side Peek */}
+            <div
+              className="md:hidden relative w-full"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              <div className="relative h-[600px] w-full overflow-x-clip">
+                <m.div
+                  className="flex h-full items-center"
+                  style={{
+                    paddingLeft: "calc(50vw - 170px)",
+                    paddingRight: "calc(50vw - 170px)",
+                  }}
+                  animate={{
+                    x: `-${currentMobileIndex * 340}px`,
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 30,
+                  }}
+                >
+                  {videos.map((video, index) => (
+                    <div
                       key={video.id}
-                      className="relative cursor-pointer"
-                      layout
-                      initial="center"
-                      animate={currentPosition}
-                      variants={positionVariants}
-                      transition={{
-                        duration: 0.6,
-                        ease: "easeInOut",
-                        layout: { duration: 0.6 },
-                      }}
-                      onClick={() => handleVideoClick(videoId)}
-                      style={{
-                        width: "300px",
-                        height: "400px",
-                        position: "absolute",
-                      }}
+                      className="shrink-0 px-2.5"
+                      style={{ width: "340px" }}
                     >
                       <div
-                        className={`relative rounded-3xl overflow-hidden transition-all duration-300 ${
-                          isCenter ? "shadow-2xl" : ""
+                        className={`relative rounded-[32px] overflow-hidden transition-all duration-300 ${
+                          index === currentMobileIndex
+                            ? "shadow-2xl scale-100"
+                            : "shadow-lg scale-90 opacity-60"
                         }`}
+                        style={{ width: "320px", height: "550px" }}
+                        onClick={() => setCurrentMobileIndex(index)}
                       >
-                        {/* Video Element */}
-                        <div className="aspect-9/16 bg-gray-200 flex items-center justify-center relative">
+                        <div className="relative bg-gray-200 w-full h-full">
                           <video
                             className="w-full h-full object-cover"
-                            autoPlay={isCenter}
+                            autoPlay={index === currentMobileIndex}
                             muted
-                            loop={isCenter}
+                            loop={index === currentMobileIndex}
                             playsInline
                             controls={false}
-                            preload={isCenter ? "auto" : "metadata"}
+                            preload={
+                              index === currentMobileIndex ? "auto" : "metadata"
+                            }
                             ref={(el) => {
                               if (el) {
-                                if (isCenter) {
+                                if (index === currentMobileIndex) {
                                   el.currentTime = 0;
                                   el.play().catch(() => {});
                                 } else {
@@ -390,153 +488,52 @@ const FourthSection = () => {
                             Your browser does not support the video tag.
                           </video>
 
-                          {/* Bottom Overlay with Brand and Creator - Only show on center video */}
-                          {isCenter && (
-                            <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
-                              <h3
-                                className="text-white font-aileron font-bold capitalize"
-                                style={{
-                                  fontSize: "33.87px",
-                                  lineHeight: "40px",
-                                  letterSpacing: "-0.06em",
-                                }}
-                              >
-                                {video.brand}
-                              </h3>
-                              <p
-                                className="text-white/90 italic"
-                                style={{
-                                  fontFamily: "Times New Roman, serif",
-                                  fontSize: "21.17px",
-                                  lineHeight: "38.11px",
-                                  letterSpacing: "-0.04em",
-                                  fontWeight: 400,
-                                }}
-                              >
-                                {video.name}
-                              </p>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </m.div>
-                  );
-                })}
-              </div>
-
-              {/* Mobile Layout - Swipeable Carousel with Side Peek */}
-              <div
-                className="md:hidden relative w-full"
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
-              >
-                <div className="relative h-[600px] w-full overflow-x-clip">
-                  <m.div
-                    className="flex h-full items-center"
-                    style={{
-                      paddingLeft: "calc(50vw - 170px)",
-                      paddingRight: "calc(50vw - 170px)",
-                    }}
-                    animate={{
-                      x: `-${currentMobileIndex * 340}px`,
-                    }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 30,
-                    }}
-                  >
-                    {videos.map((video, index) => (
-                      <div
-                        key={video.id}
-                        className="shrink-0 px-2.5"
-                        style={{ width: "340px" }}
-                      >
-                        <div
-                          className={`relative rounded-[32px] overflow-hidden transition-all duration-300 ${
-                            index === currentMobileIndex
-                              ? "shadow-2xl scale-100"
-                              : "shadow-lg scale-90 opacity-60"
-                          }`}
-                          style={{ width: "320px", height: "550px" }}
-                          onClick={() => setCurrentMobileIndex(index)}
-                        >
-                          <div className="relative bg-gray-200 w-full h-full">
-                            <video
-                              className="w-full h-full object-cover"
-                              autoPlay={index === currentMobileIndex}
-                              muted
-                              loop={index === currentMobileIndex}
-                              playsInline
-                              controls={false}
-                              preload={
-                                index === currentMobileIndex
-                                  ? "auto"
-                                  : "metadata"
-                              }
-                              ref={(el) => {
-                                if (el) {
-                                  if (index === currentMobileIndex) {
-                                    el.currentTime = 0;
-                                    el.play().catch(() => {});
-                                  } else {
-                                    el.pause();
-                                  }
-                                }
+                          {/* Bottom Overlay with Brand and Creator */}
+                          <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
+                            <h3
+                              className="text-white font-aileron font-bold capitalize"
+                              style={{
+                                fontSize: "33.87px",
+                                lineHeight: "40px",
+                                letterSpacing: "-0.06em",
                               }}
                             >
-                              <source src={video.videoUrl} type="video/mp4" />
-                              Your browser does not support the video tag.
-                            </video>
-
-                            {/* Bottom Overlay with Brand and Creator */}
-                            <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
-                              <h3
-                                className="text-white font-aileron font-bold capitalize"
-                                style={{
-                                  fontSize: "33.87px",
-                                  lineHeight: "40px",
-                                  letterSpacing: "-0.06em",
-                                }}
-                              >
-                                {video.brand}
-                              </h3>
-                              <p
-                                className="text-white/90 italic"
-                                style={{
-                                  fontFamily: "Times New Roman, serif",
-                                  fontSize: "21.17px",
-                                  lineHeight: "38.11px",
-                                  letterSpacing: "-0.04em",
-                                  fontWeight: 400,
-                                }}
-                              >
-                                {video.name}
-                              </p>
-                            </div>
+                              {video.brand}
+                            </h3>
+                            <p
+                              className="text-white/90 italic"
+                              style={{
+                                fontFamily: "Times New Roman, serif",
+                                fontSize: "21.17px",
+                                lineHeight: "38.11px",
+                                letterSpacing: "-0.04em",
+                                fontWeight: 400,
+                              }}
+                            >
+                              {video.name}
+                            </p>
                           </div>
                         </div>
                       </div>
-                    ))}
-                  </m.div>
-                </div>
-
-                {/* Navigation Dots */}
-                <div className="flex justify-center gap-2 mt-6">
-                  {videos.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => goToSlide(index)}
-                      className={`w-2 h-2 rounded-full transition-all ${
-                        index === currentMobileIndex
-                          ? "bg-black w-8"
-                          : "bg-gray-300"
-                      }`}
-                      aria-label={`Go to video ${index + 1}`}
-                    />
+                    </div>
                   ))}
-                </div>
+                </m.div>
+              </div>
+
+              {/* Navigation Dots */}
+              <div className="flex justify-center gap-2 mt-6">
+                {videos.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    className={`w-2 h-2 rounded-full transition-all ${
+                      index === currentMobileIndex
+                        ? "bg-black w-8"
+                        : "bg-gray-300"
+                    }`}
+                    aria-label={`Go to video ${index + 1}`}
+                  />
+                ))}
               </div>
             </div>
           </div>

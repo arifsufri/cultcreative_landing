@@ -131,13 +131,14 @@ const FourthSection = () => {
               {isMobile ? (
                 <>
                   <span className="flex items-center gap-2">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src="/images/NewMain/singlestar.svg"
                       alt="star"
-                      className="w-6 h-6"
+                      className="w-6 h-6 opacity-0"
                     />
-                    What&apos;s{" "}
-                    <span style={{ padding: "0 4px" }}>Inside.</span>
+                    What&apos;s{""}
+                    <span style={{ padding: "0 0px" }}>Inside.</span>
                   </span>
                 </>
               ) : (
@@ -147,10 +148,11 @@ const FourthSection = () => {
 
             {/* Curly yellow underline - desktop only */}
             <div className="relative inline-block ml-4">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/ForBrands/curlyyellow.svg"
                 alt="Curly yellow underline"
-                className="md:w-auto h-8 -mt-4 w-50"
+                className="md:w-auto h-8 w-50 -mt-10"
               />
             </div>
           </motion.div>

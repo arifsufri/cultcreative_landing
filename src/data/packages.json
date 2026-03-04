@@ -3,6 +3,8 @@
     "type": "Nano",
     "icon": "/images/Star 10.svg",
     "videoUrl": "https://res.cloudinary.com/dirld0zbv/video/upload/v1772523813/video1_oezm51.mp4",
+    "creatorName": "Nur Yasmin",
+    "campaignName": "Bata",
     "subPackages": [
       {
         "type": "Nano A",
@@ -21,6 +23,8 @@
     "type": "Micro",
     "icon": "/images/Star 11.svg",
     "videoUrl": "https://res.cloudinary.com/dirld0zbv/video/upload/v1772523814/video2_u3c0ux.mp4",
+    "creatorName": "Avanyeesh Kartigesu",
+    "campaignName": "Kahf",
     "subPackages": [
       {
         "type": "Micro A",
@@ -44,6 +48,8 @@
     "type": "Macro",
     "icon": "/images/Star 9.svg",
     "videoUrl": "https://res.cloudinary.com/dirld0zbv/video/upload/v1772590907/3rd-video_k94yj3.mov",
+    "creatorName": "Alisa",
+    "campaignName": "osaka world expo",
     "subPackages": [
       {
         "type": "Macro",

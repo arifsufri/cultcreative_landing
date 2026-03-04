@@ -30,43 +30,44 @@ const FirstSection = () => {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-6 relative z-10 flex-1 flex items-end justify-center pb-10">
-        <div className="text-center max-w-4xl mx-auto">
+      <div className="container mx-auto px-6 relative z-10 flex-1 flex items-end justify-center pb-30">
+        <div className="text-center max-w-5xl mx-auto">
           <motion.h1
-            className="mb-4 leading-tight text-white relative text-[35px] md:text-[54px] tracking-tight"
+            className="mb-4 leading-tight text-white relative text-[35px] md:text-[50px] tracking-tight"
             style={{
               textShadow: "0 4px 6px rgba(0, 0, 0, 0.25)",
               lineHeight: "57.86px",
               letterSpacing: "-6%",
-              textTransform: "capitalize",
             }}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
             {/* Rectangle behind "Influencer marketing" text */}
-            <div
-              style={{
-                position: "absolute",
-                top: "40%",
-                left: "50px",
-                transform: "translateY(-50%)",
-                width: "462px",
-                height: "32px",
-                backgroundColor: "#231f20",
-                zIndex: -1,
-              }}
-              className="hidden md:block"
-            />
+
             <span
-              className="block md:inline whitespace-nowrap tracking-tight"
+              className="block md:inline whitespace-nowrap tracking-tight capitalize relative"
               style={{
                 fontFamily: "Aileron",
                 fontWeight: 600,
                 fontStyle: "normal",
               }}
             >
-              Creator marketing,{" "}
+              Creator marketing,
+              <div
+                className="w-full"
+                style={{
+                  position: "absolute",
+                  top: "60%",
+                  // left: "-10px",
+                  transform: "translateY(-50%)",
+                  // width: "430px",
+                  height: "32px",
+                  backgroundColor: "#231f20",
+                  zIndex: -1,
+                }}
+                // className="hidden md:block"
+              />
             </span>
             <span
               className="block md:inline"
@@ -79,7 +80,7 @@ const FirstSection = () => {
                 letterSpacing: "-4%",
               }}
             >
-              That Finally Makes Sense.
+              That finally makes sense.
             </span>
           </motion.h1>
 

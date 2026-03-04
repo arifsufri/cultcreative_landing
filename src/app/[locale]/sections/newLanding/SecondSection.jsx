@@ -93,7 +93,7 @@ const SecondSection = () => {
                   className="absolute -top-6 -left-12 w-10 h-10"
                   loading="lazy"
                 />
-                What{" "}
+                What{""}
                 <span className="relative">
                   <Image
                     src="/images/NewMain/rectangle.svg"
@@ -111,7 +111,7 @@ const SecondSection = () => {
             <p className="text-lg text-gray-600 max-w-3xl mx-auto relative font-aileron">
               Cult Creative is the{" "}
               <strong className="text-black font-bold">
-                all-in-one portal
+                all-in-one platform
               </strong>{" "}
               for{" "}
               <strong className="relative text-black md:font-bold">
@@ -255,7 +255,7 @@ const SecondSection = () => {
                     className="text-gray-600 group-hover:text-white text-sm opacity-0 group-hover:opacity-100 transition-all duration-300"
                     style={{ fontFamily: "Inter Display, sans-serif" }}
                   >
-                    Simplifying the way creators and brands connect
+                    Everything you need to run creator campaigns - in one place.
                   </p>
                 </div>
               </div>
@@ -294,8 +294,8 @@ const SecondSection = () => {
                     className="text-gray-600 group-hover:text-white text-sm opacity-0 group-hover:opacity-100 transition-all duration-300"
                     style={{ fontFamily: "Inter Display, sans-serif" }}
                   >
-                    Real-time data to see how your content or campaign is
-                    performing
+                    Track campaign performance in real time with actionable
+                    insights.
                   </p>
                 </div>
               </div>
@@ -334,7 +334,8 @@ const SecondSection = () => {
                     className="text-gray-600 group-hover:text-white text-sm opacity-0 group-hover:opacity-100 transition-all duration-300"
                     style={{ fontFamily: "Inter Display, sans-serif" }}
                   >
-                    Expert recommendations to maximise chances of success
+                    Recommendations to help choose the right creators and
+                    campaigns.
                   </p>
                 </div>
               </div>

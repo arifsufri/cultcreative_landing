@@ -283,9 +283,10 @@ const FirstSection = () => {
             </m.h1>
 
             <m.p
-              className="text-xl sm:text-xl md:text-3xl lg:text-4xl mb-8 md:mb-12 text-white leading-relaxed italic px-2"
+              className="text-xl sm:text-xl md:text-3xl lg:text-4xl mb-8 md:mb-12 text-white leading-relaxed italic px-2 font-family-times font-extralight"
               style={{
-                fontFamily: '"Times New Roman", Times, serif',
+                // fontFamily: '"Times New Roman", Times, serif',
+                fontWeight: 400,
                 textShadow: "0 4px 6px rgba(0, 0, 0, 0.25)",
               }}
               initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -588,7 +589,7 @@ const FirstSection = () => {
               className="w-full max-w-4xl"
             >
               {/* "as seen on" text for mobile */}
-              <p className="text-white text-sm mb-4 md:hidden text-center">
+              <p className="text-white text-sm mb-4 md:hidden text-center font-family-times opacity-70">
                 as seen on
               </p>
               <Image

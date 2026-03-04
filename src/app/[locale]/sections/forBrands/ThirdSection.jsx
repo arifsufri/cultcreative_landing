@@ -470,7 +470,7 @@ const ThirdSection = () => {
         desktop: { top: "10%", right: "10%" },
       },
       review: {
-        mobile: { top: "44%", left: "3%" },
+        mobile: { top: "47%", left: "3%" },
         "tablet-small": { top: "42%", left: "3%" },
         tablet: { top: "45%", left: "3%" },
         "desktop-small": { top: "48%", left: "5%" },
