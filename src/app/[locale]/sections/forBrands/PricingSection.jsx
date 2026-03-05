@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 const PricingSection = () => {
   const pathname = usePathname();
   const locale = pathname?.split("/")[1] || "my";
-  const [billingType, setBillingType] = useState("monthly");
+  // const [billingType, setBillingType] = useState("monthly");
 
   const pricing =
     locale === "sg"
@@ -27,12 +27,12 @@ const PricingSection = () => {
               currency: pricing.currency,
               highlighted: plan.id === "growth",
             }}
-            billingType={billingType}
-            setBillingType={() =>
-              setBillingType((prev) =>
-                prev === "monthly" ? "one_off" : "monthly",
-              )
-            }
+            // billingType={billingType}
+            // setBillingType={() =>
+            //   setBillingType((prev) =>
+            //     prev === "monthly" ? "one_off" : "monthly",
+            //   )
+            // }
           />
         ))}
       </div>

@@ -6,8 +6,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 
-const Card = ({ plan, billingType, setBillingType }) => {
-  // const [billingType, setBillingType] = useState("monthly");
+const Card = ({ plan }) => {
+  const [billingType, setBillingType] = useState("monthly");
 
   const pathname = usePathname();
   const locale = pathname?.split("/")[1] || "my";
