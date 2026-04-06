@@ -30,6 +30,7 @@
       {
         "id": "core",
         "name": "Core",
+        "month": 3,
         "billing": [
           {
             "type": "monthly",
@@ -63,6 +64,7 @@
       {
         "id": "growth",
         "name": "Growth",
+        "month": 5,
         "billing": [
           {
             "type": "monthly",
@@ -97,6 +99,7 @@
       {
         "id": "scale",
         "name": "Scale",
+        "month": 10,
         "billing": [
           {
             "type": "monthly",
@@ -162,6 +165,7 @@
       {
         "id": "core",
         "name": "Core",
+        "month": 3,
         "billing": [
           {
             "type": "monthly",
@@ -195,6 +199,7 @@
       {
         "id": "growth",
         "name": "Growth",
+        "month": 5,
         "billing": [
           {
             "type": "monthly",
@@ -229,6 +234,7 @@
       {
         "id": "scale",
         "name": "Scale",
+        "month": 5,
         "billing": [
           {
             "type": "monthly",

@@ -1,7 +1,7 @@
 "use client";
 
 import Card from "@/components/Card";
-import React, { useState } from "react";
+import React from "react";
 import pricings from "@/data/pricings.json";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";

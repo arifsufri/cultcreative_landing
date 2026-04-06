@@ -73,13 +73,25 @@ const Card = ({ plan }) => {
             maximumFractionDigits: 0,
             currency: plan.currency || "MYR",
           }).format(billing?.price)}
+
           <span className="text-xs font-light tracking-tighter">
-            {billingType === "one_off" || plan.billing.length < 2
-              ? "/one-off"
-              : `/month`}
+            {(billingType === "one_off" || plan.billing.length < 2) &&
+              "/one-off"}
           </span>
         </h1>
       </div>
+
+      <h1
+        className={clsx(
+          "text-center font-light text-sm tracking-tighter",
+          plan.id === "growth" &&
+            "bg-linear-to-r from-[#0067D5] via-[#1340FF] to-[#001FA3] text-transparent bg-clip-text",
+        )}
+      >
+        {billingType !== "one_off" &&
+          plan.billing.length > 1 &&
+          `/month for ${plan.month} months`}
+      </h1>
 
       <ul className="flex flex-col gap-1 mt-5 sm:mt-10 px-2 text-left">
         <li
