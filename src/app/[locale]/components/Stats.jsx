@@ -64,7 +64,7 @@ export default function StatsSection() {
         decimals={0}
       />
       <StatItem
-        target={7.5}
+        target={3.5}
         label="Creators in Our Community"
         suffix="K+"
         decimals={1}
