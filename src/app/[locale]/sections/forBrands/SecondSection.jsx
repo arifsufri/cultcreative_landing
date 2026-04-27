@@ -6,7 +6,6 @@ import { DeviceFrameset } from "react-device-frameset";
 import "react-device-frameset/styles/marvel-devices.min.css";
 
 const SecondSection = () => {
-  const [displayedNumbers, setDisplayedNumbers] = useState([0, 0, 0]);
   const [isVisible, setIsVisible] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slideDistance, setSlideDistance] = useState(0);
@@ -85,7 +84,7 @@ const SecondSection = () => {
       };
 
       requestAnimationFrame(updateCount);
-    }, [isVisible, end, start, duration]);
+    }, [end, start, duration]);
 
     return { count, isAnimating };
   };

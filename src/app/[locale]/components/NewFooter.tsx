@@ -28,7 +28,7 @@ const NewFooter = () => {
                   202001018157 (1374477-W)
                 </p>
                 <p className="uppercase font-extralight text-sm text-gray-600">
-                  Copyright 2024
+                  Copyright {new Date().getFullYear()}
                 </p>
               </div>
             </div>
