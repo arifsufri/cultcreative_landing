@@ -5,6 +5,28 @@ import { useState, useEffect } from "react";
 import { DeviceFrameset } from "react-device-frameset";
 import "react-device-frameset/styles/marvel-devices.min.css";
 
+const useCountUp = (end, isVisible, start = 0, duration = 2000) => {
+  const [count, setCount] = useState(start);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const startTime = Date.now();
+
+    const updateCount = () => {
+      const now = Date.now();
+      const progress = Math.min((now - startTime) / duration, 1);
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      setCount(start + (end - start) * easeOutQuart);
+      if (progress < 1) requestAnimationFrame(updateCount);
+    };
+
+    requestAnimationFrame(updateCount);
+  }, [end, start, duration, isVisible]);
+
+  return count;
+};
+
 const SecondSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -52,46 +74,9 @@ const SecondSection = () => {
     },
   ];
 
-  // Custom hook for counting animation
-  const useCountUp = (end, start = 0, duration = 2000) => {
-    const [count, setCount] = useState(start);
-    const [isAnimating, setIsAnimating] = useState(false);
-
-    useEffect(() => {
-      if (!isVisible) return;
-
-      setIsAnimating(true);
-      const startTime = Date.now();
-      const startValue = start;
-      const endValue = end;
-
-      const updateCount = () => {
-        const now = Date.now();
-        const progress = Math.min((now - startTime) / duration, 1);
-
-        // Easing function for smooth animation
-        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-        const currentValue =
-          startValue + (endValue - startValue) * easeOutQuart;
-
-        setCount(currentValue);
-
-        if (progress < 1) {
-          requestAnimationFrame(updateCount);
-        } else {
-          setIsAnimating(false);
-        }
-      };
-
-      requestAnimationFrame(updateCount);
-    }, [end, start, duration]);
-
-    return { count, isAnimating };
-  };
-
-  const count1 = useCountUp(stats[0].number, 0, 2000);
-  const count2 = useCountUp(stats[1].number, 0, 2000);
-  const count3 = useCountUp(stats[2].number, 0, 2000);
+  const count1 = useCountUp(stats[0].number, isVisible);
+  const count2 = useCountUp(stats[1].number, isVisible);
+  const count3 = useCountUp(stats[2].number, isVisible);
 
   const counts = [count1, count2, count3];
 
@@ -174,7 +159,7 @@ const SecondSection = () => {
                     color: "#231f20",
                   }}
                 >
-                  {counts[index].count.toFixed(stat.number % 1 !== 0 ? 1 : 0)}
+                  {counts[index].toFixed(stat.number % 1 !== 0 ? 1 : 0)}
                   {stat.suffix}
                 </div>
                 <div
