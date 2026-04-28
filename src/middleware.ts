@@ -68,53 +68,38 @@ function isLocalIp(ip: string): boolean {
 
 async function detectLocaleFromIp(ip: string): Promise<"my" | "sg" | null> {
   try {
-    const res = await fetch(`https://ipapi.co/${ip}/country/`, {
-      signal: AbortSignal.timeout(800),
-    });
-    const country = (await res.text()).trim();
-    console.log("[i18n] detected country:", country, "from ip:", ip);
-    return countryToLocale[country] ?? null;
+    const res = await fetch(
+      `https://api.ipapi.com/api/${ip}?access_key=${process.env.IP_API_KEY}`,
+    );
+    const data = await res.json();
+
+    // console.log("[i18n] detected country:", country, "from ip:", ip);
+    return data.country_code ?? null;
   } catch (err) {
     console.error("[i18n] geo lookup failed:", err);
     return null;
   }
 }
 
+async function resolveLocale(request: NextRequest): Promise<"my" | "sg"> {
+  const savedLocale = request.cookies.get("NEXT_LOCALE")?.value;
+  if (savedLocale === "my" || savedLocale === "sg") return savedLocale;
+
+  let ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
+  if (process.env.NODE_ENV === "development" && (!ip || isLocalIp(ip))) {
+    ip = "8.8.8.8"; // swap to test: 175.139.0.1 (MY), 103.10.124.1 (SG)
+  }
+
+  if (ip && !isLocalIp(ip)) {
+    const result = await detectLocaleFromIp(ip);
+    if (result) return result.toLowerCase() as "my" | "sg";
+  }
+
+  return routing.defaultLocale as "my" | "sg";
+}
+
 export default async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
-
-  // Handle root path: detect locale and redirect
-  if (pathname === "/") {
-    // If user already has a saved preference, respect it
-    const savedLocale = request.cookies.get("NEXT_LOCALE")?.value;
-    if (savedLocale === "my" || savedLocale === "sg") {
-      return NextResponse.redirect(
-        new URL(`/${savedLocale}/home`, request.url),
-      );
-    }
-
-    // Otherwise, detect from IP
-    let ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
-
-    if (process.env.NODE_ENV === "development" && (!ip || isLocalIp(ip))) {
-      ip = "8.8.8.8"; // swap to test: 175.139.0.1 (MY), 103.10.124.1 (SG)
-    }
-
-    let detectedLocale: "my" | "sg" = routing.defaultLocale as "my" | "sg";
-    if (ip && !isLocalIp(ip)) {
-      const result = await detectLocaleFromIp(ip);
-      if (result) detectedLocale = result;
-    }
-
-    const response = NextResponse.redirect(
-      new URL(`/${detectedLocale}/home`, request.url),
-    );
-    response.cookies.set("NEXT_LOCALE", detectedLocale, {
-      maxAge: 60 * 60 * 24 * 365,
-      path: "/",
-    });
-    return response;
-  }
 
   // Handle bare locale paths
   if (pathname === "/my" || pathname === "/sg") {
@@ -123,10 +108,17 @@ export default async function middleware(request: NextRequest) {
     return NextResponse.rewrite(request.nextUrl);
   }
 
-  // Redirect non-locale paths to default locale
+  // Detect locale and redirect for root and any non-locale-prefixed path
   if (!pathname.startsWith("/my") && !pathname.startsWith("/sg")) {
-    const url = new URL(`/${routing.defaultLocale}${pathname}`, request.url);
-    return NextResponse.redirect(url);
+    const locale = await resolveLocale(request);
+    const target =
+      pathname === "/" ? `/${locale}/home` : `/${locale}${pathname}`;
+    const response = NextResponse.redirect(new URL(target, request.url));
+    response.cookies.set("NEXT_LOCALE", locale, {
+      maxAge: 60 * 60 * 24 * 365,
+      path: "/",
+    });
+    return response;
   }
 
   return intlMiddleware(request);
