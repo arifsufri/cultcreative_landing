@@ -144,7 +144,7 @@ const ContactSection = () => {
               iconSrc={"/images/NewContact/phone.svg"}
               title="Phone Number"
             >
-              <p>+60 16-267 8757</p>
+              <p>+60 17-869 8757</p>
             </ContactInfoItem>
           </div>
 
