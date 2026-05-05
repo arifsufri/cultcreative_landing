@@ -259,7 +259,7 @@ const FirstSection = () => {
               animate={isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
               transition={isMobile ? {} : { duration: 0.8 }}
             >
-              Where Cultures{" "}
+              Where Culture{" "}
               <span className="relative inline-block">Moves</span>,
               <br />
               <span className="relative inline-block mb-8">

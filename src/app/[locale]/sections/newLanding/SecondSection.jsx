@@ -137,7 +137,7 @@ const SecondSection = () => {
                   loading="lazy"
                 />
               </strong>{" "}
-              collaborate,
+              to collaborate,
               <br />
               launch campaigns and scale faster with real impact.
             </p>
