@@ -25,10 +25,16 @@ const NewFooter = () => {
               />
               <div className="mt-4">
                 <p className="uppercase font-extralight text-sm text-gray-600">
-                  202001018157 (1374477-W)
+                  {locale === "my" && "202001018157 (1374477-W)"}
+                  {locale === "sg" && "CULT CREATIVE PTE LTD"}
                 </p>
+                {locale === "sg" && (
+                  <p className="uppercase font-extralight text-sm text-gray-600">
+                    202505503N
+                  </p>
+                )}
                 <p className="uppercase font-extralight text-sm text-gray-600">
-                  Copyright {new Date().getFullYear()}
+                  Copyright 2024
                 </p>
               </div>
             </div>

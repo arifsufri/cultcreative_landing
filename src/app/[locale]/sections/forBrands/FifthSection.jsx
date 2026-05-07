@@ -378,8 +378,9 @@ const FifthSection = () => {
                   alignItems: "center",
                 }}
               >
-                *Excluding SST. Additional charges apply for cross-posting
-                videos and monthly ads-usage rights. Bulk price available.
+                {locale === "my" && "*Excluding SST."} Additional charges apply
+                for cross-posting videos and monthly ads-usage rights. Bulk
+                price available.
               </p>
               <p
                 className="mb-2"

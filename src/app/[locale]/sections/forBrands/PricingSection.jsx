@@ -39,8 +39,9 @@ const PricingSection = () => {
 
       <div className="text-black text-center px-5 mt-6">
         <p className="text-sm sm:text-base font-light sm:font-medium">
-          *Excluding SST. Additional charges apply for cross-posting videos and
-          monthly ads-usage rights. Bulk price available.
+          {locale === "my" && "*Excluding SST."} Additional charges apply for
+          cross-posting videos and monthly ads-usage rights. Bulk price
+          available.
         </p>
         <p className="my-2 text-lg leading-5 sm:text-base text-pretty">
           Looking for a better fit?{" "}
