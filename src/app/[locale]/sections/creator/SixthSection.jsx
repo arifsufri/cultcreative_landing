@@ -35,7 +35,7 @@ const SixthSection = () => {
   };
 
   return (
-    <section className="relative md:w-full md:h-[750px] bg-linear-to-t from-[#5E2285] to-[#D26ECE] rounded-3xl p-6 md:p-28 md:pb-20 m-2">
+    <section className="relative md:w-full md:h-[750px] bg-linear-to-t from-[#5E2285] to-[#D26ECE] rounded-3xl p-6 md:p-28 md:pb-20 m-2 hidden">
       <div className="absolute top-16 md:top-20 left-6 md:left-20 z-40 text-[32px] md:text-6xl">
         <h2 className="font-aileron font-bold leading-none text-white tracking-[-0.06em]">
           Want To Go From{" "}
