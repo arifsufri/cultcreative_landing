@@ -1,23 +1,26 @@
 import dynamic from "next/dynamic";
 import { setRequestLocale } from "next-intl/server";
 import ArticleCard from "./ArticleCard";
+import Image from "next/image";
 
-const FloatingNavbar = dynamic(() => import("@/app/[locale]/components/FloatingNavbar"));
+const FloatingNavbar = dynamic(
+  () => import("@/app/[locale]/components/FloatingNavbar"),
+);
 const NewFooter = dynamic(() => import("@/app/[locale]/components/NewFooter"));
 
 const NewsroomPage = async ({ params: { locale } }) => {
   setRequestLocale(locale);
-  
+
   // Fetch articles from JSON file
   let articles = [];
   try {
-    const fs = require('fs');
-    const path = require('path');
-    const filePath = path.join(process.cwd(), 'public/data/newsroom.json');
-    const fileContents = fs.readFileSync(filePath, 'utf8');
+    const fs = require("fs");
+    const path = require("path");
+    const filePath = path.join(process.cwd(), "public/data/newsroom.json");
+    const fileContents = fs.readFileSync(filePath, "utf8");
     articles = JSON.parse(fileContents);
   } catch (error) {
-    console.error('Error reading articles:', error);
+    console.error("Error reading articles:", error);
   }
 
   return (
@@ -60,16 +63,18 @@ const NewsroomPage = async ({ params: { locale } }) => {
                   letterSpacing: "-3.84px",
                   textTransform: "capitalize",
                   color: "#FFFFFF",
-                  marginBottom: "1px"
+                  marginBottom: "1px",
                 }}
               >
                 Newsroom
               </h1>
               {/* Stars image - hidden on mobile */}
               <div className="absolute -right-60 -top-45 hidden md:block">
-                <img 
-                  src="/images/NewMain/stars.svg" 
-                  alt="decorative stars" 
+                <Image
+                  width={100}
+                  height={100}
+                  src="/images/NewMain/stars.svg"
+                  alt="decorative stars"
                   className="w-90 h-90"
                 />
               </div>
@@ -95,7 +100,10 @@ const NewsroomPage = async ({ params: { locale } }) => {
           {/* Articles Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {articles.map((article, index) => (
-              <ArticleCard key={`${article.source}-${article.date}-${index}`} article={article} />
+              <ArticleCard
+                key={`${article.source}-${article.date}-${index}`}
+                article={article}
+              />
             ))}
           </div>
         </div>
@@ -113,7 +121,8 @@ export const metadata = {
     "Stay updated with Cult Creative's newsroom. Access the latest announcements, press releases and media coverage to stay informed about our journey.",
   openGraph: {
     title: "Newsroom - Cult Creative",
-    description: "Stay updated with Cult Creative's newsroom. Access the latest announcements, press releases and media coverage to stay informed about our journey.",
+    description:
+      "Stay updated with Cult Creative's newsroom. Access the latest announcements, press releases and media coverage to stay informed about our journey.",
   },
   alternates: {
     canonical: "/newsroom",
