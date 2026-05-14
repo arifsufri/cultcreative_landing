@@ -3,8 +3,28 @@
 import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import Image from "next/image";
 
 const LocationSelector = dynamic(() => import("./LocationSelector"));
+
+const locations = [
+  {
+    country: "Malaysia",
+    officeLocation: "Jaya One",
+    companyName: "Cult creative sdn bhd",
+    registrationNumber: "202001018157 (1374477-W)",
+    address:
+      "A-5-3A , Block A , Jaya One Jln Profesor Diraja Ungku Aziz Seksyen 13 , 46200 Petaling Jaya , Selangor , Malaysia",
+  },
+  {
+    country: "Singapore",
+    officeLocation: "National Design Center",
+    companyName: "Cult creative Pte Ltd",
+    registrationNumber: "202505503N",
+    address:
+      "Paperwork SG National Design Center 111 Middle Road, #03-01, Singapore 188969",
+  },
+];
 
 const NewFooter = () => {
   const pathname = usePathname();
@@ -13,70 +33,89 @@ const NewFooter = () => {
   return (
     <section className="text-[#231F20] bg-[#F4F4F4] py-6 footer-section">
       <div className="container mx-auto px-6">
-        <div className="flex item-start gap-4 xl:gap-12 flex-wrap">
-          <div className="grow">
-            <div>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/logo1.png"
-                alt="Cult Creative footer logo"
-                width={130}
-                height={130}
-              />
-              <div className="mt-4">
-                <p className="uppercase font-extralight text-sm text-gray-600">
-                  {locale === "my" && "202001018157 (1374477-W)"}
-                  {locale === "sg" && "CULT CREATIVE PTE LTD"}
-                </p>
-                {locale === "sg" && (
-                  <p className="uppercase font-extralight text-sm text-gray-600">
-                    202505503N
-                  </p>
-                )}
-                <p className="uppercase font-extralight text-sm text-gray-600">
-                  Copyright 2024
-                </p>
-              </div>
+        <div className="flex item-start gap-4 xl:gap-12 flex-col sm:flex-row">
+          <div className="flex flex-col flex-1/2 gap-5">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/logo1.png"
+              alt="Cult Creative footer logo"
+              width={130}
+              height={130}
+            />
+
+            <div className="flex justify-start gap-5 flex-col md:flex-row">
+              {locations.map((location) => (
+                <div key={location.companyName} className="mt-4">
+                  <h1 className="uppercase font-bold text-sm">
+                    {location.companyName} - {location.country}
+                  </h1>
+                  <div className="text-sm font-light mt-4 uppercase flex flex-col gap-0.5 text-['rgba(35, 31, 32, 1)']">
+                    <p>{location.companyName}</p>
+                    <p>{location.registrationNumber}</p>
+                    <p className="text-pretty">{location.address}</p>
+                  </div>
+                </div>
+              ))}
             </div>
+
+            {/* <div className="mt-4">
+              &copy; 2026
+              <p className="uppercase font-extralight text-sm text-gray-600">
+                {locale === "my" && "202001018157 (1374477-W)"}
+                {locale === "sg" && "CULT CREATIVE PTE LTD"}
+              </p>
+              {locale === "sg" && (
+                <p className="uppercase font-extralight text-sm text-gray-600">
+                  202505503N
+                </p>
+              )}
+              <p className="uppercase font-extralight text-sm text-gray-600">
+                Copyright 2024
+              </p>
+            </div> */}
           </div>
 
-          <div>
-            <p className="font-bold text-2xl -tracking-[.1rem]">Company</p>
-            <ul className="font-light text-sm">
-              <li className="hover:text-[#8A5AFE] duration-150 cursor-pointer">
-                <a href={`/${locale}/about-us`}>About Us</a>
-              </li>
-              <li className="hover:text-[#8A5AFE] duration-150 cursor-pointer">
-                <a href={`/${locale}/faq`}>FAQ</a>
-              </li>
-              <li className="hover:text-[#8A5AFE] duration-150 cursor-pointer">
-                <a href={`/${locale}/contact-us`}>Contact Us</a>
-              </li>
-              <li className="hover:text-[#8A5AFE] duration-150 cursor-pointer">
-                <Link href="/resources">Resources</Link>
-              </li>
-              <li className="hover:text-[#8A5AFE] duration-150 cursor-pointer">
-                <Link href={`/${locale}/newsroom`}>Newsroom</Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
+          <div className="flex flex-1/2 justify-between sm:justify-start lg:justify-evenly gap-5 flex-wrap mt-5 sm:mt-0">
             <div>
-              <p className="font-bold text-2xl -tracking-[.1rem]">Support</p>
+              <p className="font-bold text-2xl -tracking-[.1rem]">Company</p>
               <ul className="font-light text-sm">
                 <li className="hover:text-[#8A5AFE] duration-150 cursor-pointer">
-                  <Link href="/privacy-policy">Privacy Policy</Link>
+                  <a href={`/${locale}/about-us`}>About Us</a>
                 </li>
                 <li className="hover:text-[#8A5AFE] duration-150 cursor-pointer">
-                  <Link href="/terms-and-conditions">Terms of Service</Link>
+                  <a href={`/${locale}/faq`}>FAQ</a>
+                </li>
+                <li className="hover:text-[#8A5AFE] duration-150 cursor-pointer">
+                  <a href={`/${locale}/contact-us`}>Contact Us</a>
+                </li>
+                <li className="hover:text-[#8A5AFE] duration-150 cursor-pointer">
+                  <Link href="/resources">Resources</Link>
+                </li>
+                <li className="hover:text-[#8A5AFE] duration-150 cursor-pointer">
+                  <Link href={`/${locale}/newsroom`}>Newsroom</Link>
                 </li>
               </ul>
             </div>
+
+            <div>
+              <div>
+                <p className="font-bold text-2xl -tracking-[.1rem]">Support</p>
+                <ul className="font-light text-sm">
+                  <li className="hover:text-[#8A5AFE] duration-150 cursor-pointer">
+                    <Link href="/privacy-policy">Privacy Policy</Link>
+                  </li>
+                  <li className="hover:text-[#8A5AFE] duration-150 cursor-pointer">
+                    <Link href="/terms-and-conditions">Terms of Service</Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="ml-auto mt-4">
-          <div>
+
+        <div className="ml-auto mt-6">
+          <div className="flex items-end justify-between">
+            <div>&copy; 2026</div>
             <div className="flex gap-3 justify-end items-center">
               <a href="#" target="_blank">
                 <svg
@@ -127,7 +166,7 @@ const NewFooter = () => {
           </div>
         </div>
 
-        <hr className="border-gray-300 my-5 border" />
+        <hr className="border-gray-300 my-4 border" />
 
         <div className="flex justify-end">
           <LocationSelector />
