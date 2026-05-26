@@ -47,7 +47,7 @@ const SeventhSection = () => {
 		{
 			id: 1,
 			name: "Amanda Liew Su Ling",
-			svgPath: "/images/NewCreator/1.png",
+			svgPath: "/images/NewCreator/amanda.png",
 			testimonial:
 				"As a small creator I've never come across working with an agency that is organised with a platform. I'm just happy to be part of this!",
 			borderColor: "border-lavender",
@@ -87,7 +87,7 @@ const SeventhSection = () => {
 		{
 			id: 5,
 			name: "Ujay Dani",
-			svgPath: "/images/NewCreator/2.png",
+			svgPath: "/images/NewCreator/ujay.png",
 			testimonial:
 				"All of the processes in the platform has helped me in my content journey. It's been great!",
 			borderColor: "border-cc-blue",
@@ -97,7 +97,7 @@ const SeventhSection = () => {
 		{
 			id: 6,
 			name: "Puteri Shahiera",
-			svgPath: "/images/NewCreator/3.png",
+			svgPath: "/images/NewCreator/puteri.png",
 			testimonial:
 				"The platform is easy to navigate and I love having all the campaigns in one place!",
 			borderColor: "border-cc-pink",
