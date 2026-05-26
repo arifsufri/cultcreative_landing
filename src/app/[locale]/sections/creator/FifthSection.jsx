@@ -32,7 +32,7 @@ const FifthSection = () => {
           </p>
         </div>
         <Image
-          src="/images/NewCreator/New_monetized_step.png"
+          src="/images/NewCreator/stepbystep.png"
           alt="Monetize your contents"
           width={1200}
           height={437}
