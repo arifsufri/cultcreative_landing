@@ -639,7 +639,7 @@ const ThirdSection = () => {
         {/* CTA Button */}
         <div className="text-center mt-12 md:mt-16">
           <motion.a
-            href="https://api.whatsapp.com/send/?phone=60162678757&text=I%27m+interested+in+a+creator+marketing+package%21&type=phone_number&app_absent=0"
+            href="https://api.whatsapp.com/send/?phone=60178698757&text=I%27m+interested+in+a+creator+marketing+package%21&type=phone_number&app_absent=0"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
