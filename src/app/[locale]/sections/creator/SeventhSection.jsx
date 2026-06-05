@@ -24,7 +24,7 @@ const CreatorAvatar = ({
 		>
 			<div className="relative w-full h-full">
 				{/* The Image container */}
-				<div className="w-full h-full rounded-full overflow-hidden">
+				<div className="relative w-full h-full rounded-full overflow-hidden">
 					<Image
 						src={creator.svgPath}
 						alt={creator.name}
@@ -47,7 +47,7 @@ const SeventhSection = () => {
 		{
 			id: 1,
 			name: "Amanda Liew Su Ling",
-			svgPath: "/images/NewCreator/amanda.png",
+			svgPath: "/images/NewCreator/AmandaLiew.jpg",
 			testimonial:
 				"As a small creator I've never come across working with an agency that is organised with a platform. I'm just happy to be part of this!",
 			borderColor: "border-lavender",
@@ -56,30 +56,30 @@ const SeventhSection = () => {
 		},
 		{
 			id: 2,
-			name: "Ayuni Hazan",
-			svgPath: "/images/NewCreator/AyuniHazan.png",
+			name: "Alexandria Kay",
+			svgPath: "/images/NewCreator/AlexandriaKay.jpg",
 			testimonial:
-				"Since using the platform, my productivity has significantly increased. I can't fathom returning to my previous working style!",
+				"Platform looks really good, congrats to you and your team on it! Looking forward to seeing how everyone finds it as you continue to develop and launch it!",
 			borderColor: "border-cc-green",
 			position: "bottom-1/2 right-20 -translate-y-1/2",
 			size: "w-20 h-20",
 		},
 		{
 			id: 3,
-			name: "Telvinder Singh",
-			svgPath: "/images/NewCreator/TelvinderSingh.png",
+			name: "Giselle Lee",
+			svgPath: "/images/NewCreator/GiselleLee.jpg",
 			testimonial:
-				"The platform is great! I really like that I don't have to spend too much time uploading and tracking my drafts.",
+				"Your website is really friendly to use!",
 			borderColor: "border-bright-yellow",
 			position: "top-1/5 right-1/6",
 			size: "w-12 h-12",
 		},
 		{
 			id: 4,
-			name: "Lim Shan May",
-			svgPath: "/images/NewCreator/LimShanMay.png",
+			name: "Irene",
+			svgPath: "/images/NewCreator/Irene.jpg",
 			testimonial:
-				"The Cult Creative team really took time to really understand our voice and gave us unique tasks that we enjoyed.",
+				"Love the system! So organized I love it.",
 			borderColor: "border-vibrant-purple",
 			position: "top-1/2 left-20 -translate-y-1/2",
 			size: "w-16 h-16",
@@ -87,7 +87,7 @@ const SeventhSection = () => {
 		{
 			id: 5,
 			name: "Ujay Dani",
-			svgPath: "/images/NewCreator/ujay.png",
+			svgPath: "/images/NewCreator/UjayDani.jpg",
 			testimonial:
 				"All of the processes in the platform has helped me in my content journey. It's been great!",
 			borderColor: "border-cc-blue",
@@ -97,7 +97,7 @@ const SeventhSection = () => {
 		{
 			id: 6,
 			name: "Puteri Shahiera",
-			svgPath: "/images/NewCreator/puteri.png",
+			svgPath: "/images/NewCreator/PuteriShahiera.jpg",
 			testimonial:
 				"The platform is easy to navigate and I love having all the campaigns in one place!",
 			borderColor: "border-cc-pink",
