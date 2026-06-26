@@ -33,12 +33,12 @@
       },
       {
         "type": "Micro B",
-        "credits": "4 Credits",
+        "credits": "5 Credits",
         "followers": "30K - 50K"
       },
       {
         "type": "Micro C",
-        "credits": "5 Credits",
+        "credits": "8 Credits",
         "followers": "50K - 100K"
       }
     ],
@@ -53,10 +53,25 @@
     "subPackages": [
       {
         "type": "Macro",
-        "credits": "8 Credits",
+        "credits": "13-20 Credits",
         "followers": "100K - 500K"
       }
     ],
     "notes": "Typically well-established credibility. Focuses on mass-market appeal conversions for products/services."
+  },
+  {
+    "type": "Mega",
+    "icon": "/images/Star 9.svg",
+    "videoUrl": "https://res.cloudinary.com/dirld0zbv/video/upload/v1772590907/3rd-video_k94yj3.mov",
+    "creatorName": "Alisa",
+    "campaignName": "osaka world expo",
+    "subPackages": [
+      {
+        "type": "Macro",
+        "credits": "32 Credits",
+        "followers": "500K+"
+      }
+    ],
+    "notes": "Able to reach large audiences. Typically well-established credbility. Tools for brand visibility - focuses on mass-market appeal"
   }
 ]

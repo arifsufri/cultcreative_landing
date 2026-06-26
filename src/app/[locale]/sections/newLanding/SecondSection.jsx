@@ -154,15 +154,7 @@ const SecondSection = () => {
               <m.div
                 className="flex"
                 animate={{ x: `-${(currentSlide * 100) / features.length}%` }}
-                transition={
-                  isMobile
-                    ? {}
-                    : {
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 30,
-                      }
-                }
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 style={{ width: `${features.length * 100}%` }}
               >
                 {features.map((feature, index) => (
@@ -225,9 +217,9 @@ const SecondSection = () => {
             {/* All-In-One Platform */}
             <m.div
               className="text-center group"
-              initial={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{}}
+              transition={{ duration: 0.6, delay: 0, ease: "easeOut" }}
               viewport={{ once: true }}
             >
               <div
@@ -264,9 +256,9 @@ const SecondSection = () => {
             {/* Data-Based Results */}
             <m.div
               className="text-center group"
-              initial={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{}}
+              transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
               viewport={{ once: true }}
             >
               <div
@@ -304,9 +296,9 @@ const SecondSection = () => {
             {/* Tailored Recommendations */}
             <m.div
               className="text-center group"
-              initial={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{}}
+              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
               viewport={{ once: true }}
             >
               <div

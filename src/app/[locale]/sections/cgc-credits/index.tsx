@@ -86,7 +86,7 @@ const CGCCredits = () => {
 
                         <div className="bg-[#1340FF] w-full h-px my-2" />
 
-                        <p className="font-medium text-sm sm:text-xs text-white text-shadow-md">
+                        <p className="font-medium text-sm sm:text-xs text-white text-shadow-md whitespace-nowrap">
                           {subPackage.followers}
                         </p>
                         <p className="text-white text-sm sm:text-[10px] text-shadow-md">

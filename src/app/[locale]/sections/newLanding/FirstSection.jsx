@@ -1,19 +1,30 @@
 "use client";
 
-import { LazyMotion, domAnimation, m, useInView } from "framer-motion";
-import { useRef } from "react";
+import { LazyMotion, domAnimation, m, useScroll, useInView } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import useIsMobile from "@/app/[locale]/hooks/useIsMobile";
 
 const FirstSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.3 });
+  const sectionRef = useRef(null);
+  const { scrollY } = useScroll();
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const sectionInView = useInView(sectionRef, { once: false, amount: 0.1 });
+  const isInView = hasScrolled && sectionInView;
   const isMobile = useIsMobile();
+
+  useEffect(() => {
+    return scrollY.on("change", (latest) => {
+      setHasScrolled(latest > 100);
+    });
+  }, [scrollY]);
 
   return (
     <LazyMotion features={domAnimation}>
       <section
+        ref={sectionRef}
         className="min-h-screen flex flex-col items-center justify-center text-white relative overflow-hidden pt-32 md:pt-64"
         style={{ backgroundColor: "#231f20", contain: "layout paint" }}
       >
