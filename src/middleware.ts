@@ -75,7 +75,7 @@ async function detectLocaleFromIp(ip: string): Promise<"my" | "sg" | null> {
     const data = await res.json();
 
     // console.log("[i18n] detected country:", country, "from ip:", ip);
-    return data.country_code ?? null;
+    return countryToLocale[data.country_code] ?? null;
   } catch (err) {
     console.error("[i18n] geo lookup failed:", err);
     return null;
@@ -129,6 +129,7 @@ export const config = {
   matcher: [
     "/",
     "/(my|sg)/:path*",
+    "/for-brands",
     "/brands",
     "/creators",
     "/about",
