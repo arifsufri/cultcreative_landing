@@ -17,8 +17,15 @@ const PricingSection = () => {
       : pricings.find((pricing) => pricing.currency === "MYR");
 
   return (
-    <div className="bg-white pt-20">
-      <div className="flex gap-8 justify-start lg:justify-center pt-16 bg-inherit overflow-auto not-sm:px-3 snap-x snap-mandatory sm:snap-none">
+    <div className="relative bg-white pt-20">
+      <span
+        id="pricing"
+        className="absolute top-[88px] h-px w-px"
+        aria-hidden="true"
+      />
+      <div
+        className="flex gap-8 justify-start lg:justify-center pt-16 bg-inherit overflow-auto not-sm:px-3 snap-x snap-mandatory sm:snap-none"
+      >
         {pricing.plans.map((plan) => (
           <Card
             key={plan.id}

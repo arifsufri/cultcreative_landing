@@ -5,6 +5,10 @@ import { useState, useEffect } from "react";
 import { DeviceFrameset } from "react-device-frameset";
 import "react-device-frameset/styles/marvel-devices.min.css";
 
+const DEFAULT_MOBILE_VIEWPORT_WIDTH = 375;
+const MOBILE_CARD_MAX_WIDTH = 340;
+const MOBILE_SIDE_PADDING = 24;
+
 const useCountUp = (end, isVisible, start = 0, duration = 2000) => {
   const [count, setCount] = useState(start);
 
@@ -31,23 +35,27 @@ const SecondSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slideDistance, setSlideDistance] = useState(0);
+  const [mobileViewportWidth, setMobileViewportWidth] = useState(
+    DEFAULT_MOBILE_VIEWPORT_WIDTH,
+  );
 
   useEffect(() => {
     const calculateSlideDistance = () => {
-      if (typeof window !== "undefined") {
-        const isMobile = window.innerWidth < 768;
-        if (isMobile) {
-          // Calculate card width with proper padding
-          const viewportWidth = window.innerWidth;
-          const padding = 24; // 12px on each side
-          const cardWidth = Math.min(viewportWidth - padding * 2, 340);
+      const viewportWidth = window.innerWidth;
+      const isMobile = viewportWidth < 768;
 
-          // Center the card by calculating the offset needed
-          const containerWidth = viewportWidth;
-          const cardOffset = (containerWidth - cardWidth) / 2;
+      if (isMobile) {
+        const cardWidth = Math.min(
+          viewportWidth - MOBILE_SIDE_PADDING,
+          MOBILE_CARD_MAX_WIDTH,
+        );
+        const cardOffset = (viewportWidth - cardWidth) / 2;
 
-          setSlideDistance(cardWidth + cardOffset);
-        }
+        setMobileViewportWidth(viewportWidth);
+        setSlideDistance(cardWidth + cardOffset);
+      } else {
+        setMobileViewportWidth(DEFAULT_MOBILE_VIEWPORT_WIDTH);
+        setSlideDistance(0);
       }
     };
 
@@ -79,6 +87,10 @@ const SecondSection = () => {
   const count3 = useCountUp(stats[2].number, isVisible);
 
   const counts = [count1, count2, count3];
+  const mobileCardWidth = Math.min(
+    mobileViewportWidth - MOBILE_SIDE_PADDING,
+    MOBILE_CARD_MAX_WIDTH,
+  );
 
   // Case study data
   const caseStudies = [
@@ -356,20 +368,18 @@ const SecondSection = () => {
               }}
             >
               {caseStudies.map((study, studyIndex) => {
-                const viewportWidth =
-                  typeof window !== "undefined" ? window.innerWidth : 375;
-                const cardWidth = Math.min(viewportWidth - 24, 340);
-
                 return (
                   <div
                     key={studyIndex}
                     className="shrink-0 relative mx-auto"
                     style={{
-                      width: `${cardWidth}px`,
+                      width: `${mobileCardWidth}px`,
                       height: "650px",
                       marginLeft:
                         studyIndex === 0
-                          ? `${(viewportWidth - cardWidth) / 2 - 12}px`
+                          ? `${
+                              (mobileViewportWidth - mobileCardWidth) / 2 - 12
+                            }px`
                           : "12px",
                       marginRight: "12px",
                     }}
