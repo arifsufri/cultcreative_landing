@@ -20,7 +20,7 @@ export const POST = async (req) => {
     };
 
     // Save the data to the database using Prisma
-    await prisma.contact.create({ data });
+    // await prisma.contact.create({ data });
 
     // Save to Google Sheets
     try {
@@ -46,13 +46,7 @@ export const POST = async (req) => {
         valueInputOption: "USER_ENTERED",
         requestBody: {
           values: [
-            [
-              data.createdOn,
-              data.name,
-              data.email,
-              data.subject,
-              data.message,
-            ],
+            [data.createdOn, data.name, data.email, data.subject, data.message],
           ],
         },
       });
@@ -64,11 +58,17 @@ export const POST = async (req) => {
     }
 
     // Return a success message
-    return NextResponse.json({ message: `Submitted. Thanks, ${data.name}!` }, { status: 200 });
+    return NextResponse.json(
+      { message: `Submitted. Thanks, ${data.name}!` },
+      { status: 200 },
+    );
   } catch (error) {
     console.error("Error saving message:", error);
 
     // Return an error response with 500 status
-    return NextResponse.json({ error: "Form failed to submit. Please contact our admin." }, { status: 500 });
+    return NextResponse.json(
+      { error: "Form failed to submit. Please contact our admin." },
+      { status: 500 },
+    );
   }
 };
