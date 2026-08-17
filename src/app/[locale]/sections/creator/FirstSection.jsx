@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { videoGallery } from "../../components/videoData";
@@ -71,7 +71,14 @@ const thumbnailVariants = {
 const getStaggerDelay = (index, rowIndex) =>
   0.6 + rowIndex * 0.1 + index * 0.03;
 
-const Thumbnail = ({ videoData, onClick, index, rowIndex, shouldAnimate }) => (
+const Thumbnail = ({
+  videoData,
+  onClick,
+  index,
+  rowIndex,
+  shouldAnimate,
+  eager,
+}) => (
   <motion.div
     className="w-24 md:w-36 flex-shrink-0"
     variants={shouldAnimate ? thumbnailVariants : undefined}
@@ -99,8 +106,10 @@ const Thumbnail = ({ videoData, onClick, index, rowIndex, shouldAnimate }) => (
           src={videoData.thumbnail}
           alt={videoData.alt}
           fill
-          sizes="(max-width: 768px) 144px, 160px"
+          sizes="(max-width: 768px) 96px, 144px"
           className="object-cover"
+          loading={eager ? "eager" : "lazy"}
+          quality={60}
         />
       </div>
     </motion.button>
@@ -108,12 +117,13 @@ const Thumbnail = ({ videoData, onClick, index, rowIndex, shouldAnimate }) => (
 );
 
 const FirstSection = () => {
-  const [currentVideoUrl, setCurrentVideoUrl] = useState(
-    videoGallery[0].videoUrl,
-  );
+  const [activeVideo, setActiveVideo] = useState(null);
   const [isMobile, setIsMobile] = useState(true); // Default to true to prevent SSR flash
   const [isClient, setIsClient] = useState(false);
   const prefersReducedMotion = useReducedMotion();
+  const playerRef = useRef(null);
+
+  const posterSrc = activeVideo?.thumbnail ?? videoGallery[0].thumbnail;
 
   useEffect(() => {
     setIsClient(true);
@@ -123,11 +133,33 @@ const FirstSection = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  useEffect(() => {
+    const node = playerRef.current;
+    if (!node) return;
+
+    if (typeof IntersectionObserver === "undefined") {
+      setActiveVideo((current) => current ?? videoGallery[0]);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setActiveVideo((current) => current ?? videoGallery[0]);
+        observer.disconnect();
+      },
+      { rootMargin: "200px", threshold: 0.1 },
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   // Only animate on desktop, after client hydration, and when user doesn't prefer reduced motion
   const shouldAnimate = isClient && !isMobile && !prefersReducedMotion;
 
-  const handleThumbnailClick = (videoUrl) => {
-    setCurrentVideoUrl(videoUrl);
+  const handleThumbnailClick = (video) => {
+    setActiveVideo(video);
   };
 
   const row1 = videoGallery.slice(0, 7);
@@ -207,7 +239,8 @@ const FirstSection = () => {
                   index={index}
                   rowIndex={0}
                   shouldAnimate={shouldAnimate}
-                  onClick={() => handleThumbnailClick(video.videoUrl)}
+                  eager
+                  onClick={() => handleThumbnailClick(video)}
                 />
               ))}
             </div>
@@ -219,7 +252,7 @@ const FirstSection = () => {
                   index={index}
                   rowIndex={1}
                   shouldAnimate={shouldAnimate}
-                  onClick={() => handleThumbnailClick(video.videoUrl)}
+                  onClick={() => handleThumbnailClick(video)}
                 />
               ))}
             </div>
@@ -231,7 +264,7 @@ const FirstSection = () => {
                   index={index}
                   rowIndex={2}
                   shouldAnimate={shouldAnimate}
-                  onClick={() => handleThumbnailClick(video.videoUrl)}
+                  onClick={() => handleThumbnailClick(video)}
                 />
               ))}
             </div>
@@ -253,6 +286,7 @@ const FirstSection = () => {
           </motion.div>
           {/* Iphone video player */}
           <motion.div
+            ref={playerRef}
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-52 h-auto md:w-80 lg:w-80 drop-shadow-2xl hover:cursor-default"
             variants={shouldAnimate ? iphoneVariants : undefined}
             initial={shouldAnimate ? "hidden" : { opacity: 1, scale: 1 }}
@@ -271,16 +305,32 @@ const FirstSection = () => {
                 sizes="(max-width: 768px) 240px, 270px"
                 className="object-contain"
               />
-              <video
-                key={currentVideoUrl}
-                className="absolute top-0 left-0 w-full h-full object-cover px-[5.5%] py-[9.5%] rounded-[40px] md:rounded-[60px]"
-                autoPlay
-                loop
-                muted
-                playsInline
-              >
-                <source src={currentVideoUrl} type="video/mp4" />
-              </video>
+              {activeVideo ? (
+                <video
+                  key={activeVideo.videoUrl}
+                  className="absolute top-0 left-0 w-full h-full object-cover px-[5.5%] py-[9.5%] rounded-[40px] md:rounded-[60px]"
+                  poster={posterSrc}
+                  preload="auto"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                >
+                  <source src={activeVideo.videoUrl} />
+                </video>
+              ) : (
+                <div className="absolute top-0 left-0 w-full h-full px-[5.5%] py-[9.5%]">
+                  <div className="relative w-full h-full overflow-hidden rounded-[40px] md:rounded-[60px]">
+                    <Image
+                      src={posterSrc}
+                      alt={videoGallery[0].alt}
+                      fill
+                      sizes="(max-width: 768px) 208px, 320px"
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              )}
             </div>
           </motion.div>
         </div>

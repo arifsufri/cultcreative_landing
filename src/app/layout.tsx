@@ -54,11 +54,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Preconnect to font CDNs for faster loading */}
         <link rel="preconnect" href="https://use.typekit.net" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://p.typekit.net" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.cdnfonts.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://use.typekit.net" />
         <link rel="dns-prefetch" href="https://fonts.cdnfonts.com" />
+        <link rel="stylesheet" href="https://use.typekit.net/chd2fal.css" />
         {/* Preconnect to video storage */}
         <link rel="preconnect" href="https://storage.googleapis.com" crossOrigin="anonymous" />
       </head>
