@@ -182,6 +182,29 @@ const TermsAndConditionsSection = () => {
 									terms and conditions with us.
 								</li>
 							</ul>
+							<ol className="list-decimal pl-6 mt-4 space-y-2">
+								<li><span className="font-bold">2.2 ACCOUNT DELETION</span></li>
+							</ol>
+							<ul className="list-[lower-alpha] pl-12 mt-2 space-y-2">
+								<li>
+									You may delete your account at any time. On iOS, this can be done
+									directly within the App via the Settings &gt; Account &gt; Delete Account
+									path. Instructions for Android and web-based deletion requests are set
+									out in the Company’s Privacy Policy.
+								</li>
+								<li>
+									Deletion of your account will result in the deletion of your associated
+									personal data in accordance with the Company’s Privacy Policy, save for
+									the data the Company is permitted or required to retain for legal,
+									security, fraud-prevention or regulatory purposes.
+								</li>
+								<li>
+									If you have any active campaigns, pending payouts or outstanding
+									obligations under this Agreement at the time of your deletion request,
+									you acknowledge that the Company may require those to be resolved or
+									may retain relevant transaction records before completing deletion.
+								</li>
+							</ul>
 						</li>
 
 						<li>
@@ -212,6 +235,24 @@ const TermsAndConditionsSection = () => {
 									modification or changes to the Cult Creative, the application,
 									contents, or services offered by the Company to You (unless
 									specifically consented and supervised by the Company).
+								</li>
+							</ul>
+							<ol className="list-decimal pl-6 mt-4 space-y-2">
+								<li><span className="font-bold">3.2 APPLE STORE TERMS</span></li>
+							</ol>
+							<ul className="list-[lower-alpha] pl-12 mt-2 space-y-2">
+								<li>
+									Where you download the App from the Apple App Store, your use of the
+									app is also subject to Apple’s Licensed Application End User License
+									Agreement (the Apple Standard EULA) in addition to this Agreement. In
+									the event of any conflict between this Agreement and the Apple Standard
+									EULA regarding Apple’s role as a licensor, the Apple Standard EULA shall
+									govern that aspect of your use.
+								</li>
+								<li>
+									You acknowledge that Apple has no obligation to furnish any maintenance
+									or support services with respect to the App and that the Company, not
+									Apple, is solely responsible for the App and its content.
 								</li>
 							</ul>
 						</li>
@@ -296,9 +337,40 @@ const TermsAndConditionsSection = () => {
 						</li>
 
 						<li>
+							<span className="font-bold">CHILD SAFETY STANDARDS</span>
+							<p className="font-normal mt-2">
+								Cult Creative has zero tolerance for child sexual abuse and exploitation
+								(CSAE) of any kind on our platform. Users are strictly prohibited from
+								uploading, sharing, soliciting or distributing any content that sexualises,
+								exploits or endangers minors, including but not limited to child sexual
+								abuse material (CSAM), grooming behaviour or any content that sexualises
+								minors in any way.
+							</p>
+							<ul className="list-[lower-alpha] pl-12 mt-2 space-y-2">
+								<li>
+									Any violation of this policy will result in immediate
+									account termination, removal of content and reporting to the relevant
+									authorities and/or the National Center for Missing &amp; Exploited Children
+									(NCMEC) or equivalent local authority as required by applicable law.
+								</li>
+								<li>
+									Users can report suspected CSAE content or behaviour
+									directly within the app via “Report” button on any campaign or profile or
+									by contacting our Child Safety Team at hello@cultcreative.asia.
+								</li>
+								<li>
+									Cult Creative complies with all applicable child safety
+									laws and regulations including but not limited to Malaysia’s Child Act
+									2001 and the Sexual Offences Against Children [SOACA] 2017 and cooperates
+									fully with law enforcement in matters concerning child safety.
+								</li>
+							</ul>
+						</li>
+
+						<li>
 							<span className="font-bold">MISCELLANEOUS</span>
 							<ol className="list-decimal pl-6 mt-2 space-y-2">
-								<li><span className="font-bold">7.1 MODIFICATION OF THIS AGREEMENT</span></li>
+								<li><span className="font-bold">8.1 MODIFICATION OF THIS AGREEMENT</span></li>
 							</ol>
 							<ul className="list-[lower-alpha] pl-12 mt-2 space-y-2">
 								<li>
@@ -313,7 +385,7 @@ const TermsAndConditionsSection = () => {
 								</li>
 							</ul>
 							<ol className="list-decimal pl-6 mt-4 space-y-2">
-								<li><span className="font-bold">7.2 GOVERNING LAW</span></li>
+								<li><span className="font-bold">8.3 GOVERNING LAW</span></li>
 							</ol>
 							<ul className="list-[lower-alpha] pl-12 mt-2 space-y-2">
 								<li>
@@ -331,7 +403,7 @@ const TermsAndConditionsSection = () => {
 								</li>
 							</ul>
 							<ol className="list-decimal pl-6 mt-4 space-y-2">
-								<li><span className="font-bold">7.3 ENTIRE AGREEMENT</span></li>
+								<li><span className="font-bold">8.9 ENTIRE AGREEMENT</span></li>
 							</ol>
 							<ul className="list-[lower-alpha] pl-12 mt-2 space-y-2">
 								<li>

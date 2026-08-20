@@ -32,6 +32,7 @@ const PrivacyPolicySection = () => {
               <li>The type of data we collect from you;</li>
               <li>How we collect your data;</li>
               <li>How we use your data;</li>
+              <li>how we delete your data;</li>
               <li>To whom we disclose your data to; and</li>
               <li>
                 How you may access and update your personal data kept with us.
@@ -90,7 +91,7 @@ const PrivacyPolicySection = () => {
                 services;
               </li>
               <li>
-                social media posts in relation to any of our business endeavors;
+                social media posts in relation to any of our business endeavors; or
               </li>
               <li>
                 any technical and statistical information that is available to
@@ -130,7 +131,7 @@ const PrivacyPolicySection = () => {
               </li>
               <li>
                 when you commence any sort of business relationship to us
-                including, but not limited to,as a business partner, joint
+                including, but not limited to, as a business partner, joint
                 venture, service provider;
               </li>
               <li>
@@ -331,6 +332,13 @@ const PrivacyPolicySection = () => {
                   optional and only used while the relevant feature is in use.
                 </li>
               </ul>
+              <p>
+                As of the date of this Notice, the App does not use any
+                third-party analytics, advertising or crash-reporting SDKs. If we
+                introduce any such service in the future we will update this
+                Notice in our Google Play Data Safety declaration before the
+                service goes live and will name the provider and the data involved.
+              </p>
               <p className="underline">Account and Data Deletion</p>
               <p>
                 You may request deletion of your account and associated personal
@@ -361,6 +369,17 @@ const PrivacyPolicySection = () => {
                 deletion request to that provider on your behalf.
               </p>
             </div>
+          </div>
+
+          <div>
+            <h2 className="text-lg font-bold mb-2">CHILD SAFETY</h2>
+            <p className="mb-4">
+              We do not knowingly allow content that sexualises or exploits
+              minors on our platform. If you encounter such content, please
+              report it immediately via the Report button either by profile or
+              campaign in our app or contact hello@cultcreative.asia. See our
+              Terms of Service for our full Child Safety Standards.
+            </p>
           </div>
 
           <div>
