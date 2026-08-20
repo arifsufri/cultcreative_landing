@@ -29,13 +29,13 @@ const PrivacyPolicySection = () => {
               notify you of:
             </p>
             <ol className="list-decimal pl-4 mb-4 space-y-1">
-              <li>The type of data we collect from you;</li>
-              <li>How we collect your data;</li>
-              <li>How we use your data;</li>
+              <li>the type of data we collect from you;</li>
+              <li>how we collect your data;</li>
+              <li>how we use your data;</li>
               <li>how we delete your data;</li>
-              <li>To whom we disclose your data to; and</li>
+              <li>to whom we disclose your data to; and</li>
               <li>
-                How you may access and update your personal data kept with us.
+                how you may access and update your personal data kept with us.
               </li>
             </ol>
             <p className="mb-4">
