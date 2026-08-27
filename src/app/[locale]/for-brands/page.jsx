@@ -1,82 +1,3 @@
-// import dynamic from "next/dynamic";
-// import { Suspense } from "react";
-// import { Toaster } from "react-hot-toast";
-// import { setRequestLocale } from "next-intl/server";
-
-// // Dynamic import for floating navbar
-// const FloatingNavbar = dynamic(
-//   () => import("@/app/[locale]/components/FloatingNavbar"),
-// );
-
-// // Dynamic import for For Brands sections
-// const FirstSection = dynamic(
-//   () => import("@/app/[locale]/sections/forBrands/FirstSection"),
-// );
-
-// const SecondSection = dynamic(
-//   () => import("@/app/[locale]/sections/forBrands/SecondSection"),
-// );
-// const ThirdSection = dynamic(
-//   () => import("@/app/[locale]/sections/forBrands/ThirdSection"),
-// );
-// const FourthSection = dynamic(
-//   () => import("@/app/[locale]/sections/forBrands/FourthSection"),
-// );
-// const FifthSection = dynamic(
-//   () => import("@/app/[locale]/sections/forBrands/FifthSection"),
-// );
-// const SixthSection = dynamic(
-//   () => import("@/app/[locale]/sections/forBrands/SixthSection"),
-// );
-// const NewFooter = dynamic(() => import("@/app/[locale]/components/NewFooter"));
-
-// export const metadata = {
-//   title: {
-//     absolute: "Hire Content Creators To Promote Your Brand - Cult Creative",
-//   },
-//   description:
-//     "Boost your brand with customised UGC campaigns. Collaborate with trusted social media creators to increase reach, engagement, and impact of your campaigns.",
-//   openGraph: {
-//     title: "Hire Content Creators To Promote Your Brand - Cult Creative",
-//     description:
-//       "Boost your brand with customised UGC campaigns. Collaborate with trusted social media creators to increase reach, engagement, and impact of your campaigns.",
-//   },
-//   alternates: {
-//     canonical: "/for-brands",
-//   },
-// };
-
-// const ForBrandsPage = async ({ params }) => {
-//   const { locale } = await params;
-//   setRequestLocale(locale);
-
-//   return (
-//     <>
-//       <FloatingNavbar />
-//       <main className="flex flex-col min-h-screen w-full overflow-x-clip">
-//         <Suspense
-//           fallback={
-//             <div className="min-h-screen flex items-center justify-center bg-black">
-//               <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div>
-//             </div>
-//           }
-//         >
-//           <FirstSection />
-//           <SecondSection />
-//           <ThirdSection />
-//           <FourthSection />
-//           <FifthSection />
-//           <SixthSection />
-//           <NewFooter />
-//           <Toaster position="top-center" />
-//         </Suspense>
-//       </main>
-//     </>
-//   );
-// };
-
-// export default ForBrandsPage;
-
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import { Toaster } from "react-hot-toast";
@@ -85,67 +6,71 @@ import Script from "next/script";
 
 // Dynamic import for floating navbar
 const FloatingNavbar = dynamic(
-  () => import("@/app/[locale]/components/FloatingNavbar"),
+	() => import("@/app/[locale]/components/FloatingNavbar"),
+);
+
+const AppWaitlistBanner = dynamic(
+	() => import("@/app/[locale]/components/AppWaitlistBanner"),
 );
 
 // Dynamic import for For Brands sections
 const FirstSection = dynamic(
-  () => import("@/app/[locale]/sections/forBrands/FirstSection"),
+	() => import("@/app/[locale]/sections/forBrands/FirstSection"),
 );
 
 const SecondSection = dynamic(
-  () => import("@/app/[locale]/sections/forBrands/SecondSection"),
+	() => import("@/app/[locale]/sections/forBrands/SecondSection"),
 );
 
 const ThirdSection = dynamic(
-  () => import("@/app/[locale]/sections/forBrands/ThirdSection"),
+	() => import("@/app/[locale]/sections/forBrands/ThirdSection"),
 );
 
 const FourthSection = dynamic(
-  () => import("@/app/[locale]/sections/forBrands/FourthSection"),
+	() => import("@/app/[locale]/sections/forBrands/FourthSection"),
 );
 
 const FifthSection = dynamic(
-  () => import("@/app/[locale]/sections/forBrands/FifthSection"),
+	() => import("@/app/[locale]/sections/forBrands/FifthSection"),
 );
 
 const SixthSection = dynamic(
-  () => import("@/app/[locale]/sections/forBrands/SixthSection"),
+	() => import("@/app/[locale]/sections/forBrands/SixthSection"),
 );
 
 const PricingSection = dynamic(
-  () => import("@/app/[locale]/sections/forBrands/PricingSection"),
+	() => import("@/app/[locale]/sections/forBrands/PricingSection"),
 );
 
 const NewFooter = dynamic(() => import("@/app/[locale]/components/NewFooter"));
 
 export const metadata = {
-  title: {
-    absolute: "Hire Content Creators To Promote Your Brand - Cult Creative",
-  },
-  description:
-    "Boost your brand with customised UGC campaigns. Collaborate with trusted social media creators to increase reach, engagement, and impact of your campaigns.",
-  openGraph: {
-    title: "Hire Content Creators To Promote Your Brand - Cult Creative",
-    description:
-      "Boost your brand with customised UGC campaigns. Collaborate with trusted social media creators to increase reach, engagement, and impact of your campaigns.",
-  },
-  alternates: {
-    canonical: "/for-brands",
-  },
+	title: {
+		absolute: "Hire Content Creators To Promote Your Brand - Cult Creative",
+	},
+	description:
+		"Boost your brand with customised UGC campaigns. Collaborate with trusted social media creators to increase reach, engagement, and impact of your campaigns.",
+	openGraph: {
+		title: "Hire Content Creators To Promote Your Brand - Cult Creative",
+		description:
+			"Boost your brand with customised UGC campaigns. Collaborate with trusted social media creators to increase reach, engagement, and impact of your campaigns.",
+	},
+	alternates: {
+		canonical: "/for-brands",
+	},
 };
 
 const ForBrandsPage = async ({ params }) => {
-  const { locale } = await params;
-  setRequestLocale(locale);
+	const { locale } = await params;
+	setRequestLocale(locale);
 
-  return (
-    <>
-      <Script
-        id="apollo-tracker"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
+	return (
+		<>
+			<Script
+				id="apollo-tracker"
+				strategy="afterInteractive"
+				dangerouslySetInnerHTML={{
+					__html: `
             function initApollo(){
               var n=Math.random().toString(36).substring(7),
                   o=document.createElement("script");
@@ -159,30 +84,32 @@ const ForBrandsPage = async ({ params }) => {
             }
             initApollo();
           `,
-        }}
-      />
-      <FloatingNavbar />
-      <main className="flex flex-col min-h-screen w-full overflow-x-clip">
-        <Suspense
-          fallback={
-            <div className="min-h-screen flex items-center justify-center bg-black">
-              <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div>
-            </div>
-          }
-        >
-          <FirstSection />
-          <SecondSection />
-          <ThirdSection />
-          <FourthSection />
-          {/* <FifthSection /> */}
-          <PricingSection />
-          <SixthSection />
-          <NewFooter />
-          <Toaster position="top-center" />
-        </Suspense>
-      </main>
-    </>
-  );
+				}}
+			/>
+			<FloatingNavbar>
+				<AppWaitlistBanner />
+			</FloatingNavbar>
+			<main className="flex flex-col min-h-screen w-full overflow-x-clip">
+				<Suspense
+					fallback={
+						<div className="min-h-screen flex items-center justify-center bg-black">
+							<div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div>
+						</div>
+					}
+				>
+					<FirstSection />
+					<SecondSection />
+					<ThirdSection />
+					<FourthSection />
+					{/* <FifthSection /> */}
+					<PricingSection />
+					<SixthSection />
+					<NewFooter />
+					<Toaster position="top-center" />
+				</Suspense>
+			</main>
+		</>
+	);
 };
 
 export default ForBrandsPage;
