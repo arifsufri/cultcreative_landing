@@ -16,14 +16,14 @@ const locations = [
     address:
       "A-5-3A , Block A , Jaya One Jln Profesor Diraja Ungku Aziz Seksyen 13 , 46200 Petaling Jaya , Selangor , Malaysia",
   },
-  {
-    country: "Singapore",
-    officeLocation: "National Design Center",
-    companyName: "Cult creative Pte Ltd",
-    registrationNumber: "202505503N",
-    address:
-      "Paperwork SG National Design Center 111 Middle Road, #03-01, Singapore 188969",
-  },
+  // {
+  //   country: "Singapore",
+  //   officeLocation: "National Design Center",
+  //   companyName: "Cult creative Pte Ltd",
+  //   registrationNumber: "202505503N",
+  //   address:
+  //     "Paperwork SG National Design Center 111 Middle Road, #03-01, Singapore 188969",
+  // },
 ];
 
 const NewFooter = () => {

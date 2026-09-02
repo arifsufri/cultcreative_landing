@@ -132,19 +132,19 @@ const ContactSection = () => {
               iconSrc={"/images/NewContact/home_pin.svg"}
               title="Our Location"
             >
-              {locale === "sg" ? (
+              {/* {locale === "sg" ? (
                 <>
                   <p>Paperwork SG</p>
                   <p>National Design Center</p>
                   <p>111 Middle Road, #03-01, Singapore 188969</p>
                 </>
-              ) : (
-                <>
-                  <p>A-5-3A , Block A , Jaya One</p>
-                  <p>Jln Profesor Diraja Ungku Aziz Seksyen 13 , 46200</p>
-                  <p>Petaling Jaya , Selangor , Malaysia</p>
-                </>
-              )}
+              ) : ( */}
+              <>
+                <p>A-5-3A , Block A , Jaya One</p>
+                <p>Jln Profesor Diraja Ungku Aziz Seksyen 13 , 46200</p>
+                <p>Petaling Jaya , Selangor , Malaysia</p>
+              </>
+              {/* )} */}
             </ContactInfoItem>
             <ContactInfoItem
               iconSrc={"/images/NewContact/mail.svg"}
@@ -247,19 +247,19 @@ const ContactSection = () => {
               iconSrc={"/images/NewContact/home_pin.svg"}
               title="Our Location"
             >
-              {locale === "sg" ? (
+              {/* {locale === "sg" ? (
                 <>
                   <p>Paperwork SG</p>
                   <p>National Design Center</p>
                   <p>111 Middle Road, #03-01, Singapore 188969</p>
                 </>
-              ) : (
-                <>
-                  <p>A-5-3A , Block A , Jaya One</p>
-                  <p>Jln Profesor Diraja Ungku Aziz Seksyen 13 , 46200</p>
-                  <p>Petaling Jaya , Selangor , Malaysia</p>
-                </>
-              )}
+              ) : ( */}
+              <>
+                <p>A-5-3A , Block A , Jaya One</p>
+                <p>Jln Profesor Diraja Ungku Aziz Seksyen 13 , 46200</p>
+                <p>Petaling Jaya , Selangor , Malaysia</p>
+              </>
+              {/* )} */}
             </ContactInfoItem>
             <ContactInfoItem
               iconSrc={"/images/NewContact/mail.svg"}
